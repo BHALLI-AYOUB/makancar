@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Filter, Search } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { type Car, cars } from '@/data/cars'
 import { CarCard } from '@/components/CarCard'
 import { CarModal } from '@/components/CarModal'
@@ -15,9 +15,9 @@ export function StockSection() {
 
   const filteredCars = useMemo(() => {
     return cars.filter((car) => {
-      const byText = `${car.model} ${car.package}`.toLowerCase().includes(search.toLowerCase())
+      const bySearch = `${car.model} ${car.package}`.toLowerCase().includes(search.toLowerCase())
       const byStatus = status === 'all' || car.status === status
-      return byText && byStatus
+      return bySearch && byStatus
     })
   }, [search, status])
 
@@ -27,87 +27,78 @@ export function StockSection() {
   }
 
   return (
-    <section id="stock" className="relative py-20 sm:py-24">
-      <div className="pointer-events-none absolute inset-0 soft-grid opacity-20" />
-      <div className="section-shell relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-10 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end sm:justify-between"
-        >
+    <section id="stock" className="section-light py-16 sm:py-20">
+      <div className="section-shell">
+        <div className="mb-8 grid gap-4 sm:mb-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-slate-300">Stock disponible</p>
-            <h2 className="mt-2 font-serif text-4xl text-white sm:text-5xl">Selection immediate</h2>
-            <p className="mt-3 max-w-2xl text-slate-300">
-              Vehicules verifies, prepares et disponibles rapidement.
+            <h2 className="font-serif text-4xl leading-tight text-black sm:text-6xl">Selection de vehicules</h2>
+            <p className="mt-3 max-w-2xl text-base text-slate-700 sm:text-lg">
+              Le luxe, le caractere sportif et la performance se marient a la perfection.
             </p>
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">
-            <Filter size={15} className="text-sky-200" />
-            {filteredCars.length} vehicule{filteredCars.length > 1 ? 's' : ''}
+          <div className="grid grid-cols-3 overflow-hidden rounded-md border border-black/20 text-center text-sm font-semibold">
+            <button type="button" className="bg-black px-6 py-3 text-white">
+              Mercedes-Benz
+            </button>
+            <button type="button" className="bg-white px-6 py-3 text-black">
+              AMG
+            </button>
+            <button type="button" className="bg-white px-6 py-3 text-black">
+              Maybach
+            </button>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="glass-panel mb-8 rounded-2xl p-4 sm:p-5"
-        >
-          <div className="grid gap-3 lg:grid-cols-[1fr_auto]">
-            <label className="relative block">
-              <Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-              <input
-                type="text"
-                value={search}
-                onChange={(event) => setSearch(event.target.value)}
-                placeholder="Rechercher un modele ou un pack..."
-                className="w-full rounded-xl border border-white/15 bg-[#070d14] py-2.5 pl-10 pr-4 text-sm text-white placeholder:text-slate-500 focus:border-sky-200/40 focus:outline-none"
-              />
-            </label>
-            <div className="flex flex-wrap gap-2">
-              {[
-                { value: 'all' as const, label: 'Tous' },
-                { value: 'disponible' as const, label: 'Disponible' },
-                { value: 'sur-demande' as const, label: 'Sur demande' },
-              ].map((item) => (
-                <button
-                  key={item.value}
-                  type="button"
-                  onClick={() => setStatus(item.value)}
-                  className={`rounded-full border px-4 py-2 text-xs uppercase tracking-[0.16em] transition ${
-                    status === item.value
-                      ? 'border-sky-200/45 bg-sky-200/20 text-white'
-                      : 'border-white/15 bg-white/5 text-slate-300 hover:bg-white/10'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
+        <div className="mb-6 flex flex-col gap-3 rounded-lg border border-black/15 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+          <label className="relative block w-full max-w-md">
+            <Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+            <input
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Rechercher un modele..."
+              className="w-full rounded-md border border-black/20 px-10 py-2.5 text-sm text-black outline-none focus:border-black"
+            />
+          </label>
+
+          <div className="flex flex-wrap gap-2">
+            {[
+              { value: 'all' as const, label: 'Tous' },
+              { value: 'disponible' as const, label: 'Disponible' },
+              { value: 'sur-demande' as const, label: 'Sur demande' },
+            ].map((item) => (
+              <button
+                key={item.value}
+                type="button"
+                onClick={() => setStatus(item.value)}
+                className={`rounded-md border px-4 py-2 text-xs uppercase tracking-[0.14em] transition ${
+                  status === item.value
+                    ? 'border-black bg-black text-white'
+                    : 'border-black/20 bg-white text-black hover:border-black'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
-        </motion.div>
+        </div>
 
         {filteredCars.length > 0 ? (
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {filteredCars.map((car, index) => (
               <motion.div
                 key={car.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.06 }}
+                transition={{ duration: 0.45, delay: index * 0.05 }}
               >
                 <CarCard car={car} onInfoClick={openCar} />
               </motion.div>
             ))}
           </div>
         ) : (
-          <div className="glass-panel rounded-2xl p-10 text-center text-slate-300">
-            Aucun vehicule ne correspond a la recherche actuelle.
+          <div className="rounded-md border border-black/20 bg-white p-10 text-center text-slate-700">
+            Aucun vehicule ne correspond a votre recherche.
           </div>
         )}
       </div>
