@@ -43,14 +43,14 @@ export function OrderSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.1 }}
-                className="rounded-xl border border-black/15 bg-black p-6 text-white"
+                className="rounded-xl border border-black/15 bg-white p-6 text-black shadow-[0_16px_40px_-28px_rgba(0,0,0,0.22)]"
               >
-                <p className="text-5xl font-serif text-white/35">{step.number}</p>
-                <div className="mt-4 inline-flex rounded-md border border-white/25 p-2">
+                <p className="text-5xl font-serif text-black/55">{step.number}</p>
+                <div className="mt-4 inline-flex rounded-md border border-black/15 bg-[#f5f5f5] p-2 text-black">
                   <Icon size={18} />
                 </div>
                 <h3 className="mt-4 text-xl font-semibold">{step.title}</h3>
-                <p className="mt-2 text-sm text-slate-300">{step.description}</p>
+                <p className="mt-2 text-sm text-slate-700">{step.description}</p>
               </motion.article>
             )
           })}

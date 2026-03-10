@@ -1,18 +1,17 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' })
 
 export const metadata: Metadata = {
-  title: 'Makan Luxury Motors - Véhicules de Luxe',
-  description: 'Découvrez notre sélection exclusive de véhicules de luxe haut de gamme. Import/Export, vente et location de Mercedes, BMW, Porsche et plus.',
-  generator: 'v0.app',
+  title: 'Makan Cars | Vente et Location de Voitures Premium',
+  description: 'Plateforme professionnelle de vente et location de voitures avec espace client, espace admin et reservation en ligne.',
   openGraph: {
-    title: 'Makan Luxury Motors',
-    description: 'Votre partenaire de confiance pour les véhicules de luxe',
+    title: 'Makan Cars',
+    description: 'Vente, location et reservation de voitures premium.',
     type: 'website',
   },
   icons: {
@@ -41,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans antialiased bg-black text-white scroll-smooth">
+      <body className="min-h-screen font-sans antialiased bg-[#0a0d14] text-slate-50 scroll-smooth">
         {children}
         <Analytics />
       </body>

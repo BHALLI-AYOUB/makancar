@@ -11,12 +11,12 @@ export interface Car {
 export const cars: Car[] = [
   {
     id: '1',
-    model: 'Mercedes GLS 63 AMG',
+    model: 'Mercedes GLC Coupe',
     year: 2026,
-    package: 'AMG Performance 4MATIC+',
+    package: 'Pack AMG Black Night',
     status: 'disponible',
-    images: ['https://upload.wikimedia.org/wikipedia/commons/c/c2/Mercedes-AMG_GLS_63_4MATIC%2B_%28X167%29_front.jpg'],
-    price: 'Sur devis',
+    images: ['https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1400&q=80'],
+    price: '69 900 EUR',
   },
   {
     id: '2',
