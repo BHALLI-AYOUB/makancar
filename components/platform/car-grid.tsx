@@ -11,7 +11,7 @@ export function CarGrid({ cars }: { cars: Car[] }) {
   }
 
   return (
-    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    <div className="grid gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
       {cars.map((car) => (
         <PlatformCarCard key={car.id} car={car} />
       ))}

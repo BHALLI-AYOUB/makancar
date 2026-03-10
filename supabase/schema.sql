@@ -39,6 +39,10 @@ create table if not exists public.sales (
   created_at timestamptz not null default now()
 );
 
+insert into storage.buckets (id, name, public)
+values ('cars', 'cars', true)
+on conflict (id) do nothing;
+
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
@@ -127,3 +131,36 @@ on public.sales
 for update
 using (exists (select 1 from public.profiles p where p.id = auth.uid() and p.role = 'admin'))
 with check (exists (select 1 from public.profiles p where p.id = auth.uid() and p.role = 'admin'));
+
+create policy "cars images public read"
+on storage.objects
+for select
+using (bucket_id = 'cars');
+
+create policy "admins upload car images"
+on storage.objects
+for insert
+with check (
+  bucket_id = 'cars'
+  and exists (select 1 from public.profiles p where p.id = auth.uid() and p.role = 'admin')
+);
+
+create policy "admins update car images"
+on storage.objects
+for update
+using (
+  bucket_id = 'cars'
+  and exists (select 1 from public.profiles p where p.id = auth.uid() and p.role = 'admin')
+)
+with check (
+  bucket_id = 'cars'
+  and exists (select 1 from public.profiles p where p.id = auth.uid() and p.role = 'admin')
+);
+
+create policy "admins delete car images"
+on storage.objects
+for delete
+using (
+  bucket_id = 'cars'
+  and exists (select 1 from public.profiles p where p.id = auth.uid() and p.role = 'admin')
+);

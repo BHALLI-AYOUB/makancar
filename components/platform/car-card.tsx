@@ -7,7 +7,7 @@ export function PlatformCarCard({ car }: { car: Car }) {
 
   return (
     <article className="overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] shadow-[0_24px_80px_-32px_rgba(0,0,0,0.9)] backdrop-blur-xl">
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-56 overflow-hidden sm:h-64">
         <img
           src={car.image_url ?? 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80'}
           alt={car.title}
@@ -19,11 +19,11 @@ export function PlatformCarCard({ car }: { car: Car }) {
         </span>
       </div>
 
-      <div className="space-y-4 p-6">
-        <div className="flex items-start justify-between gap-4">
+      <div className="space-y-4 p-5 sm:p-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.24em] text-slate-400">{car.brand}</p>
-            <h3 className="mt-2 font-serif text-3xl text-white">{car.title}</h3>
+            <h3 className="mt-2 font-serif text-2xl text-white sm:text-3xl">{car.title}</h3>
             <p className="mt-2 text-sm text-slate-400">{car.model}</p>
           </div>
           <span className={`rounded-full px-3 py-1 text-xs ${car.available ? 'bg-emerald-500/20 text-emerald-200' : 'bg-rose-500/20 text-rose-200'}`}>
@@ -33,7 +33,7 @@ export function PlatformCarCard({ car }: { car: Car }) {
 
         <p className="line-clamp-3 text-sm leading-6 text-slate-300">{car.description}</p>
 
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2 text-lg font-semibold text-white">
             {icon}
             {Intl.NumberFormat('fr-FR', {
@@ -42,7 +42,7 @@ export function PlatformCarCard({ car }: { car: Car }) {
               maximumFractionDigits: 0,
             }).format(car.price)}
           </div>
-          <Link href={`/cars/${car.id}`} className="rounded-full border border-white/15 px-4 py-2 text-sm text-white transition hover:bg-white/10">
+          <Link href={`/cars/${car.id}`} className="rounded-full border border-white/15 px-4 py-2 text-center text-sm text-white transition hover:bg-white/10">
             Voir details
           </Link>
         </div>

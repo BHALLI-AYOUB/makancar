@@ -77,11 +77,11 @@ export function CarActionPanel({ car }: { car: Car }) {
   }
 
   return (
-    <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+    <div className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl sm:p-6">
       <p className="text-xs uppercase tracking-[0.3em] text-sky-300">
         {car.type === 'location' ? 'Reserver maintenant' : 'Demande d achat'}
       </p>
-      <h3 className="mt-3 font-serif text-3xl text-white">
+      <h3 className="mt-3 font-serif text-2xl text-white sm:text-3xl">
         {car.type === 'location' ? 'Planifier votre location' : 'Recevoir une offre'}
       </h3>
       <p className="mt-3 text-sm leading-6 text-slate-300">

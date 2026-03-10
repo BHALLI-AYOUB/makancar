@@ -40,15 +40,15 @@ export function CatalogBrowser({
   description,
 }: CatalogBrowserProps) {
   return (
-    <section className="section-shell py-16 sm:py-20">
+    <section className="section-shell py-12 sm:py-20">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.34em] text-sky-300">{heading}</p>
-          <h1 className="mt-3 font-serif text-5xl text-white">{description}</h1>
+          <h1 className="mt-3 font-serif text-4xl text-white sm:text-5xl">{description}</h1>
           <p className="mt-4 text-sm text-slate-300">{total} vehicule(s) trouve(s)</p>
         </div>
 
-        <form action={pathname} className="grid w-full gap-3 rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl lg:max-w-3xl lg:grid-cols-[1.5fr_1fr_auto]">
+        <form action={pathname} className="grid w-full gap-3 rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:p-5 lg:max-w-3xl lg:grid-cols-[1.5fr_1fr_auto]">
           <label className="flex items-center gap-3 rounded-2xl border border-white/10 bg-[#0b1220] px-4 py-3 text-sm text-slate-300">
             <Search size={16} className="text-slate-500" />
             <input
@@ -87,18 +87,18 @@ export function CatalogBrowser({
         <p className="text-sm text-slate-400">
           Page {page} sur {totalPages}
         </p>
-        <div className="flex items-center gap-3">
+        <div className="grid grid-cols-2 gap-3 sm:flex sm:items-center">
           <Link
             href={makeHref(pathname, currentSearch, currentBrand, Math.max(1, page - 1))}
             aria-disabled={page <= 1}
-            className={`rounded-full px-4 py-2 text-sm ${page <= 1 ? 'pointer-events-none border border-white/10 text-slate-500' : 'border border-white/15 text-white hover:bg-white/10'}`}
+            className={`rounded-full px-4 py-2 text-center text-sm ${page <= 1 ? 'pointer-events-none border border-white/10 text-slate-500' : 'border border-white/15 text-white hover:bg-white/10'}`}
           >
             Precedent
           </Link>
           <Link
             href={makeHref(pathname, currentSearch, currentBrand, Math.min(totalPages, page + 1))}
             aria-disabled={page >= totalPages}
-            className={`rounded-full px-4 py-2 text-sm ${page >= totalPages ? 'pointer-events-none border border-white/10 text-slate-500' : 'btn-blue'}`}
+            className={`rounded-full px-4 py-2 text-center text-sm ${page >= totalPages ? 'pointer-events-none border border-white/10 text-slate-500' : 'btn-blue'}`}
           >
             Suivant
           </Link>
