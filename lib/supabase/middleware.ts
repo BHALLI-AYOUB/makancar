@@ -3,6 +3,7 @@ import { createServerClient } from '@supabase/ssr'
 import type { Database } from '@/types/database'
 import { supabaseAnonKey, supabaseUrl } from '@/lib/supabase/env'
 import { isMissingProfilesTableError } from '@/lib/supabase/errors'
+import { getSignedInLandingPath } from '@/lib/routes'
 
 const authRoutes = ['/auth/login', '/auth/register']
 const protectedRoutes = ['/client', '/admin']
@@ -52,7 +53,7 @@ export async function updateSession(request: NextRequest) {
 
     if (isAuthRoute && resolvedRole) {
       const url = request.nextUrl.clone()
-      url.pathname = resolvedRole === 'admin' ? '/admin/dashboard' : '/client/dashboard'
+      url.pathname = getSignedInLandingPath(resolvedRole)
       return NextResponse.redirect(url)
     }
 

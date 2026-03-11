@@ -1,10 +1,11 @@
 import { notFound } from 'next/navigation'
-import { CarActionPanel } from '@/components/platform/car-action-panel'
-import { getCarById } from '@/lib/data/cars'
+import { CheckCircle2, MessageCircleMore } from 'lucide-react'
+import { ShowroomGallery } from '@/components/platform/showroom-gallery'
+import { getShowroomCarById, getWhatsAppHref } from '@/lib/data/showroom-stock'
 
 export default async function CarDetailsPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const car = await getCarById(id)
+  const car = getShowroomCarById(id)
 
   if (!car) {
     notFound()
@@ -13,28 +14,85 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
   return (
     <section className="section-shell py-12 sm:py-20">
       <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-        <article className="overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl">
-          <img
-            src={car.image_url ?? 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80'}
-            alt={car.title}
-            className="h-[280px] w-full object-cover sm:h-[420px]"
-          />
-          <div className="space-y-5 p-5 sm:p-8">
+        <article className="space-y-8 rounded-[32px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl sm:p-7">
+          <ShowroomGallery images={car.gallery} alt={car.name} />
+
+          <div className="space-y-6">
+            <div className="flex flex-wrap gap-2">
+              {car.badges.map((badge) => (
+                <span key={badge} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200">
+                  {badge}
+                </span>
+              ))}
+            </div>
+
             <div>
-              <p className="text-xs uppercase tracking-[0.34em] text-sky-300">{car.type}</p>
-              <h1 className="mt-3 font-serif text-4xl text-white sm:text-5xl">{car.title}</h1>
-              <p className="mt-3 text-base text-slate-300">{car.brand} • {car.model}</p>
+              <h1 className="font-serif text-4xl font-medium tracking-[-0.03em] text-white sm:text-6xl">{car.name}</h1>
+              {car.subtitle ? <p className="mt-3 text-sm uppercase tracking-[0.18em] text-slate-400">{car.subtitle}</p> : null}
+              {car.price ? <p className="mt-5 text-3xl font-semibold text-[#e3c58e]">{car.price}</p> : null}
             </div>
-            <p className="text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">{car.description}</p>
-            <div className="rounded-[24px] border border-white/10 bg-[#0b1220] p-5">
-              <p className="text-xs uppercase tracking-[0.26em] text-slate-400">Prix</p>
-              <p className="mt-2 text-3xl font-semibold text-white">
-                {Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(car.price)}
-              </p>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {car.summary.map((item) => (
+                <div key={item.label} className="rounded-[22px] border border-white/10 bg-[#080b12] p-4">
+                  <p className="text-xs uppercase tracking-[0.24em] text-slate-500">{item.label}</p>
+                  <p className="mt-2 text-base text-white">{item.value}</p>
+                </div>
+              ))}
             </div>
+
+            {car.featureGroups.length > 0 ? (
+              <div className="grid gap-4 lg:grid-cols-2">
+                {car.featureGroups.map((group) => (
+                  <div key={group.title} className="rounded-[24px] border border-white/10 bg-[#080b12] p-5">
+                    <h2 className="font-serif text-3xl text-white">{group.title}</h2>
+                    <ul className="mt-4 space-y-3">
+                      {group.items.map((item) => (
+                        <li key={item} className="flex gap-3 text-sm leading-6 text-slate-300">
+                          <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#c9a96d]" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ) : null}
           </div>
         </article>
-        <CarActionPanel car={car} />
+
+        <aside className="space-y-6 rounded-[32px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl sm:p-7">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-[#e3c58e]">Contact showroom</p>
+            <h2 className="mt-3 font-serif text-3xl text-white">Demander plus d informations</h2>
+            <p className="mt-3 text-sm leading-7 text-slate-300">
+              Contactez Makan Luxury Motors pour organiser une visite, demander plus de photos ou reserver un
+              rendez-vous au showroom.
+            </p>
+          </div>
+
+          <a
+            href={getWhatsAppHref(car.whatsapp, car.name)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#c9a96d] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#d8b97e]"
+          >
+            <MessageCircleMore size={18} />
+            WhatsApp {car.whatsapp}
+          </a>
+
+          <div className="rounded-[24px] border border-white/10 bg-[#080b12] p-5">
+            <h3 className="font-serif text-3xl text-white">Points forts</h3>
+            <ul className="mt-4 space-y-3">
+              {car.sellingPoints.map((point) => (
+                <li key={point} className="flex gap-3 text-sm leading-6 text-slate-300">
+                  <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#c9a96d]" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
       </div>
     </section>
   )

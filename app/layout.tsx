@@ -1,10 +1,15 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Cormorant_Garamond, Manrope } from 'next/font/google'
+import { FloatingChatbot } from '@/components/platform/floating-chatbot'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' })
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-ui' })
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['400', '500', '600', '700'],
+})
 
 export const metadata: Metadata = {
   title: 'Makan Cars | Vente et Location de Voitures Premium',
@@ -39,9 +44,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="min-h-screen font-sans antialiased bg-[#0a0d14] text-slate-50 scroll-smooth">
+    <html lang="fr" className={`${manrope.variable} ${cormorant.variable}`}>
+      <body className="min-h-screen bg-[#040507] font-sans text-white antialiased scroll-smooth">
         {children}
+        <FloatingChatbot />
         <Analytics />
       </body>
     </html>

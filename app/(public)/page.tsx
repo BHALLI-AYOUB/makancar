@@ -1,37 +1,35 @@
-import { HomeHero } from '@/components/platform/home-hero'
-import { CarGrid } from '@/components/platform/car-grid'
+import { AboutMakan } from '@/components/platform/about-makan'
+import { StatsSection } from '@/components/platform/stats-section'
+import { ShowroomHero } from '@/components/platform/showroom-hero'
+import { ShowroomGrid } from '@/components/platform/showroom-grid'
 import { SectionHeading } from '@/components/platform/section-heading'
-import { getAvailableCars } from '@/lib/data/cars'
+import { TestimonialsSection } from '@/components/platform/testimonials-section'
+import { MapSection } from '@/components/platform/map-section'
+import { ContactSection } from '@/components/ContactSection'
+import { getFeaturedShowroomCars, getShowroomCars } from '@/lib/data/showroom-stock'
 
 export default async function HomePage() {
-  const saleCars = await getAvailableCars('vente')
-  const rentalCars = await getAvailableCars('location')
+  const cars = getShowroomCars()
+  const { hero } = getFeaturedShowroomCars()
 
   return (
     <>
-      <HomeHero featuredSale={saleCars[0]} featuredRental={rentalCars[0]} />
+      <ShowroomHero car={hero} />
+      <AboutMakan />
+      <StatsSection />
       <section className="section-shell py-16 sm:py-20">
         <SectionHeading
-          eyebrow="Vente"
-          title="Voitures a vendre"
-          description="Catalogue premium avec fiches detaillees, demande d'achat et espace client."
+          eyebrow="Stock disponible"
+          title="Selection reelle du showroom"
+          description="Uniquement les vehicules actuellement disponibles chez Makan Luxury Motors, avec galeries detaillees et presentation premium."
         />
         <div className="mt-10">
-          <CarGrid cars={saleCars.slice(0, 6)} />
+          <ShowroomGrid cars={cars} />
         </div>
       </section>
-      <section className="bg-[#080d14] py-16 sm:py-20">
-        <div className="section-shell">
-          <SectionHeading
-            eyebrow="Location"
-            title="Voitures disponibles en location"
-            description="Reservation simple, suivi des dates et dashboard client pour gerer vos locations."
-          />
-          <div className="mt-10">
-            <CarGrid cars={rentalCars.slice(0, 6)} />
-          </div>
-        </div>
-      </section>
+      <TestimonialsSection />
+      <MapSection />
+      <ContactSection />
     </>
   )
 }

@@ -30,12 +30,12 @@ export function DashboardShell({
   children: ReactNode
 }) {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(29,78,216,0.14),transparent_26%),#05070c]">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(201,169,109,0.08),transparent_20%),radial-gradient(circle_at_top_right,rgba(37,99,235,0.12),transparent_24%),#05070c]">
       <div className="section-shell grid gap-8 py-8 lg:grid-cols-[260px_1fr]">
-        <aside className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
+        <aside className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-5 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.92)] backdrop-blur-xl">
           <div className="border-b border-white/10 pb-5">
             <p className="font-serif text-3xl text-white">MAKAN</p>
-            <p className="mt-1 text-xs uppercase tracking-[0.32em] text-slate-400">{role} portal</p>
+            <p className="mt-1 text-xs uppercase tracking-[0.32em] text-[#e3c58e]">{role} portal</p>
           </div>
 
           <nav className="mt-5 grid gap-2">
@@ -43,7 +43,7 @@ export function DashboardShell({
               <Link
                 key={item.href}
                 href={item.href}
-                className="inline-flex items-center gap-3 rounded-2xl px-4 py-3 text-sm text-slate-200 transition hover:bg-white/10"
+                className="inline-flex items-center gap-3 rounded-2xl border border-transparent px-4 py-3 text-sm text-slate-200 transition hover:border-white/10 hover:bg-white/7 hover:text-white"
               >
                 {item.icon}
                 {item.label}
@@ -57,8 +57,8 @@ export function DashboardShell({
         </aside>
 
         <main className="space-y-6">
-          <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
-            <p className="text-xs uppercase tracking-[0.34em] text-sky-300">{role}</p>
+          <div className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.92)] backdrop-blur-xl">
+            <p className="text-xs uppercase tracking-[0.34em] text-[#e3c58e]">{role}</p>
             <h1 className="mt-3 font-serif text-4xl text-white">{title}</h1>
             <p className="mt-2 text-base text-slate-300">{subtitle}</p>
           </div>

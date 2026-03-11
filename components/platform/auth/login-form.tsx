@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { LoaderCircle } from 'lucide-react'
 import { createSupabaseBrowserClient } from '@/lib/supabase/client'
-import { getDashboardPath } from '@/lib/routes'
-import { isMissingProfilesTableError } from '@/lib/supabase/errors'
+import { getSignedInLandingPath } from '@/lib/routes'
+import { isMissingProfilesTableError, isProfilesRlsError } from '@/lib/supabase/errors'
 import { formatSupabaseAuthError } from '@/lib/supabase/auth-errors'
 
 export function LoginForm() {
@@ -40,7 +40,7 @@ export function LoginForm() {
       .eq('id', data.user.id)
       .maybeSingle()
 
-    if (profileError && !isMissingProfilesTableError(profileError)) {
+    if (profileError && !isMissingProfilesTableError(profileError) && !isProfilesRlsError(profileError)) {
       setError(profileError.message)
       setLoading(false)
       return
@@ -58,7 +58,11 @@ export function LoginForm() {
         .select('id, role, email, full_name')
         .single()
 
-      if (createdProfile.error && !isMissingProfilesTableError(createdProfile.error)) {
+      if (
+        createdProfile.error &&
+        !isMissingProfilesTableError(createdProfile.error) &&
+        !isProfilesRlsError(createdProfile.error)
+      ) {
         setError(createdProfile.error.message)
         setLoading(false)
         return
@@ -84,7 +88,7 @@ export function LoginForm() {
     }
 
     const redirectedFrom = searchParams.get('redirectedFrom')
-    const target = redirectedFrom || getDashboardPath(profile?.role ?? 'client')
+    const target = redirectedFrom || getSignedInLandingPath(profile?.role ?? 'client')
     router.replace(target)
     router.refresh()
     setLoading(false)

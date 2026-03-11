@@ -7,6 +7,16 @@ export function isMissingProfilesTableError(error: { message?: string } | null |
   )
 }
 
+export function isProfilesRlsError(error: { message?: string } | null | undefined) {
+  const message = (error?.message ?? '').toLowerCase()
+
+  return (
+    message.includes('row-level security policy for table "profiles"') ||
+    message.includes("new row violates row-level security policy for table \"profiles\"") ||
+    message.includes('violates row-level security policy for table "profiles"')
+  )
+}
+
 export function isMissingBookingsTableError(error: { message?: string } | null | undefined) {
   const message = error?.message ?? ''
 

@@ -1,35 +1,20 @@
-import { CatalogBrowser } from '@/components/platform/catalog-browser'
-import { getCarsCatalog } from '@/lib/data/cars'
+import { ShowroomGrid } from '@/components/platform/showroom-grid'
+import { SectionHeading } from '@/components/platform/section-heading'
+import { getShowroomCars } from '@/lib/data/showroom-stock'
 
-export default async function VentePage({
-  searchParams,
-}: {
-  searchParams: Promise<{ q?: string; brand?: string; page?: string }>
-}) {
-  const params = await searchParams
-  const q = params.q ?? ''
-  const brand = params.brand ?? ''
-  const page = Number(params.page ?? '1')
-  const result = await getCarsCatalog({
-    type: 'vente',
-    search: q,
-    brand,
-    page,
-    pageSize: 6,
-  })
+export default function VentePage() {
+  const cars = getShowroomCars()
 
   return (
-    <CatalogBrowser
-      cars={result.cars}
-      brands={result.brands}
-      total={result.total}
-      page={result.page}
-      totalPages={result.totalPages}
-      pathname="/vente"
-      currentSearch={q}
-      currentBrand={brand}
-      heading="Catalogue vente"
-      description="Acheter une voiture"
-    />
+    <section className="section-shell py-16 sm:py-20">
+      <SectionHeading
+        eyebrow="Catalogue premium"
+        title="Stock disponible Makan Luxury Motors"
+        description="Nos vehicules reels disponibles, dedouanes et presentes avec leurs galeries completes."
+      />
+      <div className="mt-10">
+        <ShowroomGrid cars={cars} />
+      </div>
+    </section>
   )
 }

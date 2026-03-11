@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { LoaderCircle } from 'lucide-react'
 import { createSupabaseBrowserClient } from '@/lib/supabase/client'
 import { getDashboardPath } from '@/lib/routes'
-import { isMissingProfilesTableError } from '@/lib/supabase/errors'
+import { isMissingProfilesTableError, isProfilesRlsError } from '@/lib/supabase/errors'
 import { formatSupabaseAuthError } from '@/lib/supabase/auth-errors'
 
 export function RegisterForm() {
@@ -53,7 +53,11 @@ export function RegisterForm() {
       role: 'client',
     })
 
-    if (upsertResult.error && !isMissingProfilesTableError(upsertResult.error)) {
+    if (
+      upsertResult.error &&
+      !isMissingProfilesTableError(upsertResult.error) &&
+      !isProfilesRlsError(upsertResult.error)
+    ) {
       setError(upsertResult.error.message)
       setLoading(false)
       return
@@ -61,7 +65,7 @@ export function RegisterForm() {
 
     const { data: profile, error: profileError } = await supabase.from('profiles').select('role').eq('id', data.user.id).maybeSingle()
 
-    if (profileError && !isMissingProfilesTableError(profileError)) {
+    if (profileError && !isMissingProfilesTableError(profileError) && !isProfilesRlsError(profileError)) {
       setError(profileError.message)
       setLoading(false)
       return
