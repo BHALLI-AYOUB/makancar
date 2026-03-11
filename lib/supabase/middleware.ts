@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
 import type { Database } from '@/types/database'
-import { supabaseAnonKey, supabaseUrl } from '@/lib/supabase/env'
+import { supabaseAnonKey, supabaseUrl, validateSupabaseEnv } from '@/lib/supabase/env'
 import { isMissingProfilesTableError } from '@/lib/supabase/errors'
 import { getSignedInLandingPath } from '@/lib/routes'
 
@@ -9,6 +9,9 @@ const authRoutes = ['/auth/login', '/auth/register']
 const protectedRoutes = ['/client', '/admin']
 
 export async function updateSession(request: NextRequest) {
+  // Validate environment variables at runtime
+  validateSupabaseEnv()
+  
   let response = NextResponse.next({
     request,
   })
