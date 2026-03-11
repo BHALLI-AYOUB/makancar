@@ -10,15 +10,15 @@ export function ShowroomCard({ car }: { car: ShowroomCar }) {
   const status = car.availabilityLabel ?? car.badges[0]
 
   return (
-    <article className="group overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] shadow-[0_28px_110px_-60px_rgba(0,0,0,0.95)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-[#c9a96d]/35">
+    <article className="group overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] shadow-[0_28px_110px_-60px_rgba(0,0,0,0.95)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-[#c9a96d]/35 sm:rounded-[32px]">
       <div className="relative overflow-hidden">
         <ShowroomCardMedia images={car.gallery} alt={car.name} />
-        <span className="absolute left-5 top-5 rounded-full border border-[#c9a96d]/35 bg-[#0a0d14]/85 px-3 py-1 text-xs uppercase tracking-[0.28em] text-[#e3c58e]">
+        <span className="absolute left-3 top-3 rounded-full border border-[#c9a96d]/35 bg-[#0a0d14]/85 px-2.5 py-1 text-[10px] uppercase tracking-[0.24em] text-[#e3c58e] sm:left-5 sm:top-5 sm:px-3 sm:text-xs sm:tracking-[0.28em]">
           Stock reel
         </span>
       </div>
 
-      <div className="space-y-5 p-6">
+      <div className="space-y-4 p-4 sm:space-y-5 sm:p-6">
         <div className="flex flex-wrap gap-2">
           {car.badges.slice(0, 3).map((badge) => (
             <span key={badge} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200">
@@ -28,9 +28,9 @@ export function ShowroomCard({ car }: { car: ShowroomCar }) {
         </div>
 
         <div>
-          <h3 className="font-serif text-4xl font-medium tracking-[-0.03em] text-white">{car.name}</h3>
-          {car.subtitle ? <p className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-400">{car.subtitle}</p> : null}
-          {car.price ? <p className="mt-4 text-2xl font-semibold text-[#e3c58e]">{car.price}</p> : null}
+          <h3 className="font-serif text-3xl font-medium tracking-[-0.03em] text-white sm:text-4xl">{car.name}</h3>
+          {car.subtitle ? <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-400 sm:text-sm sm:tracking-[0.18em]">{car.subtitle}</p> : null}
+          {car.price ? <p className="mt-3 text-xl font-semibold text-[#e3c58e] sm:mt-4 sm:text-2xl">{car.price}</p> : null}
         </div>
 
         <div className="grid gap-3 text-sm text-slate-300 sm:grid-cols-3">

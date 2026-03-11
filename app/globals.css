@@ -132,6 +132,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   ::-webkit-scrollbar {
@@ -154,7 +155,7 @@
 
 @layer utilities {
   .section-shell {
-    @apply relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10;
+    @apply relative mx-auto w-full max-w-7xl px-4 sm:px-5 lg:px-8 xl:px-10;
   }
 
   .section-light {

@@ -6,16 +6,16 @@ export function MapSection() {
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.34em] text-[#e3c58e]">Notre localisation</p>
           <h2 className="mt-3 font-serif text-4xl text-white sm:text-6xl">Visitez notre showroom</h2>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-lg">
             Retrouvez-nous a Bruxelles, en Belgique, pour decouvrir notre selection de vehicules et
             beneficier d un accompagnement personnalise.
           </p>
         </div>
 
         <div className="mt-10 grid gap-5 xl:grid-cols-[0.38fr_0.62fr]">
-          <div className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.95)] backdrop-blur-xl">
+          <div className="rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-5 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:rounded-[30px] sm:p-6">
             <p className="text-xs uppercase tracking-[0.28em] text-[#e3c58e]">Makan Luxury Motors</p>
-            <h3 className="mt-3 font-serif text-3xl text-white">Bruxelles, Belgique</h3>
+            <h3 className="mt-3 font-serif text-2xl text-white sm:text-3xl">Bruxelles, Belgique</h3>
             <p className="mt-4 text-sm leading-7 text-slate-300">
               Prenez rendez-vous pour une visite privee, une presentation detaillee de nos vehicules ou un
               accompagnement sur mesure pour votre prochain achat.
@@ -48,12 +48,12 @@ export function MapSection() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-3 shadow-[0_28px_90px_-48px_rgba(0,0,0,0.92)] backdrop-blur-xl">
-            <div className="overflow-hidden rounded-[26px] border border-white/10">
+          <div className="overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-2.5 shadow-[0_28px_90px_-48px_rgba(0,0,0,0.92)] backdrop-blur-xl sm:rounded-[32px] sm:p-3">
+            <div className="overflow-hidden rounded-[22px] border border-white/10 sm:rounded-[26px]">
               <iframe
                 title="Carte Bruxelles Belgique"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=4.287%2C50.805%2C4.421%2C50.885&layer=mapnik&marker=50.8466%2C4.3528"
-                className="h-[360px] w-full sm:h-[460px]"
+                className="h-[300px] w-full sm:h-[400px] lg:h-[460px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

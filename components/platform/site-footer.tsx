@@ -6,10 +6,10 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-white/10 bg-[#05070c]">
-      <div className="section-shell grid gap-10 py-12 md:grid-cols-3">
+      <div className="section-shell grid gap-8 py-10 sm:py-12 md:grid-cols-3">
         <div>
-          <p className="font-serif text-3xl text-white">MAKAN</p>
-          <p className="mt-3 max-w-sm text-sm text-slate-400">
+          <p className="font-serif text-2xl text-white sm:text-3xl">MAKAN</p>
+          <p className="mt-3 max-w-sm text-sm leading-7 text-slate-400">
             Plateforme professionnelle de vente et location de voitures. Reservation en ligne, gestion des stocks
             et espace admin complet.
           </p>

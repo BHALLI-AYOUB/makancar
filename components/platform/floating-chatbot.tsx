@@ -68,16 +68,16 @@ export function FloatingChatbot() {
 
   return (
     <>
-      <div className="fixed right-4 bottom-4 z-[70] flex flex-col items-end gap-3 sm:right-6 sm:bottom-6">
+      <div className="fixed right-3 bottom-3 z-[70] flex flex-col items-end gap-2.5 sm:right-5 sm:bottom-5 lg:right-6 lg:bottom-6">
         <a
           href={whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contacter Makan Luxury Motors sur WhatsApp"
-          className="group inline-flex h-16 w-16 items-center justify-center rounded-full border border-[#4ee28a]/35 bg-[linear-gradient(180deg,#1ecb67_0%,#0b9d46_100%)] text-white shadow-[0_18px_60px_-20px_rgba(4,74,33,0.75)] transition hover:-translate-y-0.5 hover:scale-[1.02] hover:border-[#92f1b8]/55"
+          className="group inline-flex h-14 w-14 items-center justify-center rounded-full border border-[#4ee28a]/35 bg-[linear-gradient(180deg,#1ecb67_0%,#0b9d46_100%)] text-white shadow-[0_18px_60px_-20px_rgba(4,74,33,0.75)] transition hover:-translate-y-0.5 hover:scale-[1.02] hover:border-[#92f1b8]/55 sm:h-16 sm:w-16"
         >
           <span className="absolute inset-[3px] rounded-full border border-white/12" />
-          <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.22),transparent_60%),rgba(0,0,0,0.08)]">
+          <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.22),transparent_60%),rgba(0,0,0,0.08)] sm:h-12 sm:w-12">
             <MessageCircleMore size={22} />
           </span>
         </a>
@@ -86,19 +86,19 @@ export function FloatingChatbot() {
           type="button"
           onClick={() => setOpen((current) => !current)}
           aria-label={open ? 'Fermer le chat' : 'Ouvrir le chat'}
-          className="group relative inline-flex h-16 w-16 items-center justify-center rounded-full border border-[#c9a96d]/35 bg-[linear-gradient(180deg,#171a22_0%,#0a0d14_100%)] text-white shadow-[0_18px_60px_-20px_rgba(0,0,0,0.85)] transition hover:-translate-y-0.5 hover:border-[#e3c58e]/55"
+          className="group relative inline-flex h-14 w-14 items-center justify-center rounded-full border border-[#c9a96d]/35 bg-[linear-gradient(180deg,#171a22_0%,#0a0d14_100%)] text-white shadow-[0_18px_60px_-20px_rgba(0,0,0,0.85)] transition hover:-translate-y-0.5 hover:border-[#e3c58e]/55 sm:h-16 sm:w-16"
         >
           <span className="absolute inset-[3px] rounded-full border border-white/8" />
-          <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-[#c9a96d]/30 bg-[#0f131b] shadow-[0_0_0_5px_rgba(201,169,109,0.06)]">
+          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#c9a96d]/30 bg-[#0f131b] shadow-[0_0_0_5px_rgba(201,169,109,0.06)] sm:h-12 sm:w-12">
             <img src={assistantAvatar} alt="Makan Assistant" className="h-full w-full object-cover" />
           </span>
         </button>
       </div>
 
       <div
-        className={`fixed right-4 bottom-36 z-[69] w-[calc(100vw-2rem)] max-w-[390px] origin-bottom-right rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(18,21,28,0.98),rgba(8,10,15,0.98))] shadow-[0_30px_90px_-28px_rgba(0,0,0,0.92)] backdrop-blur-2xl transition duration-300 sm:right-6 sm:bottom-42 ${open ? 'pointer-events-auto translate-y-0 scale-100 opacity-100' : 'pointer-events-none translate-y-4 scale-95 opacity-0'}`}
+        className={`fixed right-3 bottom-32 z-[69] w-[calc(100vw-1.5rem)] max-w-[390px] origin-bottom-right rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(18,21,28,0.98),rgba(8,10,15,0.98))] shadow-[0_30px_90px_-28px_rgba(0,0,0,0.92)] backdrop-blur-2xl transition duration-300 sm:right-5 sm:bottom-38 sm:w-[min(390px,calc(100vw-2.5rem))] sm:rounded-[30px] lg:right-6 lg:bottom-42 ${open ? 'pointer-events-auto translate-y-0 scale-100 opacity-100' : 'pointer-events-none translate-y-4 scale-95 opacity-0'}`}
       >
-        <div className="border-b border-white/10 p-5">
+        <div className="border-b border-white/10 p-4 sm:p-5">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-3">
               <span className="inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-[#c9a96d]/30 bg-[#0f131b] text-[#e3c58e] shadow-[0_0_0_5px_rgba(201,169,109,0.06)]">
@@ -123,7 +123,7 @@ export function FloatingChatbot() {
           </div>
         </div>
 
-        <div className="max-h-[360px] space-y-4 overflow-y-auto px-5 py-5">
+        <div className="max-h-[46vh] space-y-4 overflow-y-auto px-4 py-4 sm:max-h-[360px] sm:px-5 sm:py-5">
           {messages.map((message) => (
             <div
               key={message.id}
@@ -142,7 +142,7 @@ export function FloatingChatbot() {
           ))}
         </div>
 
-        <div className="border-t border-white/10 px-5 py-4">
+        <div className="border-t border-white/10 px-4 py-4 sm:px-5">
           <p className="text-[11px] uppercase tracking-[0.24em] text-slate-400">Vehicules suggérés</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {suggestedCars.map((car) => (
@@ -158,7 +158,7 @@ export function FloatingChatbot() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 p-4">
+        <div className="border-t border-white/10 p-3.5 sm:p-4">
           <div className="flex items-end gap-3 rounded-[22px] border border-white/10 bg-[#0b0f16]/85 p-2">
             <button
               type="button"

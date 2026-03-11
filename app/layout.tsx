@@ -45,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${manrope.variable} ${cormorant.variable}`}>
-      <body className="min-h-screen bg-[#040507] font-sans text-white antialiased scroll-smooth">
+      <body className="min-h-screen overflow-x-hidden bg-[#040507] pb-28 font-sans text-white antialiased scroll-smooth sm:pb-32 lg:pb-0">
         {children}
         <FloatingChatbot />
         <Analytics />

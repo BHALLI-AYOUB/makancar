@@ -54,7 +54,7 @@ export function ContactSection() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-xl border border-white/20 bg-[#0f0f0f] p-6"
+            className="rounded-[24px] border border-white/20 bg-[#0f0f0f] p-5 sm:p-6"
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <input
@@ -62,7 +62,7 @@ export function ContactSection() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Nom"
-                className="rounded-md border border-white/25 bg-black px-4 py-3 text-sm text-white outline-none focus:border-white"
+                className="rounded-xl border border-white/25 bg-black px-4 py-3 text-sm text-white outline-none focus:border-white"
               />
               <input
                 name="email"
@@ -70,7 +70,7 @@ export function ContactSection() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className="rounded-md border border-white/25 bg-black px-4 py-3 text-sm text-white outline-none focus:border-white"
+                className="rounded-xl border border-white/25 bg-black px-4 py-3 text-sm text-white outline-none focus:border-white"
               />
             </div>
             <input
@@ -78,7 +78,7 @@ export function ContactSection() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="Telephone"
-              className="mt-4 w-full rounded-md border border-white/25 bg-black px-4 py-3 text-sm text-white outline-none focus:border-white"
+              className="mt-4 w-full rounded-xl border border-white/25 bg-black px-4 py-3 text-sm text-white outline-none focus:border-white"
             />
             <textarea
               name="message"
@@ -86,12 +86,12 @@ export function ContactSection() {
               onChange={handleChange}
               placeholder="Votre demande"
               rows={6}
-              className="mt-4 w-full resize-none rounded-md border border-white/25 bg-black px-4 py-3 text-sm text-white outline-none focus:border-white"
+              className="mt-4 w-full resize-none rounded-xl border border-white/25 bg-black px-4 py-3 text-sm text-white outline-none focus:border-white"
             />
             <button
               type="submit"
               disabled={loading}
-              className="btn-blue mt-4 w-full rounded-md px-5 py-3 text-sm uppercase tracking-[0.14em] disabled:opacity-60"
+              className="btn-blue mt-4 w-full rounded-xl px-5 py-3 text-sm uppercase tracking-[0.14em] disabled:opacity-60"
             >
               {loading ? 'Envoi...' : 'Envoyer le message'}
             </button>
@@ -107,7 +107,7 @@ export function ContactSection() {
               href={business.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 rounded-lg border border-white/25 bg-[#0f0f0f] p-4 transition hover:bg-white/10"
+              className="flex items-center gap-3 rounded-[22px] border border-white/25 bg-[#0f0f0f] p-4 transition hover:bg-white/10"
             >
               <MessageCircle size={18} className="text-white" />
               <div>
@@ -115,14 +115,14 @@ export function ContactSection() {
                 <p>{business.phone}</p>
               </div>
             </a>
-            <a href={business.emailLink} className="flex items-center gap-3 rounded-lg border border-white/25 bg-[#0f0f0f] p-4 transition hover:bg-white/10">
+            <a href={business.emailLink} className="flex items-center gap-3 rounded-[22px] border border-white/25 bg-[#0f0f0f] p-4 transition hover:bg-white/10">
               <Mail size={18} className="text-white" />
               <div>
                 <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Email</p>
                 <p className="break-all">{business.email}</p>
               </div>
             </a>
-            <a href={`tel:${business.phone}`} className="flex items-center gap-3 rounded-lg border border-white/25 bg-[#0f0f0f] p-4 transition hover:bg-white/10">
+            <a href={`tel:${business.phone}`} className="flex items-center gap-3 rounded-[22px] border border-white/25 bg-[#0f0f0f] p-4 transition hover:bg-white/10">
               <Phone size={18} className="text-white" />
               <div>
                 <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Telephone</p>
@@ -133,7 +133,7 @@ export function ContactSection() {
               href={business.googleMapsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 rounded-lg border border-white/25 bg-[#0f0f0f] p-4 transition hover:bg-white/10"
+              className="flex items-center gap-3 rounded-[22px] border border-white/25 bg-[#0f0f0f] p-4 transition hover:bg-white/10"
             >
               <MapPin size={18} className="text-white" />
               <div>

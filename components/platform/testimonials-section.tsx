@@ -102,27 +102,27 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 xl:grid-cols-4">
+        <div className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 md:mt-10 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0 xl:grid-cols-4">
           {testimonials.map((testimonial, index) => (
             <article
               key={testimonial.name}
-              className={`min-w-[296px] snap-start rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] p-6 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.95)] backdrop-blur-xl transition duration-700 hover:-translate-y-1 hover:border-[#c9a96d]/35 md:min-w-0 ${visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+              className={`min-w-[84vw] snap-start rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] p-5 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.95)] backdrop-blur-xl transition duration-700 hover:-translate-y-1 hover:border-[#c9a96d]/35 sm:min-w-[296px] sm:p-6 md:min-w-0 md:rounded-[30px] ${visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
               style={{ transitionDelay: `${index * 90}ms` }}
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-4">
-                  <span className="relative inline-flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#c9a96d]/30 bg-[#0a0d14] shadow-[0_0_0_4px_rgba(227,197,142,0.06)]">
+                  <span className="relative inline-flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#c9a96d]/30 bg-[#0a0d14] shadow-[0_0_0_4px_rgba(227,197,142,0.06)] sm:h-14 sm:w-14">
                     <img src={testimonial.avatar} alt={testimonial.name} className="h-full w-full object-cover" />
                   </span>
                   <div>
-                    <p className="font-serif text-2xl text-white">{testimonial.name}</p>
+                    <p className="font-serif text-xl text-white sm:text-2xl">{testimonial.name}</p>
                     <p className="mt-1 text-[11px] uppercase tracking-[0.28em] text-slate-400">
                       {testimonial.city}
                     </p>
                   </div>
                 </div>
 
-                <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#c9a96d]/25 bg-[#0a0d14] text-[#e3c58e]">
+                <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-[#c9a96d]/25 bg-[#0a0d14] text-[#e3c58e] sm:h-11 sm:w-11">
                   <Quote size={18} />
                 </span>
               </div>

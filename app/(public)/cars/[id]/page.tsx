@@ -12,9 +12,9 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
   }
 
   return (
-    <section className="section-shell py-12 sm:py-20">
-      <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-        <article className="space-y-8 rounded-[32px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl sm:p-7">
+    <section className="section-shell py-10 sm:py-20">
+      <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-8">
+        <article className="space-y-6 rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:space-y-8 sm:rounded-[32px] sm:p-7">
           <ShowroomGallery images={car.gallery} alt={car.name} />
 
           <div className="space-y-6">
@@ -27,9 +27,9 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
             </div>
 
             <div>
-              <h1 className="font-serif text-4xl font-medium tracking-[-0.03em] text-white sm:text-6xl">{car.name}</h1>
-              {car.subtitle ? <p className="mt-3 text-sm uppercase tracking-[0.18em] text-slate-400">{car.subtitle}</p> : null}
-              {car.price ? <p className="mt-5 text-3xl font-semibold text-[#e3c58e]">{car.price}</p> : null}
+              <h1 className="font-serif text-3xl font-medium tracking-[-0.03em] text-white sm:text-6xl">{car.name}</h1>
+              {car.subtitle ? <p className="mt-3 text-xs uppercase tracking-[0.16em] text-slate-400 sm:text-sm sm:tracking-[0.18em]">{car.subtitle}</p> : null}
+              {car.price ? <p className="mt-4 text-2xl font-semibold text-[#e3c58e] sm:mt-5 sm:text-3xl">{car.price}</p> : null}
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
@@ -61,10 +61,10 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
           </div>
         </article>
 
-        <aside className="space-y-6 rounded-[32px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl sm:p-7">
+        <aside className="space-y-6 rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:rounded-[32px] sm:p-7">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-[#e3c58e]">Contact showroom</p>
-            <h2 className="mt-3 font-serif text-3xl text-white">Demander plus d informations</h2>
+            <h2 className="mt-3 font-serif text-2xl text-white sm:text-3xl">Demander plus d informations</h2>
             <p className="mt-3 text-sm leading-7 text-slate-300">
               Contactez Makan Luxury Motors pour organiser une visite, demander plus de photos ou reserver un
               rendez-vous au showroom.
