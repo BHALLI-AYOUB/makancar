@@ -13,6 +13,7 @@ export function RegisterForm() {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [role, setRole] = useState<'admin' | 'client'>('client')
   const [error, setError] = useState<string | null>(null)
   const [message, setMessage] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -30,6 +31,7 @@ export function RegisterForm() {
       options: {
         data: {
           full_name: fullName,
+          role,
         },
       },
     })
@@ -41,7 +43,9 @@ export function RegisterForm() {
     }
 
     if (!data.session) {
-      setMessage('Compte cree. Verifiez votre email puis connectez-vous.')
+      setMessage(
+        `Compte ${role === 'admin' ? 'admin' : 'client'} cree. Verifiez votre email puis connectez-vous.`
+      )
       setLoading(false)
       return
     }
@@ -50,7 +54,7 @@ export function RegisterForm() {
       id: data.user.id,
       email,
       full_name: fullName,
-      role: 'client',
+      role,
     })
 
     if (
@@ -71,13 +75,33 @@ export function RegisterForm() {
       return
     }
 
-    router.replace(getDashboardPath(profile?.role ?? 'client'))
+    router.replace(getDashboardPath(profile?.role ?? role))
     router.refresh()
     setLoading(false)
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="grid grid-cols-2 gap-2 rounded-2xl border border-white/10 bg-[#0b1220] p-1">
+        <button
+          type="button"
+          onClick={() => setRole('client')}
+          className={`rounded-xl px-4 py-3 text-sm font-medium transition ${
+            role === 'client' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:bg-white/5'
+          }`}
+        >
+          Register as Client
+        </button>
+        <button
+          type="button"
+          onClick={() => setRole('admin')}
+          className={`rounded-xl px-4 py-3 text-sm font-medium transition ${
+            role === 'admin' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:bg-white/5'
+          }`}
+        >
+          Register as Admin
+        </button>
+      </div>
       <div className="space-y-2">
         <label className="text-sm text-slate-300">Nom complet</label>
         <input
@@ -115,7 +139,7 @@ export function RegisterForm() {
       {error ? <p className="text-sm text-rose-300">{error}</p> : null}
       {message ? <p className="text-sm text-emerald-300">{message}</p> : null}
       <button type="submit" disabled={loading} className="btn-blue w-full rounded-2xl py-3">
-        {loading ? <LoaderCircle className="animate-spin" size={18} /> : 'Creer mon compte'}
+        {loading ? <LoaderCircle className="animate-spin" size={18} /> : `Creer mon compte ${role}`}
       </button>
     </form>
   )

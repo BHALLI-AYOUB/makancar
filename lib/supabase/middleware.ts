@@ -48,7 +48,11 @@ export async function updateSession(request: NextRequest) {
 
   if (user) {
     const { data: profile, error } = await supabase.from('profiles').select('role').eq('id', user.id).maybeSingle()
-    const resolvedRole = error && isMissingProfilesTableError(error) ? 'client' : profile?.role
+    const metadataRole =
+      user.user_metadata?.role === 'admin' || user.user_metadata?.role === 'client'
+        ? user.user_metadata.role
+        : 'client'
+    const resolvedRole = error && isMissingProfilesTableError(error) ? metadataRole : profile?.role ?? metadataRole
 
     if (error && !isMissingProfilesTableError(error)) {
       throw error

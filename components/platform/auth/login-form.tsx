@@ -47,13 +47,18 @@ export function LoginForm() {
     }
 
     if (!profile) {
+      const inferredRole =
+        data.user.user_metadata?.role === 'admin' || data.user.user_metadata?.role === 'client'
+          ? data.user.user_metadata.role
+          : 'client'
+
       const createdProfile = await supabase
         .from('profiles')
         .upsert({
           id: data.user.id,
           email: data.user.email ?? email,
           full_name: data.user.user_metadata?.full_name ?? '',
-          role: 'client',
+          role: inferredRole,
         })
         .select('id, role, email, full_name')
         .single()
@@ -72,7 +77,7 @@ export function LoginForm() {
         id: data.user.id,
         email: data.user.email ?? email,
         full_name: (data.user.user_metadata?.full_name as string | undefined) ?? '',
-        role: 'client',
+        role: inferredRole,
       }
     }
 

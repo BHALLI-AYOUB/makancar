@@ -28,11 +28,16 @@ export async function getCurrentProfile(): Promise<Profile | null> {
   }
 
   if (!profile) {
+    const metadataRole =
+      user.user_metadata?.role === 'admin' || user.user_metadata?.role === 'client'
+        ? user.user_metadata.role
+        : 'client'
+
     return {
       id: user.id,
       email: user.email ?? '',
       full_name: (user.user_metadata?.full_name as string | undefined) ?? null,
-      role: 'client',
+      role: metadataRole,
       created_at: new Date(0).toISOString(),
     }
   }
