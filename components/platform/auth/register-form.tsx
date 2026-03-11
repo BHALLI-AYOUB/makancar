@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { LoaderCircle } from 'lucide-react'
 import { createSupabaseBrowserClient } from '@/lib/supabase/client'
@@ -17,67 +17,86 @@ export function RegisterForm() {
   const [error, setError] = useState<string | null>(null)
   const [message, setMessage] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
+  const submitLock = useRef(false)
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
+
+    if (submitLock.current || loading) {
+      return
+    }
+
+    const normalizedEmail = email.trim().toLowerCase()
+    const normalizedName = fullName.trim()
+
+    submitLock.current = true
     setLoading(true)
     setError(null)
     setMessage(null)
 
-    const supabase = createSupabaseBrowserClient()
-    const { data, error: signUpError } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          full_name: fullName,
-          role,
+    try {
+      const supabase = createSupabaseBrowserClient()
+      const { data, error: signUpError } = await supabase.auth.signUp({
+        email: normalizedEmail,
+        password,
+        options: {
+          data: {
+            full_name: normalizedName,
+            role,
+          },
         },
-      },
-    })
+      })
 
-    if (signUpError) {
-      setError(formatSupabaseAuthError(signUpError.message))
+      if (signUpError) {
+        setError(formatSupabaseAuthError(signUpError.message))
+        return
+      }
+
+      if (!data.user) {
+        setError("Impossible de creer le compte pour le moment. Veuillez reessayer.")
+        return
+      }
+
+      if (!data.session) {
+        setMessage(
+          `Compte ${role === 'admin' ? 'admin' : 'client'} cree. Verifiez votre email puis connectez-vous.`
+        )
+        return
+      }
+
+      const upsertResult = await supabase.from('profiles').upsert({
+        id: data.user.id,
+        email: normalizedEmail,
+        full_name: normalizedName,
+        role,
+      })
+
+      if (
+        upsertResult.error &&
+        !isMissingProfilesTableError(upsertResult.error) &&
+        !isProfilesRlsError(upsertResult.error)
+      ) {
+        setError(upsertResult.error.message)
+        return
+      }
+
+      const { data: profile, error: profileError } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', data.user.id)
+        .maybeSingle()
+
+      if (profileError && !isMissingProfilesTableError(profileError) && !isProfilesRlsError(profileError)) {
+        setError(profileError.message)
+        return
+      }
+
+      router.replace(getDashboardPath(profile?.role ?? role))
+      router.refresh()
+    } finally {
       setLoading(false)
-      return
+      submitLock.current = false
     }
-
-    if (!data.session) {
-      setMessage(
-        `Compte ${role === 'admin' ? 'admin' : 'client'} cree. Verifiez votre email puis connectez-vous.`
-      )
-      setLoading(false)
-      return
-    }
-
-    const upsertResult = await supabase.from('profiles').upsert({
-      id: data.user.id,
-      email,
-      full_name: fullName,
-      role,
-    })
-
-    if (
-      upsertResult.error &&
-      !isMissingProfilesTableError(upsertResult.error) &&
-      !isProfilesRlsError(upsertResult.error)
-    ) {
-      setError(upsertResult.error.message)
-      setLoading(false)
-      return
-    }
-
-    const { data: profile, error: profileError } = await supabase.from('profiles').select('role').eq('id', data.user.id).maybeSingle()
-
-    if (profileError && !isMissingProfilesTableError(profileError) && !isProfilesRlsError(profileError)) {
-      setError(profileError.message)
-      setLoading(false)
-      return
-    }
-
-    router.replace(getDashboardPath(profile?.role ?? role))
-    router.refresh()
-    setLoading(false)
   }
 
   return (
@@ -86,18 +105,20 @@ export function RegisterForm() {
         <button
           type="button"
           onClick={() => setRole('client')}
+          disabled={loading}
           className={`rounded-xl px-4 py-3 text-sm font-medium transition ${
             role === 'client' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:bg-white/5'
-          }`}
+          } ${loading ? 'cursor-not-allowed opacity-70' : ''}`}
         >
           Register as Client
         </button>
         <button
           type="button"
           onClick={() => setRole('admin')}
+          disabled={loading}
           className={`rounded-xl px-4 py-3 text-sm font-medium transition ${
             role === 'admin' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:bg-white/5'
-          }`}
+          } ${loading ? 'cursor-not-allowed opacity-70' : ''}`}
         >
           Register as Admin
         </button>
@@ -108,6 +129,7 @@ export function RegisterForm() {
           type="text"
           value={fullName}
           onChange={(event) => setFullName(event.target.value)}
+          disabled={loading}
           className="w-full rounded-2xl border border-white/10 bg-[#0b1220] px-4 py-3 text-white outline-none focus:border-sky-400"
           placeholder="Votre nom"
           required
@@ -119,6 +141,7 @@ export function RegisterForm() {
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
+          disabled={loading}
           className="w-full rounded-2xl border border-white/10 bg-[#0b1220] px-4 py-3 text-white outline-none focus:border-sky-400"
           placeholder="vous@makancar.com"
           required
@@ -130,16 +153,37 @@ export function RegisterForm() {
           type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
+          disabled={loading}
           className="w-full rounded-2xl border border-white/10 bg-[#0b1220] px-4 py-3 text-white outline-none focus:border-sky-400"
           placeholder="Au moins 6 caracteres"
           minLength={6}
           required
         />
       </div>
-      {error ? <p className="text-sm text-rose-300">{error}</p> : null}
-      {message ? <p className="text-sm text-emerald-300">{message}</p> : null}
-      <button type="submit" disabled={loading} className="btn-blue w-full rounded-2xl py-3">
-        {loading ? <LoaderCircle className="animate-spin" size={18} /> : `Creer mon compte ${role}`}
+      {error ? (
+        <p className="rounded-2xl border border-rose-400/20 bg-rose-500/8 px-4 py-3 text-sm leading-7 text-rose-200">
+          {error}
+        </p>
+      ) : null}
+      {message ? (
+        <p className="rounded-2xl border border-emerald-400/20 bg-emerald-500/8 px-4 py-3 text-sm leading-7 text-emerald-200">
+          {message}
+        </p>
+      ) : null}
+      <button
+        type="submit"
+        disabled={loading}
+        aria-busy={loading}
+        className="btn-blue w-full rounded-2xl py-3 disabled:cursor-not-allowed disabled:opacity-70"
+      >
+        {loading ? (
+          <span className="inline-flex items-center gap-2">
+            <LoaderCircle className="animate-spin" size={18} />
+            Creation du compte...
+          </span>
+        ) : (
+          `Creer mon compte ${role}`
+        )}
       </button>
     </form>
   )
