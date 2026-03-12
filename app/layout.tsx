@@ -48,8 +48,8 @@ export default async function RootLayout({
   const direction = await getServerDirection()
 
   return (
-    <html lang={locale} dir={direction} className={`${manrope.variable} ${cormorant.variable}`}>
-      <body className="min-h-screen overflow-x-hidden bg-[#040507] pb-28 font-sans text-white antialiased scroll-smooth sm:pb-32 lg:pb-0">
+    <html lang={locale} dir={direction} data-scroll-behavior="smooth" className={`${manrope.variable} ${cormorant.variable}`}>
+      <body className="min-h-screen overflow-x-hidden bg-[#040507] pb-28 font-sans text-white antialiased sm:pb-32 lg:pb-0">
         {children}
         <FloatingChatbot />
         <Analytics />
