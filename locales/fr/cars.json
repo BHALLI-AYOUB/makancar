@@ -1,0 +1,14 @@
+{
+  "catalogTitle": "Stock disponible Makan Luxury Motors",
+  "catalogDescription": "Nos véhicules réels disponibles, dédouanés et présentés avec leurs galeries complètes.",
+  "foundVehicles": "{count} véhicule(s) trouvé(s)",
+  "searchPlaceholder": "Rechercher par titre, marque ou modèle",
+  "allBrands": "Toutes les marques",
+  "car": {
+    "vehicleComing": "Véhicule à venir",
+    "moreInfoOnRequest": "Plus d’informations et présentation détaillée disponibles sur demande.",
+    "premiumPresentation": "Présentation premium et informations sur demande.",
+    "requestMoreInfo": "Demander plus d’informations",
+    "strengths": "Points forts"
+  }
+}

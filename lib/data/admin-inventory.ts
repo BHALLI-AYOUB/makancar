@@ -50,10 +50,14 @@ export function getAdminInventoryCars(): AdminInventoryCar[] {
     return {
       id: car.id,
       title: car.name,
-      subtitle: car.subtitle ?? '',
-      brand: car.name.split(' ')[0] ?? '',
-      model: car.name.replace(`${car.name.split(' ')[0]} `, ''),
-      year: getSummaryValue(car.summary, 'annee') || getSummaryValue(car.summary, 'immatriculation') || '',
+      subtitle: car.subtitle ?? car.version ?? '',
+      brand: car.brand ?? car.name.split(' ')[0] ?? '',
+      model: car.model ?? car.name.replace(`${car.name.split(' ')[0]} `, ''),
+      year:
+        getSummaryValue(car.summary, 'annee') ||
+        getSummaryValue(car.summary, 'date modele') ||
+        getSummaryValue(car.summary, 'immatriculation') ||
+        '',
       price: car.price ?? 'Prix sur demande',
       mileage: getSummaryValue(car.summary, 'kilometrage'),
       transmission: getSummaryValue(car.summary, 'transmission'),
@@ -66,8 +70,8 @@ export function getAdminInventoryCars(): AdminInventoryCar[] {
       available: status !== 'Indisponible',
       location: getSummaryValue(car.summary, 'localisation'),
       registration: getSummaryValue(car.summary, 'immatriculation'),
-      customs: getSummaryValue(car.summary, 'dedouanement'),
-      description: defaultDescription,
+      customs: getSummaryValue(car.summary, 'dedouanement') || getSummaryValue(car.summary, 'diwana'),
+      description: car.description ?? defaultDescription,
       features: mergedFeatures,
       sellingPoints: car.sellingPoints,
       badges: car.badges,
@@ -76,3 +80,4 @@ export function getAdminInventoryCars(): AdminInventoryCar[] {
     }
   })
 }
+

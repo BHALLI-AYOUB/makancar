@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "vente": "البيع",
+    "location": "الاستيراد",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "dashboard": "لوحة التحكم",
+    "logout": "تسجيل الخروج",
+    "clientPortal": "فضاء العميل",
+    "adminPortal": "فضاء الإدارة",
+    "language": "اللغة"
+  },
+  "actions": {
+    "whatsapp": "واتساب",
+    "contactWhatsapp": "تواصل عبر واتساب",
+    "viewStock": "عرض كامل المخزون",
+    "viewDetails": "عرض التفاصيل",
+    "enlarge": "تكبير",
+    "contactUs": "اتصل بنا",
+    "viewRoute": "عرض الاتجاه",
+    "filter": "تصفية",
+    "previous": "السابق",
+    "next": "التالي",
+    "send": "إرسال",
+    "sendMessage": "إرسال الرسالة"
+  },
+  "labels": {
+    "stockReal": "مخزون حقيقي",
+    "selectionPremium": "اختيار فاخر",
+    "availableSoon": "متوفر قريبًا جدًا",
+    "priceOnRequest": "السعر عند الطلب",
+    "showroomContact": "التواصل مع المعرض"
+  },
+  "footer": {
+    "description": "منصة احترافية لبيع وتأجير السيارات مع إدارة المخزون وتجربة عملاء راقية.",
+    "copyright": "جميع الحقوق محفوظة."
+  }
+}

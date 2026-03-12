@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { LoaderCircle } from 'lucide-react'
 import { createSupabaseBrowserClient } from '@/lib/supabase/client'
@@ -16,6 +16,13 @@ export function LoginForm() {
   const [portal, setPortal] = useState<'client' | 'admin'>('client')
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    const requestedPortal = searchParams.get('portal')
+    if (requestedPortal === 'admin' || requestedPortal === 'client') {
+      setPortal(requestedPortal)
+    }
+  }, [searchParams])
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -85,8 +92,8 @@ export function LoginForm() {
       await supabase.auth.signOut()
       setError(
         portal === 'admin'
-          ? 'Ce compte n a pas le role admin. Connectez-vous en mode client ou creez la table profiles puis assignez le role admin dans Supabase.'
-          : 'Ce compte est configure comme admin. Utilisez le portail admin.'
+          ? "Ce compte n'a pas le rôle administrateur. Connectez-vous en mode client ou assignez le rôle administrateur dans Supabase."
+          : "Ce compte est configuré comme administrateur. Utilisez le portail administrateur."
       )
       setLoading(false)
       return
@@ -109,7 +116,7 @@ export function LoginForm() {
             portal === 'client' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:bg-white/5'
           }`}
         >
-          Login as Client
+          Accès client
         </button>
         <button
           type="button"
@@ -118,7 +125,7 @@ export function LoginForm() {
             portal === 'admin' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:bg-white/5'
           }`}
         >
-          Login as Admin
+          Accès administrateur
         </button>
       </div>
       <div className="space-y-2">
@@ -145,7 +152,16 @@ export function LoginForm() {
       </div>
       {error ? <p className="text-sm text-rose-300">{error}</p> : null}
       <button type="submit" disabled={loading} className="btn-blue w-full rounded-2xl py-3">
-        {loading ? <LoaderCircle className="animate-spin" size={18} /> : `Se connecter comme ${portal}`}
+        {loading ? (
+          <span className="inline-flex items-center gap-2">
+            <LoaderCircle className="animate-spin" size={18} />
+            Connexion en cours...
+          </span>
+        ) : portal === 'admin' ? (
+          'Se connecter en administrateur'
+        ) : (
+          'Se connecter en client'
+        )}
       </button>
     </form>
   )

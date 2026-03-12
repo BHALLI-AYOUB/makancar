@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "vente": "Vente",
+    "location": "Location",
+    "login": "Connexion",
+    "register": "Créer un compte",
+    "dashboard": "Tableau de bord",
+    "logout": "Déconnexion",
+    "clientPortal": "Portail client",
+    "adminPortal": "Portail administrateur",
+    "language": "Langue"
+  },
+  "actions": {
+    "whatsapp": "WhatsApp",
+    "contactWhatsapp": "Contacter sur WhatsApp",
+    "viewStock": "Voir tout le stock",
+    "viewDetails": "Voir les détails",
+    "enlarge": "Agrandir",
+    "contactUs": "Nous contacter",
+    "viewRoute": "Voir l’itinéraire",
+    "filter": "Filtrer",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "send": "Envoyer",
+    "sendMessage": "Envoyer le message"
+  },
+  "labels": {
+    "stockReal": "Stock réel",
+    "selectionPremium": "Sélection premium",
+    "availableSoon": "Disponible très bientôt",
+    "priceOnRequest": "Prix sur demande",
+    "showroomContact": "Contact showroom"
+  },
+  "footer": {
+    "description": "Plateforme professionnelle de vente et location de voitures. Réservation en ligne, gestion des stocks et espace admin complet.",
+    "copyright": "Tous droits réservés."
+  }
+}

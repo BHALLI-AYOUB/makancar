@@ -32,6 +32,8 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
               {car.price ? <p className="mt-4 text-2xl font-semibold text-[#e3c58e] sm:mt-5 sm:text-3xl">{car.price}</p> : null}
             </div>
 
+            {car.description ? <p className="text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">{car.description}</p> : null}
+
             <div className="grid gap-4 md:grid-cols-2">
               {car.summary.map((item) => (
                 <div key={item.label} className="rounded-[22px] border border-white/10 bg-[#080b12] p-4">
@@ -58,17 +60,29 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
                 ))}
               </div>
             ) : null}
+
+            {car.presentation?.length ? (
+              <div className="rounded-[24px] border border-white/10 bg-[#080b12] p-5">
+                <h2 className="font-serif text-3xl text-white">Présentation Makan Luxury Motors</h2>
+                <div className="mt-4 space-y-4 text-sm leading-7 text-slate-300 sm:text-base">
+                  {car.presentation.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </div>
         </article>
 
         <aside className="space-y-6 rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:rounded-[32px] sm:p-7">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-[#e3c58e]">Contact showroom</p>
-            <h2 className="mt-3 font-serif text-2xl text-white sm:text-3xl">Demander plus d informations</h2>
+            <h2 className="mt-3 font-serif text-2xl text-white sm:text-3xl">Demander plus d&apos;informations</h2>
             <p className="mt-3 text-sm leading-7 text-slate-300">
-              Contactez Makan Luxury Motors pour organiser une visite, demander plus de photos ou reserver un
+              Contactez Makan Luxury Motors pour organiser une visite, demander plus de photos ou réserver un
               rendez-vous au showroom.
             </p>
+            {car.availabilityNote ? <p className="mt-3 text-sm leading-7 text-[#e3c58e]">{car.availabilityNote}</p> : null}
           </div>
 
           <a

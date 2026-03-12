@@ -17,7 +17,7 @@ export function RegisterLink() {
         textDecoration: 'none',
       }}
     >
-      Creer un compte
+      Créer un compte
     </Link>
   )
 }

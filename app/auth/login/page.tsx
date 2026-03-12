@@ -106,7 +106,7 @@ export default function LoginPage() {
               letterSpacing: '0.48em',
             }}
           >
-            Acces prive
+            Accès privé
           </p>
 
           <h1
@@ -130,8 +130,8 @@ export default function LoginPage() {
               fontSize: '13.5px',
             }}
           >
-            Connectez-vous pour reserver, suivre vos demandes
-            <br className="hidden sm:block" /> ou gerer la plateforme.
+            Connectez-vous pour réserver, suivre vos demandes
+            <br className="hidden sm:block" /> ou gérer la plateforme.
           </p>
 
           <Suspense

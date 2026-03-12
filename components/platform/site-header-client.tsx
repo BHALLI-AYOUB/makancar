@@ -6,12 +6,9 @@ import { useState } from 'react'
 import { LayoutDashboard, Menu, ShieldCheck, X } from 'lucide-react'
 import type { Profile } from '@/types/database'
 import { LogoutButton } from '@/components/platform/logout-button'
-
-const primaryLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/vente', label: 'Vente' },
-  { href: '/location', label: 'Location' },
-]
+import { LanguageSwitcher } from '@/components/platform/language-switcher'
+import { useCurrentLocale, useTranslations } from '@/lib/i18n/client'
+import { withLocalePath } from '@/lib/i18n/config'
 
 type SiteHeaderClientProps = {
   profile: Profile | null
@@ -39,8 +36,15 @@ function NavLink({
 
 export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const locale = useCurrentLocale()
+  const t = useTranslations()
+  const primaryLinks = [
+    { href: withLocalePath('/', locale), label: t('common.nav.home') },
+    { href: withLocalePath('/vente', locale), label: t('common.nav.vente') },
+    { href: withLocalePath('/location', locale), label: t('common.nav.location') },
+  ]
 
-  const dashboardHref = profile?.role === 'admin' ? '/admin/dashboard' : '/client/dashboard'
+  const dashboardHref = withLocalePath(profile?.role === 'admin' ? '/admin/dashboard' : '/client/dashboard', locale)
 
   function closeMenu() {
     setMobileOpen(false)
@@ -48,18 +52,18 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-[#06080d]/92 backdrop-blur-2xl">
-      <div className="section-shell">
-        <div className="relative flex min-h-[88px] items-center justify-between gap-4 py-3 md:min-h-[110px] md:grid md:grid-cols-[1fr_auto_1fr] md:gap-6 md:py-4">
-          <div className="hidden items-center gap-1.5 sm:gap-2 md:flex md:flex-1 md:justify-start">
+      <div className="section-shell" dir="ltr">
+        <div className="flex min-h-[88px] items-center justify-between gap-4 py-3 md:grid md:min-h-[110px] md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:items-center md:gap-6 md:py-4">
+          <div className="hidden items-center gap-1 sm:gap-1.5 md:flex md:min-w-0 md:justify-start">
             {primaryLinks.slice(0, 2).map((link) => (
               <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
           </div>
 
           <Link
-            href="/"
+            href={withLocalePath('/', locale)}
             aria-label="Makan Luxury Motors"
-            className="flex items-center justify-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2"
+            className="mx-auto flex items-center justify-center md:justify-self-center"
             onClick={closeMenu}
           >
             <Image
@@ -68,11 +72,11 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
               width={280}
               height={70}
               priority
-              className="h-[50px] w-auto object-contain sm:h-[58px] md:h-[70px]"
+              className="h-[50px] w-auto object-contain sm:h-[58px] md:h-[66px] lg:h-[70px]"
             />
           </Link>
 
-          <div className="hidden items-center gap-1.5 sm:gap-2 md:flex md:flex-1 md:justify-end">
+          <div className="hidden items-center gap-1 sm:gap-1.5 md:flex md:min-w-0 md:flex-wrap md:justify-end">
             {primaryLinks.slice(2).map((link) => (
               <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
@@ -84,21 +88,22 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
                   className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-[11px] text-white transition hover:bg-white/10 sm:px-4 sm:text-sm"
                 >
                   {profile.role === 'admin' ? <ShieldCheck size={16} /> : <LayoutDashboard size={16} />}
-                  Dashboard
+                  {t('common.nav.dashboard')}
                 </Link>
                 <LogoutButton />
               </>
             ) : (
               <>
-                <NavLink href="/auth/login" label="Connexion" />
+                <NavLink href={withLocalePath('/auth/login', locale)} label={t('common.nav.login')} />
                 <Link
-                  href="/auth/register"
+                  href={withLocalePath('/auth/register', locale)}
                   className="rounded-full border border-white bg-white px-4 py-2.5 text-[11px] font-semibold text-black transition hover:bg-[#e8e8e8] sm:px-5 sm:text-sm"
                 >
-                  Creer un compte
+                  {t('common.nav.register')}
                 </Link>
               </>
             )}
+            <LanguageSwitcher />
           </div>
 
           <button
@@ -134,11 +139,11 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
                 <>
                   <Link
                     href={dashboardHref}
-                    onClick={closeMenu}
-                    className="inline-flex items-center gap-2 rounded-2xl px-4 py-3 text-sm uppercase tracking-[0.1em] text-white/82 transition hover:bg-white/8 hover:text-white"
-                  >
-                    {profile.role === 'admin' ? <ShieldCheck size={16} /> : <LayoutDashboard size={16} />}
-                    Dashboard
+                  onClick={closeMenu}
+                  className="inline-flex items-center gap-2 rounded-2xl px-4 py-3 text-sm uppercase tracking-[0.1em] text-white/82 transition hover:bg-white/8 hover:text-white"
+                >
+                  {profile.role === 'admin' ? <ShieldCheck size={16} /> : <LayoutDashboard size={16} />}
+                    {t('common.nav.dashboard')}
                   </Link>
                   <div className="px-1 pt-2">
                     <LogoutButton className="w-full justify-center rounded-2xl py-3" />
@@ -147,21 +152,24 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
               ) : (
                 <>
                   <Link
-                    href="/auth/login"
+                    href={withLocalePath('/auth/login', locale)}
                     onClick={closeMenu}
                     className="rounded-2xl px-4 py-3 text-sm uppercase tracking-[0.14em] text-white/82 transition hover:bg-white/8 hover:text-white"
                   >
-                    Connexion
+                    {t('common.nav.login')}
                   </Link>
                   <Link
-                    href="/auth/register"
+                    href={withLocalePath('/auth/register', locale)}
                     onClick={closeMenu}
                     className="mt-2 inline-flex items-center justify-center rounded-2xl border border-white bg-white px-4 py-3 text-sm font-semibold text-black transition hover:bg-[#e8e8e8]"
                   >
-                    Creer un compte
+                    {t('common.nav.register')}
                   </Link>
                 </>
               )}
+              <div className="pt-2">
+                <LanguageSwitcher />
+              </div>
             </nav>
           </div>
         </div>

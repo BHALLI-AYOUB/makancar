@@ -1,12 +1,17 @@
+'use client'
+
 import Link from 'next/link'
 import { Gauge, MapPin, MessageCircleMore, ShieldCheck } from 'lucide-react'
 import type { ShowroomCar } from '@/types/showroom'
 import { getWhatsAppHref } from '@/lib/data/showroom-stock'
 import { ShowroomCardMedia } from '@/components/platform/showroom-card-media'
+import { useCurrentLocale, useTranslations } from '@/lib/i18n/client'
 
 export function ShowroomCard({ car }: { car: ShowroomCar }) {
-  const mileage = car.summary.find((item) => item.label.toLowerCase().includes('kilometrage'))?.value
-  const location = car.summary.find((item) => item.label.toLowerCase().includes('localisation'))?.value
+  const locale = useCurrentLocale()
+  const t = useTranslations()
+  const mileage = car.summary.find((item) => item.label.toLowerCase().includes('kilom'))?.value
+  const location = car.summary.find((item) => item.label.toLowerCase().includes('local'))?.value
   const status = car.availabilityLabel ?? car.badges[0]
 
   return (
@@ -14,7 +19,7 @@ export function ShowroomCard({ car }: { car: ShowroomCar }) {
       <div className="relative overflow-hidden">
         <ShowroomCardMedia images={car.gallery} alt={car.name} />
         <span className="absolute left-3 top-3 rounded-full border border-[#c9a96d]/35 bg-[#0a0d14]/85 px-2.5 py-1 text-[10px] uppercase tracking-[0.24em] text-[#e3c58e] sm:left-5 sm:top-5 sm:px-3 sm:text-xs sm:tracking-[0.28em]">
-          Stock reel
+          {t('common.labels.stockReal')}
         </span>
       </div>
 
@@ -36,7 +41,7 @@ export function ShowroomCard({ car }: { car: ShowroomCar }) {
         <div className="grid gap-3 text-sm text-slate-300 sm:grid-cols-3">
           <div className="flex items-center gap-2 rounded-2xl border border-white/10 bg-[#080b12] px-4 py-3">
             <Gauge size={16} className="text-[#e3c58e]" />
-            <span>{mileage ?? 'Sur demande'}</span>
+            <span>{mileage ?? t('common.labels.priceOnRequest')}</span>
           </div>
           <div className="flex items-center gap-2 rounded-2xl border border-white/10 bg-[#080b12] px-4 py-3">
             <MapPin size={16} className="text-[#e3c58e]" />
@@ -44,13 +49,16 @@ export function ShowroomCard({ car }: { car: ShowroomCar }) {
           </div>
           <div className="flex items-center gap-2 rounded-2xl border border-white/10 bg-[#080b12] px-4 py-3">
             <ShieldCheck size={16} className="text-[#e3c58e]" />
-            <span>{car.summary[0]?.value ?? 'Stock premium'}</span>
+            <span>{car.summary[0]?.value ?? t('common.labels.selectionPremium')}</span>
           </div>
         </div>
 
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href={`/cars/${car.id}`} className="inline-flex flex-1 items-center justify-center rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/8">
-            Voir les details
+          <Link
+            href={`/${locale}/cars/${car.id}`}
+            className="inline-flex flex-1 items-center justify-center rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/8"
+          >
+            {t('common.actions.viewDetails')}
           </Link>
           <a
             href={getWhatsAppHref(car.whatsapp, car.name)}
@@ -59,7 +67,7 @@ export function ShowroomCard({ car }: { car: ShowroomCar }) {
             className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#c9a96d] px-5 py-3 text-sm font-semibold text-black transition hover:bg-[#d8b97e]"
           >
             <MessageCircleMore size={16} />
-            WhatsApp
+            {t('common.actions.whatsapp')}
           </a>
         </div>
       </div>

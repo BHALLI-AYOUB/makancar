@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { LoaderCircle } from 'lucide-react'
 import { createSupabaseBrowserClient } from '@/lib/supabase/client'
@@ -13,7 +14,7 @@ export function RegisterForm() {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [role, setRole] = useState<'admin' | 'client'>('client')
+  const [mode, setMode] = useState<'client' | 'admin'>('client')
   const [error, setError] = useState<string | null>(null)
   const [message, setMessage] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -42,7 +43,7 @@ export function RegisterForm() {
         options: {
           data: {
             full_name: normalizedName,
-            role,
+            role: 'client',
           },
         },
       })
@@ -53,14 +54,12 @@ export function RegisterForm() {
       }
 
       if (!data.user) {
-        setError("Impossible de creer le compte pour le moment. Veuillez reessayer.")
+        setError("Impossible de créer le compte pour le moment. Veuillez réessayer.")
         return
       }
 
       if (!data.session) {
-        setMessage(
-          `Compte ${role === 'admin' ? 'admin' : 'client'} cree. Verifiez votre email puis connectez-vous.`
-        )
+        setMessage('Compte client créé. Vérifiez votre email puis connectez-vous.')
         return
       }
 
@@ -68,7 +67,7 @@ export function RegisterForm() {
         id: data.user.id,
         email: normalizedEmail,
         full_name: normalizedName,
-        role,
+        role: 'client',
       })
 
       if (
@@ -91,7 +90,7 @@ export function RegisterForm() {
         return
       }
 
-      router.replace(getDashboardPath(profile?.role ?? role))
+      router.replace(getDashboardPath(profile?.role ?? 'client'))
       router.refresh()
     } finally {
       setLoading(false)
@@ -99,28 +98,66 @@ export function RegisterForm() {
     }
   }
 
+  if (mode === 'admin') {
+    return (
+      <div className="space-y-4">
+        <div className="grid grid-cols-2 gap-2 rounded-2xl border border-white/10 bg-[#0b1220] p-1">
+          <button
+            type="button"
+            onClick={() => setMode('client')}
+            className="rounded-xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-white/5"
+          >
+            Créer un compte client
+          </button>
+          <button
+            type="button"
+            onClick={() => setMode('admin')}
+            className="rounded-xl bg-sky-500 px-4 py-3 text-sm font-medium text-white transition"
+          >
+            Accès administrateur
+          </button>
+        </div>
+
+        <div className="rounded-2xl border border-[#c9a96d]/25 bg-[#0b1220] px-4 py-4 text-sm leading-7 text-slate-200">
+          <p className="font-medium text-white">L&apos;inscription administrateur n&apos;est pas publique.</p>
+          <p className="mt-2">
+            Pour protéger la plateforme, un visiteur ne peut pas créer lui-même un compte administrateur.
+            Utilisez le portail de connexion administrateur si votre accès existe déjà.
+          </p>
+        </div>
+
+        <Link
+          href="/auth/login?portal=admin"
+          className="btn-blue inline-flex w-full items-center justify-center rounded-2xl py-3"
+        >
+          Accéder à l&apos;espace administrateur
+        </Link>
+      </div>
+    )
+  }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-2 gap-2 rounded-2xl border border-white/10 bg-[#0b1220] p-1">
         <button
           type="button"
-          onClick={() => setRole('client')}
+          onClick={() => setMode('client')}
           disabled={loading}
           className={`rounded-xl px-4 py-3 text-sm font-medium transition ${
-            role === 'client' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:bg-white/5'
+            mode === 'client' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:bg-white/5'
           } ${loading ? 'cursor-not-allowed opacity-70' : ''}`}
         >
-          Register as Client
+          Créer un compte client
         </button>
         <button
           type="button"
-          onClick={() => setRole('admin')}
+          onClick={() => setMode('admin')}
           disabled={loading}
           className={`rounded-xl px-4 py-3 text-sm font-medium transition ${
-            role === 'admin' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:bg-white/5'
+            mode === 'admin' ? 'bg-sky-500 text-white' : 'text-slate-300 hover:bg-white/5'
           } ${loading ? 'cursor-not-allowed opacity-70' : ''}`}
         >
-          Register as Admin
+          Accès administrateur
         </button>
       </div>
       <div className="space-y-2">
@@ -155,7 +192,7 @@ export function RegisterForm() {
           onChange={(event) => setPassword(event.target.value)}
           disabled={loading}
           className="w-full rounded-2xl border border-white/10 bg-[#0b1220] px-4 py-3 text-white outline-none focus:border-sky-400"
-          placeholder="Au moins 6 caracteres"
+          placeholder="Au moins 6 caractères"
           minLength={6}
           required
         />
@@ -179,10 +216,10 @@ export function RegisterForm() {
         {loading ? (
           <span className="inline-flex items-center gap-2">
             <LoaderCircle className="animate-spin" size={18} />
-            Creation du compte...
+            Création du compte...
           </span>
         ) : (
-          `Creer mon compte ${role}`
+          'Créer mon compte client'
         )}
       </button>
     </form>

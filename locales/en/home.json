@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "eyebrow": "Makan Luxury Motors showroom",
+    "descriptionFallback": "Real inventory, premium presentation, detailed galleries and personalized support for every vehicle selected by Makan Luxury Motors."
+  },
+  "stock": {
+    "eyebrow": "Available inventory",
+    "title": "Authentic showroom selection",
+    "description": "Only the vehicles currently available at Makan Luxury Motors, with detailed galleries and premium presentation."
+  },
+  "reassurance": {
+    "eyebrow": "Buy with confidence",
+    "title": "Buy with confidence",
+    "description": "Makan Luxury Motors guarantees a buying experience built on trust, transparency and excellence."
+  },
+  "about": {
+    "eyebrow": "About us",
+    "title": "MAKAN Luxury Motors",
+    "description": "Your premium partner for buying, sourcing and importing prestige vehicles in Morocco.",
+    "missionTitle": "Our mission"
+  },
+  "stats": {
+    "eyebrow": "Statistics",
+    "title": "Figures that reflect our standards."
+  },
+  "testimonials": {
+    "eyebrow": "Client testimonials",
+    "title": "They trusted us.",
+    "description": "The Makan Luxury Motors experience is built on transparency, vehicle quality and premium support at every stage."
+  },
+  "brands": {
+    "eyebrow": "Available brands",
+    "title": "Available brands",
+    "description": "We select vehicles from the world’s leading brands to meet the highest expectations."
+  },
+  "map": {
+    "eyebrow": "Showroom location",
+    "title": "Visit our showroom",
+    "description": "Meet us in Brussels, Belgium, to discover our vehicle selection and benefit from personalized support.",
+    "city": "Brussels, Belgium",
+    "showroomByAppointment": "Showroom by appointment"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let’s discuss your project"
+  }
+}

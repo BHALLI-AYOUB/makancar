@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCurrentLocale, useTranslations } from '@/lib/i18n/client'
 
 type StatItem = {
   value: number
@@ -9,11 +10,23 @@ type StatItem = {
   duration: number
 }
 
-const stats: StatItem[] = [
-  { value: 40, suffix: '+', label: 'Vehicules Premium', duration: 1800 },
-  { value: 12, label: 'Pays de Sourcing', duration: 1600 },
-  { value: 21, suffix: ' jours', label: 'Delai Moyen', duration: 2000 },
-]
+const statsByLocale = {
+  fr: [
+    { value: 40, suffix: '+', label: 'Véhicules premium', duration: 1800 },
+    { value: 12, label: 'Pays de sourcing', duration: 1600 },
+    { value: 21, suffix: ' jours', label: 'Délai moyen', duration: 2000 },
+  ],
+  en: [
+    { value: 40, suffix: '+', label: 'Premium vehicles', duration: 1800 },
+    { value: 12, label: 'Sourcing countries', duration: 1600 },
+    { value: 21, suffix: ' days', label: 'Average lead time', duration: 2000 },
+  ],
+  ar: [
+    { value: 40, suffix: '+', label: 'سيارات فاخرة', duration: 1800 },
+    { value: 12, label: 'دول التوريد', duration: 1600 },
+    { value: 21, suffix: ' يومًا', label: 'متوسط الآجال', duration: 2000 },
+  ],
+} as const
 
 function useRevealOnce<T extends HTMLElement>() {
   const ref = useRef<T | null>(null)
@@ -21,21 +34,15 @@ function useRevealOnce<T extends HTMLElement>() {
 
   useEffect(() => {
     if (!ref.current || visible) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return
         setVisible(true)
         observer.disconnect()
       },
-      {
-        threshold: 0.25,
-        rootMargin: '0px 0px -8% 0px',
-      }
+      { threshold: 0.25, rootMargin: '0px 0px -8% 0px' }
     )
-
     observer.observe(ref.current)
-
     return () => observer.disconnect()
   }, [visible])
 
@@ -47,26 +54,17 @@ function StatsCard({ item, index, active }: { item: StatItem; index: number; act
 
   useEffect(() => {
     if (!active) return
-
     let frame = 0
     let start: number | null = null
-
     const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)
-
     const tick = (timestamp: number) => {
       if (!start) start = timestamp
       const progress = Math.min((timestamp - start) / item.duration, 1)
       setCount(Math.floor(easeOutCubic(progress) * item.value))
-
-      if (progress < 1) {
-        frame = window.requestAnimationFrame(tick)
-      } else {
-        setCount(item.value)
-      }
+      if (progress < 1) frame = window.requestAnimationFrame(tick)
+      else setCount(item.value)
     }
-
     frame = window.requestAnimationFrame(tick)
-
     return () => window.cancelAnimationFrame(frame)
   }, [active, item.duration, item.value])
 
@@ -79,19 +77,17 @@ function StatsCard({ item, index, active }: { item: StatItem; index: number; act
         {count}
         {item.suffix ? <span>{item.suffix}</span> : null}
       </p>
-      <p className="mt-5 text-xs font-semibold uppercase tracking-[0.32em] text-slate-300">
-        {item.label}
-      </p>
+      <p className="mt-5 text-xs font-semibold uppercase tracking-[0.32em] text-slate-300">{item.label}</p>
     </article>
   )
 }
 
 export function StatsSection() {
+  const locale = useCurrentLocale()
+  const t = useTranslations()
+  const stats = statsByLocale[locale]
   const { ref, visible } = useRevealOnce<HTMLElement>()
-  const titleVisibleClass = useMemo(
-    () => (visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'),
-    [visible]
-  )
+  const titleVisibleClass = useMemo(() => (visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'), [visible])
 
   return (
     <section
@@ -101,10 +97,8 @@ export function StatsSection() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px] opacity-20" />
       <div className="section-shell relative z-10">
         <div className={`max-w-3xl transition duration-700 ${titleVisibleClass}`}>
-          <p className="text-xs uppercase tracking-[0.35em] text-slate-300">Statistiques</p>
-          <h2 className="mt-3 font-serif text-4xl font-medium tracking-[-0.03em] text-white sm:text-6xl">
-            Des chiffres qui traduisent notre exigence.
-          </h2>
+          <p className="text-xs uppercase tracking-[0.35em] text-slate-300">{t('home.stats.eyebrow')}</p>
+          <h2 className="mt-3 font-serif text-4xl font-medium tracking-[-0.03em] text-white sm:text-6xl">{t('home.stats.title')}</h2>
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">

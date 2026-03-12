@@ -32,10 +32,10 @@ export function ContactSection() {
     setLoading(true)
     await new Promise((resolve) => setTimeout(resolve, 400))
 
-    const message = `Bonjour,%0A%0ANom: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}%0ATel: ${encodeURIComponent(formData.phone)}%0A%0AMessage: ${encodeURIComponent(formData.message)}`
+    const message = `Bonjour,%0A%0ANom : ${encodeURIComponent(formData.name)}%0AEmail : ${encodeURIComponent(formData.email)}%0ATéléphone : ${encodeURIComponent(formData.phone)}%0A%0AMessage : ${encodeURIComponent(formData.message)}`
     window.open(`https://wa.me/212641389898?text=${message}`, '_blank')
 
-    toast.success('Message prepare sur WhatsApp.')
+    toast.success('Message préparé sur WhatsApp.')
     setFormData({ name: '', email: '', phone: '', message: '' })
     setLoading(false)
   }
@@ -77,7 +77,7 @@ export function ContactSection() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="Telephone"
+              placeholder="Téléphone"
               className="mt-4 w-full rounded-xl border border-white/25 bg-black px-4 py-3 text-sm text-white outline-none focus:border-white"
             />
             <textarea
@@ -125,7 +125,7 @@ export function ContactSection() {
             <a href={`tel:${business.phone}`} className="flex items-center gap-3 rounded-[22px] border border-white/25 bg-[#0f0f0f] p-4 transition hover:bg-white/10">
               <Phone size={18} className="text-white" />
               <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Telephone</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Téléphone</p>
                 <p>{business.phone}</p>
               </div>
             </a>

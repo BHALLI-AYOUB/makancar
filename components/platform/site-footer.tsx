@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div>
           <p className="font-serif text-2xl text-white sm:text-3xl">MAKAN</p>
           <p className="mt-3 max-w-sm text-sm leading-7 text-slate-400">
-            Plateforme professionnelle de vente et location de voitures. Reservation en ligne, gestion des stocks
+            Plateforme professionnelle de vente et location de voitures. Réservation en ligne, gestion des stocks
             et espace admin complet.
           </p>
         </div>
@@ -25,7 +25,7 @@ export function SiteFooter() {
             Location
           </Link>
           <Link href="/auth/login" className="hover:text-white">
-            Login
+            Connexion
           </Link>
         </div>
         <div className="space-y-2 text-sm text-slate-300">
@@ -35,7 +35,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs text-slate-500">
-        Copyright {year} Makan Cars. Tous droits reserves.
+        Copyright {year} Makan Cars. Tous droits réservés.
       </div>
     </footer>
   )

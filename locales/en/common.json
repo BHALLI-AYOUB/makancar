@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "Home",
+    "vente": "Sales",
+    "location": "Import",
+    "login": "Login",
+    "register": "Create account",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "clientPortal": "Client portal",
+    "adminPortal": "Admin portal",
+    "language": "Language"
+  },
+  "actions": {
+    "whatsapp": "WhatsApp",
+    "contactWhatsapp": "Contact on WhatsApp",
+    "viewStock": "View full inventory",
+    "viewDetails": "View details",
+    "enlarge": "Enlarge",
+    "contactUs": "Contact us",
+    "viewRoute": "Get directions",
+    "filter": "Filter",
+    "previous": "Previous",
+    "next": "Next",
+    "send": "Send",
+    "sendMessage": "Send message"
+  },
+  "labels": {
+    "stockReal": "Real inventory",
+    "selectionPremium": "Premium selection",
+    "availableSoon": "Available very soon",
+    "priceOnRequest": "Price on request",
+    "showroomContact": "Showroom contact"
+  },
+  "footer": {
+    "description": "Professional vehicle sales and rental platform. Online booking, stock management and full admin area.",
+    "copyright": "All rights reserved."
+  }
+}

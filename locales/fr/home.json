@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "eyebrow": "Showroom Makan Luxury Motors",
+    "descriptionFallback": "Stock réel, présentation premium, galeries détaillées et accompagnement personnalisé pour chaque véhicule disponible chez Makan Luxury Motors."
+  },
+  "stock": {
+    "eyebrow": "Stock disponible",
+    "title": "Sélection réelle du showroom",
+    "description": "Uniquement les véhicules actuellement disponibles chez Makan Luxury Motors, avec galeries détaillées et présentation premium."
+  },
+  "reassurance": {
+    "eyebrow": "Achat en toute sérénité",
+    "title": "Achat en toute sérénité",
+    "description": "Makan Luxury Motors vous garantit une expérience d’achat fondée sur la confiance, la transparence et l’exigence."
+  },
+  "about": {
+    "eyebrow": "À propos de nous",
+    "title": "MAKAN Luxury Motors",
+    "description": "Votre partenaire premium pour l’achat, la location et l’import de voitures de prestige au Maroc.",
+    "missionTitle": "Notre mission"
+  },
+  "stats": {
+    "eyebrow": "Statistiques",
+    "title": "Des chiffres qui traduisent notre exigence."
+  },
+  "testimonials": {
+    "eyebrow": "Témoignages clients",
+    "title": "Ils nous ont fait confiance.",
+    "description": "L’expérience Makan Luxury Motors repose sur la transparence, la qualité des véhicules et un accompagnement premium à chaque étape."
+  },
+  "brands": {
+    "eyebrow": "Marques disponibles",
+    "title": "Marques disponibles",
+    "description": "Nous sélectionnons des véhicules issus des plus grandes marques afin de répondre aux attentes les plus exigeantes."
+  },
+  "map": {
+    "eyebrow": "Localisation showroom",
+    "title": "Visitez notre showroom",
+    "description": "Retrouvez-nous à Bruxelles, en Belgique, pour découvrir notre sélection de véhicules et bénéficier d’un accompagnement personnalisé.",
+    "city": "Bruxelles, Belgique",
+    "showroomByAppointment": "Showroom sur rendez-vous"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Parlons de votre projet"
+  }
+}

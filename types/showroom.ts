@@ -11,6 +11,10 @@ export interface ShowroomFeatureGroup {
 export interface ShowroomCar {
   id: string
   name: string
+  heroTitle?: string
+  brand?: string
+  model?: string
+  version?: string
   subtitle?: string
   price?: string
   whatsapp: string
@@ -20,4 +24,9 @@ export interface ShowroomCar {
   featureGroups: ShowroomFeatureGroup[]
   sellingPoints: string[]
   availabilityLabel?: string
+  description?: string
+  presentation?: string[]
+  heroSubtitle?: string
+  heroDescription?: string
+  availabilityNote?: string
 }

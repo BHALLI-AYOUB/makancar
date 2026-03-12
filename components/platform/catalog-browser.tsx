@@ -45,7 +45,7 @@ export function CatalogBrowser({
         <div>
           <p className="text-xs uppercase tracking-[0.34em] text-sky-300">{heading}</p>
           <h1 className="mt-3 font-serif text-4xl text-white sm:text-5xl">{description}</h1>
-          <p className="mt-4 text-sm text-slate-300">{total} vehicule(s) trouve(s)</p>
+          <p className="mt-4 text-sm text-slate-300">{total} véhicule(s) trouvé(s)</p>
         </div>
 
         <form action={pathname} className="grid w-full gap-3 rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:p-5 lg:max-w-3xl lg:grid-cols-[1.5fr_1fr_auto]">
@@ -55,7 +55,7 @@ export function CatalogBrowser({
               type="search"
               name="q"
               defaultValue={currentSearch}
-              placeholder="Rechercher par titre, marque ou modele"
+              placeholder="Rechercher par titre, marque ou modèle"
               className="w-full bg-transparent text-white outline-none placeholder:text-slate-500"
             />
           </label>
@@ -93,7 +93,7 @@ export function CatalogBrowser({
             aria-disabled={page <= 1}
             className={`rounded-full px-4 py-2 text-center text-sm ${page <= 1 ? 'pointer-events-none border border-white/10 text-slate-500' : 'border border-white/15 text-white hover:bg-white/10'}`}
           >
-            Precedent
+            Précédent
           </Link>
           <Link
             href={makeHref(pathname, currentSearch, currentBrand, Math.min(totalPages, page + 1))}

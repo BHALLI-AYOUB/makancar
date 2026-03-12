@@ -10,7 +10,7 @@ export default function VentePage() {
       <SectionHeading
         eyebrow="Catalogue premium"
         title="Stock disponible Makan Luxury Motors"
-        description="Nos vehicules reels disponibles, dedouanes et presentes avec leurs galeries completes."
+        description="Nos véhicules réels disponibles, dédouanés et présentés avec leurs galeries complètes."
       />
       <div className="mt-10">
         <ShowroomGrid cars={cars} />

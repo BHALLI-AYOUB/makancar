@@ -35,12 +35,12 @@ export function CarActionPanel({ car }: { car: Car }) {
     const result = await response.json()
 
     if (!response.ok) {
-      setError(result.error ?? 'Reservation impossible.')
+      setError(result.error ?? 'Réservation impossible.')
       setLoading(false)
       return
     }
 
-    setMessage('Reservation enregistree avec succes.')
+    setMessage('Réservation enregistrée avec succès.')
     setLoading(false)
     router.refresh()
   }
@@ -71,7 +71,7 @@ export function CarActionPanel({ car }: { car: Car }) {
       return
     }
 
-    setMessage('Demande d achat enregistree.')
+    setMessage("Demande d'achat enregistrée.")
     setLoading(false)
     router.refresh()
   }
@@ -79,7 +79,7 @@ export function CarActionPanel({ car }: { car: Car }) {
   return (
     <div className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl sm:p-6">
       <p className="text-xs uppercase tracking-[0.3em] text-sky-300">
-        {car.type === 'location' ? 'Reserver maintenant' : 'Demande d achat'}
+        {car.type === 'location' ? 'Réserver maintenant' : "Demande d'achat"}
       </p>
       <h3 className="mt-3 font-serif text-2xl text-white sm:text-3xl">
         {car.type === 'location' ? 'Planifier votre location' : 'Recevoir une offre'}
@@ -87,7 +87,7 @@ export function CarActionPanel({ car }: { car: Car }) {
       <p className="mt-3 text-sm leading-6 text-slate-300">
         {car.type === 'location'
           ? 'Choisissez vos dates et envoyez une demande de reservation.'
-          : 'Envoyez votre demande. Notre equipe vous recontacte pour finaliser la vente.'}
+          : 'Envoyez votre demande. Notre équipe vous recontacte pour finaliser la vente.'}
       </p>
 
       {car.type === 'location' ? (
@@ -105,7 +105,7 @@ export function CarActionPanel({ car }: { car: Car }) {
             className="w-full rounded-2xl border border-white/10 bg-[#0b1220] px-4 py-3 text-white"
           />
           <button onClick={handleBooking} disabled={loading || !startDate || !endDate} className="btn-blue w-full rounded-2xl py-3 disabled:opacity-50">
-            {loading ? 'Envoi...' : 'Confirmer la reservation'}
+            {loading ? 'Envoi...' : 'Confirmer la réservation'}
           </button>
         </div>
       ) : (

@@ -1,0 +1,14 @@
+{
+  "catalogTitle": "Makan Luxury Motors inventory",
+  "catalogDescription": "Our real available vehicles, customs-cleared and presented with complete galleries.",
+  "foundVehicles": "{count} vehicle(s) found",
+  "searchPlaceholder": "Search by title, brand or model",
+  "allBrands": "All brands",
+  "car": {
+    "vehicleComing": "Upcoming vehicle",
+    "moreInfoOnRequest": "More information and a detailed presentation are available on request.",
+    "premiumPresentation": "Premium presentation and information on request.",
+    "requestMoreInfo": "Request more information",
+    "strengths": "Key highlights"
+  }
+}

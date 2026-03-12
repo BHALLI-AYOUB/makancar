@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { MessageCircle, MessageCircleMore, Plus, SendHorizonal, X } from 'lucide-react'
+import { MessageCircleMore, Plus, SendHorizonal, X } from 'lucide-react'
 import { getShowroomCars } from '@/lib/data/showroom-stock'
 
 const initialMessages = [
@@ -9,19 +9,22 @@ const initialMessages = [
     id: 'welcome',
     role: 'assistant',
     content:
-      'Bonjour, vous etes en ligne avec Makan Luxury Motors. Je suis la pour vous aider concernant nos vehicules, disponibilites et informations. Comment puis-je vous assister ?',
+      'Bonjour, vous êtes en ligne avec Makan Luxury Motors. Je suis là pour vous aider concernant nos véhicules, disponibilités et informations. Comment puis-je vous assister ?',
   },
 ]
 
 const assistantAvatar = '/makan-assistant-avatar.svg'
 const whatsappHref =
-  'https://wa.me/212641389898?text=Bonjour%2C%20je%20souhaite%20avoir%20plus%20d%E2%80%99informations%20sur%20vos%20vehicules%20disponibles.'
+  'https://wa.me/212641389898?text=Bonjour%2C%20je%20souhaite%20avoir%20plus%20d%E2%80%99informations%20sur%20vos%20v%C3%A9hicules%20disponibles.'
 
 const suggestedCars = getShowroomCars().map((car) => ({
   id: car.id,
   name: car.name,
   price: car.price ?? 'Prix sur demande',
   subtitle: car.subtitle,
+  availabilityLabel: car.availabilityLabel,
+  availabilityNote: car.availabilityNote,
+  whatsapp: car.whatsapp,
   summary: car.summary.slice(0, 3),
 }))
 
@@ -36,7 +39,13 @@ export function FloatingChatbot() {
     const car = suggestedCars.find((item) => item.id === carId)
     if (!car) return
 
-    const details = car.summary.map((item) => `${item.label}: ${item.value}`).join(' | ')
+    const details = car.summary.map((item) => `${item.label} : ${item.value}`).join(' | ')
+    const response =
+      car.availabilityLabel?.toLowerCase().includes('bientôt') ||
+      car.availabilityLabel?.toLowerCase().includes('bientot') ||
+      car.price === 'Prix sur demande'
+        ? `${car.name}${car.subtitle ? ` - ${car.subtitle}` : ''}\n${car.availabilityLabel ?? 'Disponible très bientôt'}\nPlus d'informations sur demande\n${car.availabilityNote ?? ''}\nContact WhatsApp : ${car.whatsapp}`
+        : `${car.name}${car.subtitle ? ` - ${car.subtitle}` : ''}\nPrix : ${car.price}\n${details}`
 
     setMessages((current) => [
       ...current,
@@ -44,7 +53,7 @@ export function FloatingChatbot() {
       {
         id: `assistant-${Date.now() + 1}`,
         role: 'assistant',
-        content: `${car.name}${car.subtitle ? ` - ${car.subtitle}` : ''}\nPrix: ${car.price}\n${details}`,
+        content: response,
       },
     ])
   }
@@ -60,7 +69,7 @@ export function FloatingChatbot() {
         id: `assistant-${Date.now() + 1}`,
         role: 'assistant',
         content:
-          'Merci pour votre message. Notre equipe reviendra vers vous rapidement pour vous accompagner sur votre demande.',
+          'Merci pour votre message. Notre équipe reviendra vers vous rapidement pour vous accompagner dans votre demande.',
       },
     ])
     setInput('')
@@ -68,7 +77,7 @@ export function FloatingChatbot() {
 
   return (
     <>
-      <div className="fixed right-3 bottom-3 z-[70] flex flex-col items-end gap-2.5 sm:right-5 sm:bottom-5 lg:right-6 lg:bottom-6">
+      <div className="fixed bottom-3 right-3 z-[70] flex flex-col items-end gap-2.5 sm:bottom-5 sm:right-5 lg:bottom-6 lg:right-6">
         <a
           href={whatsappHref}
           target="_blank"
@@ -96,7 +105,7 @@ export function FloatingChatbot() {
       </div>
 
       <div
-        className={`fixed right-3 bottom-32 z-[69] w-[calc(100vw-1.5rem)] max-w-[390px] origin-bottom-right rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(18,21,28,0.98),rgba(8,10,15,0.98))] shadow-[0_30px_90px_-28px_rgba(0,0,0,0.92)] backdrop-blur-2xl transition duration-300 sm:right-5 sm:bottom-38 sm:w-[min(390px,calc(100vw-2.5rem))] sm:rounded-[30px] lg:right-6 lg:bottom-42 ${open ? 'pointer-events-auto translate-y-0 scale-100 opacity-100' : 'pointer-events-none translate-y-4 scale-95 opacity-0'}`}
+        className={`fixed bottom-32 right-3 z-[69] w-[calc(100vw-1.5rem)] max-w-[390px] origin-bottom-right rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(18,21,28,0.98),rgba(8,10,15,0.98))] shadow-[0_30px_90px_-28px_rgba(0,0,0,0.92)] backdrop-blur-2xl transition duration-300 sm:bottom-38 sm:right-5 sm:w-[min(390px,calc(100vw-2.5rem))] sm:rounded-[30px] lg:bottom-42 lg:right-6 ${open ? 'pointer-events-auto translate-y-0 scale-100 opacity-100' : 'pointer-events-none translate-y-4 scale-95 opacity-0'}`}
       >
         <div className="border-b border-white/10 p-4 sm:p-5">
           <div className="flex items-start justify-between gap-4">
@@ -107,7 +116,7 @@ export function FloatingChatbot() {
               <div>
                 <p className="font-serif text-2xl text-white">Makan Assistant</p>
                 <p className="mt-1 text-[11px] uppercase tracking-[0.28em] text-slate-400">
-                  Luxury advisor
+                  Luxury Advisor
                 </p>
               </div>
             </div>
@@ -143,7 +152,7 @@ export function FloatingChatbot() {
         </div>
 
         <div className="border-t border-white/10 px-4 py-4 sm:px-5">
-          <p className="text-[11px] uppercase tracking-[0.24em] text-slate-400">Vehicules suggérés</p>
+          <p className="text-[11px] uppercase tracking-[0.24em] text-slate-400">Véhicules suggérés</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {suggestedCars.map((car) => (
               <button

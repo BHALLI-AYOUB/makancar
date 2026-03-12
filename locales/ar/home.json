@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "eyebrow": "معرض Makan Luxury Motors",
+    "descriptionFallback": "مخزون حقيقي، عرض راقٍ، معارض صور مفصلة ومرافقة شخصية لكل سيارة مختارة من طرف Makan Luxury Motors."
+  },
+  "stock": {
+    "eyebrow": "المخزون المتوفر",
+    "title": "اختيار حقيقي من المعرض",
+    "description": "فقط السيارات المتوفرة حاليًا لدى Makan Luxury Motors مع عرض فاخر ومعارض صور مفصلة."
+  },
+  "reassurance": {
+    "eyebrow": "شراء بكل راحة",
+    "title": "شراء بكل راحة",
+    "description": "تضمن لكم Makan Luxury Motors تجربة شراء مبنية على الثقة والشفافية والتميّز."
+  },
+  "about": {
+    "eyebrow": "من نحن",
+    "title": "MAKAN Luxury Motors",
+    "description": "شريككم الفاخر لاقتناء السيارات المميزة واستيرادها بالمغرب.",
+    "missionTitle": "مهمتنا"
+  },
+  "stats": {
+    "eyebrow": "إحصائيات",
+    "title": "أرقام تعكس مستوى متطلباتنا."
+  },
+  "testimonials": {
+    "eyebrow": "آراء العملاء",
+    "title": "لقد وضعوا ثقتهم فينا.",
+    "description": "تعتمد تجربة Makan Luxury Motors على الشفافية وجودة السيارات والمرافقة الراقية في كل مرحلة."
+  },
+  "brands": {
+    "eyebrow": "العلامات المتوفرة",
+    "title": "العلامات المتوفرة",
+    "description": "نختار سيارات من أبرز العلامات العالمية لتلبية أكثر التطلعات تطلبًا."
+  },
+  "map": {
+    "eyebrow": "موقع المعرض",
+    "title": "زوروا معرضنا",
+    "description": "زورونا في بروكسيل، بلجيكا، لاكتشاف مجموعتنا والاستفادة من مرافقة شخصية.",
+    "city": "بروكسيل، بلجيكا",
+    "showroomByAppointment": "المعرض بموعد مسبق"
+  },
+  "contact": {
+    "eyebrow": "اتصال",
+    "title": "لنتحدث عن مشروعكم"
+  }
+}

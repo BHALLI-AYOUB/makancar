@@ -3,6 +3,7 @@ import type { Profile, UserRole } from '@/types/database'
 import { createSupabaseServerClient } from '@/lib/supabase/server'
 import { getDashboardPath } from '@/lib/routes'
 import { isMissingProfilesTableError } from '@/lib/supabase/errors'
+import { getServerLocale } from '@/lib/i18n/server'
 
 export async function getCurrentSession() {
   const supabase = await createSupabaseServerClient()
@@ -47,9 +48,10 @@ export async function getCurrentProfile(): Promise<Profile | null> {
 
 export async function requireUser() {
   const profile = await getCurrentProfile()
+  const locale = await getServerLocale()
 
   if (!profile) {
-    redirect('/auth/login')
+    redirect(`/${locale}/auth/login`)
   }
 
   return profile
@@ -57,9 +59,10 @@ export async function requireUser() {
 
 export async function requireRole(role: UserRole) {
   const profile = await requireUser()
+  const locale = await getServerLocale()
 
   if (profile.role !== role) {
-    redirect(getDashboardPath(profile.role))
+    redirect(getDashboardPath(profile.role, locale))
   }
 
   return profile

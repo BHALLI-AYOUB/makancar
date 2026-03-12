@@ -4,6 +4,13 @@ import type { Database } from '@/types/database'
 import { supabaseAnonKey, supabaseUrl, validateSupabaseEnv } from '@/lib/supabase/env'
 import { isMissingProfilesTableError } from '@/lib/supabase/errors'
 import { getSignedInLandingPath } from '@/lib/routes'
+import {
+  defaultLocale,
+  isLocale,
+  localeCookieName,
+  stripLocaleFromPathname,
+  withLocalePath,
+} from '@/lib/i18n/config'
 
 const authRoutes = ['/auth/login', '/auth/register']
 const protectedRoutes = ['/client', '/admin']
@@ -36,13 +43,24 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getUser()
 
   const pathname = request.nextUrl.pathname
-  const isProtectedRoute = protectedRoutes.some((route) => pathname.startsWith(route))
-  const isAuthRoute = authRoutes.some((route) => pathname.startsWith(route))
+  const { locale: localeFromPath, pathnameWithoutLocale } = stripLocaleFromPathname(pathname)
+  const locale = localeFromPath ?? (isLocale(request.cookies.get(localeCookieName)?.value) ? (request.cookies.get(localeCookieName)?.value as typeof defaultLocale) : defaultLocale)
+
+  if (!localeFromPath) {
+    const url = request.nextUrl.clone()
+    url.pathname = withLocalePath(pathname, locale)
+    return NextResponse.redirect(url)
+  }
+
+  response.cookies.set(localeCookieName, locale)
+
+  const isProtectedRoute = protectedRoutes.some((route) => pathnameWithoutLocale.startsWith(route))
+  const isAuthRoute = authRoutes.some((route) => pathnameWithoutLocale.startsWith(route))
 
   if (!user && isProtectedRoute) {
     const url = request.nextUrl.clone()
-    url.pathname = '/auth/login'
-    url.searchParams.set('redirectedFrom', pathname)
+    url.pathname = withLocalePath('/auth/login', locale)
+    url.searchParams.set('redirectedFrom', pathnameWithoutLocale)
     return NextResponse.redirect(url)
   }
 
@@ -60,19 +78,19 @@ export async function updateSession(request: NextRequest) {
 
     if (isAuthRoute && resolvedRole) {
       const url = request.nextUrl.clone()
-      url.pathname = getSignedInLandingPath(resolvedRole)
+      url.pathname = getSignedInLandingPath(resolvedRole, locale)
       return NextResponse.redirect(url)
     }
 
-    if (pathname.startsWith('/admin') && resolvedRole !== 'admin') {
+    if (pathnameWithoutLocale.startsWith('/admin') && resolvedRole !== 'admin') {
       const url = request.nextUrl.clone()
-      url.pathname = '/client/dashboard'
+      url.pathname = withLocalePath('/client/dashboard', locale)
       return NextResponse.redirect(url)
     }
 
-    if (pathname.startsWith('/client') && resolvedRole === 'admin') {
+    if (pathnameWithoutLocale.startsWith('/client') && resolvedRole === 'admin') {
       const url = request.nextUrl.clone()
-      url.pathname = '/admin/dashboard'
+      url.pathname = withLocalePath('/admin/dashboard', locale)
       return NextResponse.redirect(url)
     }
   }

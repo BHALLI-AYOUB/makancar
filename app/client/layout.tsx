@@ -11,7 +11,7 @@ export default async function ClientLayout({ children }: { children: ReactNode }
     <DashboardShell
       role="client"
       title="Espace client"
-      subtitle="Consultez vos reservations, votre profil et l'etat de vos demandes."
+      subtitle="Consultez vos réservations, votre profil et l'état de vos demandes."
     >
       {children}
     </DashboardShell>

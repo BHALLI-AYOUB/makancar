@@ -7,13 +7,13 @@ import { LogoutButton } from '@/components/platform/logout-button'
 const navByRole: Record<UserRole, { href: string; label: string; icon: ReactNode }[]> = {
   admin: [
     { href: '/admin/dashboard', label: 'Dashboard', icon: <LayoutDashboard size={16} /> },
-    { href: '/admin/cars', label: 'Cars', icon: <CarFront size={16} /> },
-    { href: '/admin/bookings', label: 'Bookings', icon: <CalendarRange size={16} /> },
-    { href: '/admin/users', label: 'Users', icon: <Users size={16} /> },
+    { href: '/admin/cars', label: 'Voitures', icon: <CarFront size={16} /> },
+    { href: '/admin/bookings', label: 'Réservations', icon: <CalendarRange size={16} /> },
+    { href: '/admin/users', label: 'Utilisateurs', icon: <Users size={16} /> },
   ],
   client: [
     { href: '/client/dashboard', label: 'Dashboard', icon: <LayoutDashboard size={16} /> },
-    { href: '/client/bookings', label: 'Mes reservations', icon: <CalendarRange size={16} /> },
+    { href: '/client/bookings', label: 'Mes réservations', icon: <CalendarRange size={16} /> },
     { href: '/client/profile', label: 'Profil', icon: <Users size={16} /> },
   ],
 }
@@ -35,7 +35,9 @@ export function DashboardShell({
         <aside className="rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-4 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.92)] backdrop-blur-xl sm:rounded-[30px] sm:p-5">
           <div className="border-b border-white/10 pb-4 sm:pb-5">
             <p className="font-serif text-3xl text-white">MAKAN</p>
-            <p className="mt-1 text-xs uppercase tracking-[0.32em] text-[#e3c58e]">{role} portal</p>
+            <p className="mt-1 text-xs uppercase tracking-[0.32em] text-[#e3c58e]">
+              {role === 'admin' ? 'Portail administrateur' : 'Portail client'}
+            </p>
           </div>
 
           <nav className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-1">

@@ -11,7 +11,7 @@ export default async function AdminLayout({ children }: { children: ReactNode })
     <DashboardShell
       role="admin"
       title="Administration"
-      subtitle="Gerez les voitures, les reservations, les utilisateurs et les demandes de vente."
+      subtitle="Gérez les voitures, les réservations, les utilisateurs et les demandes de vente."
     >
       {children}
     </DashboardShell>

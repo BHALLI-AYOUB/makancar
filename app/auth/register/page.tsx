@@ -6,8 +6,6 @@ import { RegisterForm } from '@/components/platform/auth/register-form'
 export default function RegisterPage() {
   return (
     <main className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#080a0f] px-4 py-10 sm:py-14">
-
-      {/* ── Atmospheric background ── */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_55%_45%,rgba(15,22,40,0.95)_0%,rgba(8,10,15,1)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_20%,rgba(180,148,72,0.06)_0%,transparent_70%)]" />
@@ -26,35 +24,32 @@ export default function RegisterPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_110%_110%_at_50%_50%,transparent_35%,rgba(0,0,0,0.75)_100%)]" />
       </div>
 
-      {/* ── Brand mark ── */}
-      <div className="absolute top-7 left-8 flex items-center gap-3 select-none">
+      <div className="absolute left-8 top-7 flex select-none items-center gap-3">
         <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
           <path d="M11 1L21 11L11 21L1 11Z" stroke="#b49448" strokeWidth="1.2" />
           <path d="M11 5L17 11L11 17L5 11Z" stroke="#b49448" strokeWidth="0.7" opacity="0.45" />
         </svg>
         <span
-          className="text-[10px] uppercase text-[#b49448]/70 font-light hidden sm:block"
+          className="hidden text-[10px] font-light uppercase text-[#b49448]/70 sm:block"
           style={{ letterSpacing: '0.42em', fontFamily: "'Cormorant Garamond', Georgia, serif" }}
         >
           Maison Prestige
         </span>
       </div>
 
-      {/* ── Decorative corners ── */}
-      <div className="absolute top-7 right-8 opacity-15 hidden sm:block">
+      <div className="absolute right-8 top-7 hidden opacity-15 sm:block">
         <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
           <path d="M48 0 L48 48 L0 48" stroke="#b49448" strokeWidth="0.8" />
           <path d="M48 14 L48 48 L14 48" stroke="#b49448" strokeWidth="0.35" />
         </svg>
       </div>
-      <div className="absolute bottom-7 left-8 opacity-15 hidden sm:block">
+      <div className="absolute bottom-7 left-8 hidden opacity-15 sm:block">
         <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
           <path d="M0 48 L0 0 L48 0" stroke="#b49448" strokeWidth="0.8" />
           <path d="M0 34 L0 0 L34 0" stroke="#b49448" strokeWidth="0.35" />
         </svg>
       </div>
 
-      {/* ── Glass card ── */}
       <div className="relative z-10 flex w-full max-w-[470px] flex-col items-center">
         <div className="mb-8 sm:mb-10">
           <div className="relative overflow-hidden rounded-[28px] border border-[#b49448]/20 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))] px-8 py-5 shadow-[0_26px_80px_-36px_rgba(0,0,0,0.9)] backdrop-blur-xl">
@@ -70,7 +65,6 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        {/* Soft gold glow behind card */}
         <div
           className="pointer-events-none absolute inset-x-6 top-[105px] rounded-[80px] sm:top-[122px]"
           style={{
@@ -80,7 +74,6 @@ export default function RegisterPage() {
           }}
         />
 
-        {/* Card surface */}
         <div
           className="relative w-full rounded-[3px] p-8 sm:p-10"
           style={{
@@ -96,7 +89,6 @@ export default function RegisterPage() {
             ].join(', '),
           }}
         >
-          {/* Top ornamental rule */}
           <div className="mb-7 flex items-center gap-3">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[#b49448]/35" />
             <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
@@ -105,21 +97,19 @@ export default function RegisterPage() {
             <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[#b49448]/35" />
           </div>
 
-          {/* Eyebrow */}
           <p
-            className="text-[9px] uppercase mb-4"
+            className="mb-4 text-[9px] uppercase"
             style={{
               color: '#b49448',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               letterSpacing: '0.48em',
             }}
           >
-            Nouveau Membre
+            Nouveau membre
           </p>
 
-          {/* Heading */}
           <h1
-            className="text-[2.2rem] sm:text-[2.4rem] leading-[1.06] font-light text-white mb-3"
+            className="mb-3 text-[2.2rem] font-light leading-[1.06] text-white sm:text-[2.4rem]"
             style={{
               fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
               fontStyle: 'italic',
@@ -129,9 +119,8 @@ export default function RegisterPage() {
             Créer un compte.
           </h1>
 
-          {/* Subheading */}
           <p
-            className="leading-relaxed mb-8"
+            className="mb-8 leading-relaxed"
             style={{
               color: 'rgba(203, 213, 225, 0.75)',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -140,22 +129,21 @@ export default function RegisterPage() {
               fontSize: '13.5px',
             }}
           >
-            Accédez à vos réservations, vos demandes d'achat
+            Accédez à vos réservations, vos demandes d&apos;achat
             <br className="hidden sm:block" /> et votre profil personnel.
           </p>
 
-          {/* Form */}
           <Suspense
             fallback={
               <div className="space-y-4 py-1">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="space-y-2">
-                    <div className="h-3 w-20 rounded-sm bg-slate-700/60 animate-pulse" />
-                    <div className="h-11 w-full rounded-[2px] bg-[#0f172a] border border-white/[0.07] animate-pulse" />
+                    <div className="h-3 w-20 animate-pulse rounded-sm bg-slate-700/60" />
+                    <div className="h-11 w-full animate-pulse rounded-[2px] border border-white/[0.07] bg-[#0f172a]" />
                   </div>
                 ))}
                 <div
-                  className="h-11 w-full rounded-[2px] animate-pulse mt-5"
+                  className="mt-5 h-11 w-full animate-pulse rounded-[2px]"
                   style={{ background: 'rgba(180,148,72,0.18)', border: '1px solid rgba(180,148,72,0.3)' }}
                 />
               </div>
@@ -206,12 +194,10 @@ export default function RegisterPage() {
             </div>
           </Suspense>
 
-          {/* Divider */}
-          <div className="mt-7 mb-5 h-px w-full bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+          <div className="mb-5 mt-7 h-px w-full bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
-          {/* Login CTA */}
           <p
-            className="text-[12.5px] text-center"
+            className="text-center text-[12.5px]"
             style={{
               color: 'rgba(148, 163, 184, 0.8)',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -228,7 +214,6 @@ export default function RegisterPage() {
             </Link>
           </p>
 
-          {/* Bottom ornamental rule */}
           <div className="mt-7 flex items-center gap-3">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[#b49448]/20" />
             <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[#b49448]/20" />
@@ -236,18 +221,16 @@ export default function RegisterPage() {
         </div>
       </div>
 
-      {/* ── Footer tagline ── */}
       <p
-        className="absolute bottom-7 left-1/2 -translate-x-1/2 text-[8.5px] uppercase whitespace-nowrap hidden sm:block"
+        className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 whitespace-nowrap text-[8.5px] uppercase sm:block"
         style={{
           color: 'rgba(255,255,255,0.18)',
           fontFamily: "'Cormorant Garamond', serif",
           letterSpacing: '0.48em',
         }}
       >
-        L'excellence en mouvement
+        L&apos;excellence en mouvement
       </p>
-
     </main>
   )
 }

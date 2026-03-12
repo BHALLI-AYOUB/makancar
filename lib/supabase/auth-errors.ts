@@ -6,7 +6,7 @@ export function formatSupabaseAuthError(message: string) {
     normalized.includes('rate limit') ||
     normalized.includes('too many requests')
   ) {
-    return "Trop de tentatives detectees. Veuillez patienter quelques minutes avant de reessayer."
+    return 'Trop de tentatives détectées. Veuillez patienter quelques minutes avant de réessayer.'
   }
 
   if (normalized.includes('invalid login credentials')) {
@@ -14,23 +14,23 @@ export function formatSupabaseAuthError(message: string) {
   }
 
   if (normalized.includes('invalid email')) {
-    return 'Adresse email invalide. Verifiez le format puis reessayez.'
+    return "Adresse email invalide. Vérifiez le format puis réessayez."
   }
 
   if (normalized.includes('password should be at least') || normalized.includes('password is too short')) {
-    return 'Mot de passe trop faible. Utilisez au moins 6 caracteres.'
+    return 'Mot de passe trop faible. Utilisez au moins 6 caractères.'
   }
 
   if (normalized.includes('email not confirmed')) {
-    return 'Votre email n est pas encore confirme. Verifiez votre boite mail.'
+    return "Votre email n'est pas encore confirmé. Vérifiez votre boîte mail."
   }
 
   if (normalized.includes('user already registered')) {
-    return 'Cet email est deja utilise. Connectez-vous ou reinitialisez le mot de passe.'
+    return 'Cet email est déjà utilisé. Connectez-vous ou réinitialisez le mot de passe.'
   }
 
   if (normalized.includes('signup is disabled')) {
-    return "L'inscription est temporairement indisponible. Veuillez reessayer plus tard."
+    return "L'inscription est temporairement indisponible. Veuillez réessayer plus tard."
   }
 
   return message
