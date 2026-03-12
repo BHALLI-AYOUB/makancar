@@ -10,14 +10,14 @@ export function ShowroomCardMedia({ images, alt }: { images: string[]; alt: stri
   const [lightboxOpen, setLightboxOpen] = useState(false)
 
   useEffect(() => {
-    if (images.length <= 1 || paused) return
+    if (images.length <= 1 || paused || lightboxOpen) return
 
     const timer = window.setInterval(() => {
       setIndex((current) => (current + 1) % images.length)
     }, 2600)
 
     return () => window.clearInterval(timer)
-  }, [images.length, paused])
+  }, [images.length, paused, lightboxOpen])
 
   useEffect(() => {
     if (!images.length) {

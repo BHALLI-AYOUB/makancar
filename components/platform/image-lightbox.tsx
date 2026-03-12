@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 
 type ImageLightboxProps = {
@@ -26,9 +27,14 @@ export function ImageLightbox({
 }: ImageLightboxProps) {
   const [mounted, setMounted] = useState(open)
   const [visible, setVisible] = useState(false)
+  const [portalReady, setPortalReady] = useState(false)
   const [touchDelta, setTouchDelta] = useState(0)
   const touchStartX = useRef<number | null>(null)
   const closeTimeout = useRef<number | null>(null)
+
+  useEffect(() => {
+    setPortalReady(true)
+  }, [])
 
   useEffect(() => {
     if (open) {
@@ -66,7 +72,7 @@ export function ImageLightbox({
     }
   }, [mounted, onClose, onNext, onPrevious])
 
-  if (!mounted || !images.length) return null
+  if (!mounted || !images.length || !portalReady) return null
 
   const current = images[activeIndex] ?? images[0]
 
@@ -91,7 +97,7 @@ export function ImageLightbox({
     setTouchDelta(0)
   }
 
-  return (
+  return createPortal(
     <div
       className={`fixed inset-0 z-[140] transition duration-200 ${visible ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
       role="dialog"
@@ -214,6 +220,7 @@ export function ImageLightbox({
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
