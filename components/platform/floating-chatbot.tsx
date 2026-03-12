@@ -77,7 +77,7 @@ export function FloatingChatbot() {
 
   return (
     <>
-      <div className="fixed bottom-3 right-3 z-[70] flex flex-col items-end gap-2.5 sm:bottom-5 sm:right-5 lg:bottom-6 lg:right-6">
+      <div className="floating-actions fixed bottom-3 right-3 z-[70] flex flex-col items-end gap-2.5 transition duration-200 sm:bottom-5 sm:right-5 lg:bottom-6 lg:right-6">
         <a
           href={whatsappHref}
           target="_blank"

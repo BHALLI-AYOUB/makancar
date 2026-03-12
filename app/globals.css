@@ -135,6 +135,12 @@
     overflow-x: hidden;
   }
 
+  body[data-lightbox-open='true'] .floating-actions {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+  }
+
   ::-webkit-scrollbar {
     width: 9px;
   }
