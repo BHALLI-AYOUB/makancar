@@ -73,6 +73,7 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
               height={70}
               priority
               className="h-[50px] w-auto object-contain sm:h-[58px] md:h-[66px] lg:h-[70px]"
+              style={{ height: 'auto' }}
             />
           </Link>
 
