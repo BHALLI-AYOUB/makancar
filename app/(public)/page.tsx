@@ -36,10 +36,10 @@ export default async function HomePage() {
           <ShowroomGrid cars={cars} />
         </div>
       </section>
-      <WhyBuySection />
       <FindVehicleTeaser />
       <ReassuranceSection />
       <AboutMakan />
+      <WhyBuySection />
       <StatsSection />
       <TestimonialsSection />
       <SoldVehiclesSection />
@@ -49,3 +49,4 @@ export default async function HomePage() {
     </>
   )
 }
+

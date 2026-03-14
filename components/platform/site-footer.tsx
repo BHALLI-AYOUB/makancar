@@ -14,7 +14,7 @@ export function SiteFooter() {
     <footer className="border-t border-white/10 bg-[#05070c]">
       <div className="section-shell grid gap-8 py-10 sm:py-12 md:grid-cols-3">
         <div>
-          <p className="font-serif text-2xl text-white sm:text-3xl">MAKAN</p>
+          <p className="font-serif text-2xl text-white sm:text-3xl">Makan Luxury Motors</p>
           <p className="mt-3 max-w-sm text-sm leading-7 text-slate-400">{t('common.footer.description')}</p>
         </div>
 
@@ -34,6 +34,7 @@ export function SiteFooter() {
         </div>
 
         <div className="space-y-2 text-sm text-slate-300">
+          <p className="font-serif text-2xl text-white">Makan Luxury Motors</p>
           <p>{business.phone}</p>
           <p>{business.email}</p>
           <p>{business.location}</p>
