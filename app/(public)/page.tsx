@@ -8,6 +8,9 @@ import { ReassuranceSection } from '@/components/platform/reassurance-section'
 import { BrandsSection } from '@/components/platform/brands-section'
 import { MapSection } from '@/components/platform/map-section'
 import { ContactSection } from '@/components/ContactSection'
+import { WhyBuySection } from '@/components/platform/why-buy-section'
+import { FindVehicleTeaser } from '@/components/platform/find-vehicle-teaser'
+import { SoldVehiclesSection } from '@/components/platform/sold-vehicles-section'
 import { getFeaturedShowroomCars, getShowroomCars } from '@/lib/data/showroom-stock'
 import { getMessages } from '@/lib/i18n/dictionaries'
 import { getServerLocale } from '@/lib/i18n/server'
@@ -33,10 +36,13 @@ export default async function HomePage() {
           <ShowroomGrid cars={cars} />
         </div>
       </section>
+      <WhyBuySection />
+      <FindVehicleTeaser />
       <ReassuranceSection />
       <AboutMakan />
       <StatsSection />
       <TestimonialsSection />
+      <SoldVehiclesSection />
       <BrandsSection />
       <MapSection />
       <ContactSection />

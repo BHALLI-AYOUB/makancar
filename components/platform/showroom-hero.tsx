@@ -1,9 +1,10 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import type { ShowroomCar } from '@/types/showroom'
 import { getWhatsAppHref } from '@/lib/data/showroom-stock'
 import { useCurrentLocale, useTranslations } from '@/lib/i18n/client'
+import { withLocalePath } from '@/lib/i18n/config'
 
 export function ShowroomHero({ car }: { car: ShowroomCar }) {
   const locale = useCurrentLocale()
@@ -11,6 +12,7 @@ export function ShowroomHero({ car }: { car: ShowroomCar }) {
   const title = car.heroTitle ?? car.name
   const subtitle = car.heroSubtitle ?? car.subtitle
   const description = car.heroDescription ?? t('home.hero.descriptionFallback')
+  const searchLabel = locale === 'fr' ? 'Trouver mon véhicule' : locale === 'en' ? 'Find my vehicle' : 'اعثر على سيارتي'
 
   return (
     <section className="relative overflow-hidden bg-[#040507]">
@@ -27,12 +29,18 @@ export function ShowroomHero({ car }: { car: ShowroomCar }) {
             <p className="mt-5 max-w-xl text-sm leading-7 text-slate-200 sm:mt-6 sm:text-base sm:leading-8 lg:text-lg">
               {description}
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center lg:justify-start">
+            <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
               <Link
-                href={`/${locale}/vente`}
+                href={withLocalePath('/vente', locale)}
                 className="inline-flex items-center justify-center rounded-full border border-white bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-[#ececec] sm:px-6"
               >
                 {t('common.actions.viewStock')}
+              </Link>
+              <Link
+                href={withLocalePath('/recherche-personnalisee', locale)}
+                className="inline-flex items-center justify-center rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/8 sm:px-6"
+              >
+                {searchLabel}
               </Link>
               <a
                 href={getWhatsAppHref(car.whatsapp, car.name)}
