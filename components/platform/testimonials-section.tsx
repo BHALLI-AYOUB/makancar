@@ -37,16 +37,16 @@ const testimonialsByLocale = {
   ],
 } as const
 
-const avatars = [
-  'https://i.pravatar.cc/160?img=12',
-  'https://i.pravatar.cc/160?img=14',
-  'https://i.pravatar.cc/160?img=32',
-  'https://i.pravatar.cc/160?img=19',
-  'https://i.pravatar.cc/160?img=17',
-  'https://i.pravatar.cc/160?img=44',
-  'https://i.pravatar.cc/160?img=22',
-  'https://i.pravatar.cc/160?img=48',
-]
+const avatarsByName: Record<string, string> = {
+  'Yassine B.': 'https://randomuser.me/api/portraits/men/32.jpg',
+  'Mehdi A.': 'https://randomuser.me/api/portraits/men/45.jpg',
+  'Sara L.': 'https://randomuser.me/api/portraits/women/44.jpg',
+  'Imad K.': 'https://randomuser.me/api/portraits/men/41.jpg',
+  'Hamza R.': 'https://randomuser.me/api/portraits/men/53.jpg',
+  'Salma E.': 'https://randomuser.me/api/portraits/women/52.jpg',
+  'Anas M.': 'https://randomuser.me/api/portraits/men/36.jpg',
+  'Lina T.': 'https://randomuser.me/api/portraits/women/63.jpg',
+}
 
 export function TestimonialsSection() {
   const locale = useCurrentLocale()
@@ -89,7 +89,7 @@ export function TestimonialsSection() {
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <span className="relative inline-flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#c9a96d]/30 bg-[#0a0d14] shadow-[0_0_0_4px_rgba(227,197,142,0.06)] sm:h-14 sm:w-14">
-                    <img src={avatars[index]} alt={name} className="h-full w-full object-cover" />
+                    <img src={avatarsByName[name] ?? '/placeholder-user.jpg'} alt={name} className="h-full w-full object-cover" />
                   </span>
                   <div>
                     <p className="font-serif text-xl text-white sm:text-2xl">{name}</p>

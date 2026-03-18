@@ -18,9 +18,6 @@ export function ShowroomCard({ car }: { car: ShowroomCar }) {
     <article className="group overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] shadow-[0_28px_110px_-60px_rgba(0,0,0,0.95)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-[#c9a96d]/35 sm:rounded-[32px]">
       <div className="relative overflow-hidden">
         <ShowroomCardMedia images={car.gallery} alt={car.name} />
-        <span className="absolute left-3 top-3 rounded-full border border-[#c9a96d]/35 bg-[#0a0d14]/85 px-2.5 py-1 text-[10px] uppercase tracking-[0.24em] text-[#e3c58e] sm:left-5 sm:top-5 sm:px-3 sm:text-xs sm:tracking-[0.28em]">
-          {t('common.labels.stockReal')}
-        </span>
       </div>
 
       <div className="space-y-4 p-4 sm:space-y-5 sm:p-6">

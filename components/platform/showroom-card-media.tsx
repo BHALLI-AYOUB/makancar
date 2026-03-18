@@ -41,24 +41,28 @@ export function ShowroomCardMedia({ images, alt }: { images: string[]; alt: stri
         aria-label={`Ouvrir l'image de ${alt} en grand`}
       >
         <div className="relative aspect-[5/3] min-h-[270px] overflow-hidden bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_52%),linear-gradient(180deg,#131821_0%,#090c12_100%)] sm:min-h-[300px]">
-      {images.map((image, imageIndex) => (
-        <img
-          key={image}
-          src={image}
-          alt={`${alt} ${imageIndex + 1}`}
-          className={`absolute inset-0 h-full w-full object-contain object-center px-3 py-4 transition-opacity duration-700 sm:px-4 sm:py-5 ${imageIndex === index ? 'opacity-100' : 'opacity-0'}`}
-        />
-      ))}
-      {!images.length ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-[linear-gradient(180deg,#0a0d14_0%,#05070c_100%)] px-6 text-center">
-          <div>
-            <p className="text-xs uppercase tracking-[0.34em] text-[#e3c58e]">Disponible très bientôt</p>
-            <p className="mt-4 font-serif text-3xl text-white sm:text-4xl">{alt}</p>
-            <p className="mt-3 text-sm leading-7 text-slate-300">Présentation premium et informations sur demande.</p>
-          </div>
-        </div>
-      ) : null}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,5,7,0.08)_0%,rgba(4,5,7,0)_44%,rgba(4,5,7,0.58)_100%)]" />
+          {images.map((image, imageIndex) => (
+            <div
+              key={image}
+              className={`absolute inset-0 flex items-center justify-center px-3 py-4 transition-opacity duration-700 sm:px-4 sm:py-5 ${imageIndex === index ? 'opacity-100' : 'opacity-0'}`}
+            >
+              <img
+                src={image}
+                alt={`${alt} ${imageIndex + 1}`}
+                className="block max-h-full w-auto max-w-full object-contain object-center"
+              />
+            </div>
+          ))}
+          {!images.length ? (
+            <div className="absolute inset-0 flex items-center justify-center bg-[linear-gradient(180deg,#0a0d14_0%,#05070c_100%)] px-6 text-center">
+              <div>
+                <p className="text-xs uppercase tracking-[0.34em] text-[#e3c58e]">Disponible tres bientot</p>
+                <p className="mt-4 font-serif text-3xl text-white sm:text-4xl">{alt}</p>
+                <p className="mt-3 text-sm leading-7 text-slate-300">Presentation premium et informations sur demande.</p>
+              </div>
+            </div>
+          ) : null}
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,5,7,0.08)_0%,rgba(4,5,7,0)_44%,rgba(4,5,7,0.58)_100%)]" />
           {images.length ? (
             <span className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-full border border-white/12 bg-black/35 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-white opacity-0 transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 sm:bottom-4 sm:right-4">
               <Search size={14} />
