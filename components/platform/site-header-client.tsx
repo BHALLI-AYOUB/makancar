@@ -156,13 +156,13 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
             className="mx-auto flex items-center justify-center md:justify-self-center"
             onClick={closeMenu}
           >
-            <span className="relative block h-[70px] w-[188px] overflow-hidden sm:h-[82px] sm:w-[220px] md:h-[92px] md:w-[248px] lg:h-[98px] lg:w-[264px]">
+            <span className="relative block h-[74px] w-[196px] sm:h-[86px] sm:w-[228px] md:h-[98px] md:w-[260px] lg:h-[104px] lg:w-[278px]">
               <Image
                 src="/logo.png"
                 alt="Makan Luxury Motors"
                 fill
                 priority
-                className="object-cover object-center scale-[1.18]"
+                className="object-contain object-center"
               />
             </span>
           </Link>

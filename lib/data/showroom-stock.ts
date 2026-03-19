@@ -170,7 +170,7 @@ export const showroomCars: ShowroomCar[] = [
     model: 'Classe A200',
     version: 'Pack AMG / Full Options',
     subtitle: 'Pack AMG / Full Options',
-    price: 'Prix sur demande',
+    price: '375.000 DH',
     whatsapp: WHATSAPP,
     gallery: ['/CLA1.png', '/CLA2.png', '/CLA3.png', '/CLA4.png', '/CLA5.png', '/CLA6.png', '/CLA7.png', '/CLA8.png', '/CLA9.png'],
     badges: ['Disponible très bientôt', 'Full Options', 'Pack AMG'],
