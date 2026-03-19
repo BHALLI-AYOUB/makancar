@@ -62,14 +62,15 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
             className="relative z-10 flex items-center justify-center"
             onClick={closeMenu}
           >
-            <Image
-              src="/logo.png"
-              alt="Makan Luxury Motors"
-              width={420}
-              height={180}
-              priority
-              className="h-[92px] w-auto object-contain"
-            />
+            <span className="relative block h-[118px] w-[250px] overflow-hidden">
+              <Image
+                src="/logo.png"
+                alt="Makan Luxury Motors"
+                fill
+                priority
+                className="object-cover object-center scale-[1.22]"
+              />
+            </span>
           </Link>
 
           <button
@@ -155,14 +156,15 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
             className="mx-auto flex items-center justify-center md:justify-self-center"
             onClick={closeMenu}
           >
-            <Image
-              src="/logo.png"
-              alt="Makan Luxury Motors"
-              width={280}
-              height={70}
-              priority
-              className="h-[50px] w-auto object-contain sm:h-[58px] md:h-[66px] lg:h-[70px]"
-            />
+            <span className="relative block h-[70px] w-[188px] overflow-hidden sm:h-[82px] sm:w-[220px] md:h-[92px] md:w-[248px] lg:h-[98px] lg:w-[264px]">
+              <Image
+                src="/logo.png"
+                alt="Makan Luxury Motors"
+                fill
+                priority
+                className="object-cover object-center scale-[1.18]"
+              />
+            </span>
           </Link>
 
           <div className="hidden items-center gap-1 sm:gap-1.5 md:flex md:min-w-0 md:flex-wrap md:justify-end">

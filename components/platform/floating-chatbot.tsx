@@ -13,7 +13,7 @@ const initialMessages = [
   },
 ]
 
-const assistantAvatar = '/makan-assistant-avatar.svg'
+const assistantAvatar = 'https://randomuser.me/api/portraits/women/68.jpg'
 const whatsappHref =
   'https://wa.me/212641389898?text=Bonjour%2C%20je%20souhaite%20avoir%20plus%20d%E2%80%99informations%20sur%20vos%20v%C3%A9hicules%20disponibles.'
 

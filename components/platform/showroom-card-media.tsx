@@ -8,6 +8,7 @@ export function ShowroomCardMedia({ images, alt }: { images: string[]; alt: stri
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [ratios, setRatios] = useState<Record<string, number>>({})
 
   useEffect(() => {
     if (images.length <= 1 || paused || lightboxOpen) return
@@ -28,6 +29,34 @@ export function ShowroomCardMedia({ images, alt }: { images: string[]; alt: stri
     setIndex((current) => (current >= images.length ? 0 : current))
   }, [images])
 
+  useEffect(() => {
+    let active = true
+
+    images.forEach((image) => {
+      if (ratios[image]) return
+
+      const preview = new window.Image()
+      preview.src = image
+      preview.onload = () => {
+        if (!active || !preview.naturalWidth || !preview.naturalHeight) return
+        setRatios((current) => {
+          if (current[image]) return current
+          return {
+            ...current,
+            [image]: preview.naturalWidth / preview.naturalHeight,
+          }
+        })
+      }
+    })
+
+    return () => {
+      active = false
+    }
+  }, [images, ratios])
+
+  const activeRatio = images[index] ? ratios[images[index]] : undefined
+  const mediaAspectRatio = activeRatio && Number.isFinite(activeRatio) ? activeRatio : 5 / 3
+
   return (
     <>
       <button
@@ -40,16 +69,19 @@ export function ShowroomCardMedia({ images, alt }: { images: string[]; alt: stri
         onClick={() => images.length && setLightboxOpen(true)}
         aria-label={`Ouvrir l'image de ${alt} en grand`}
       >
-        <div className="relative aspect-[5/3] min-h-[270px] overflow-hidden bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_52%),linear-gradient(180deg,#131821_0%,#090c12_100%)] sm:min-h-[300px]">
+        <div
+          className="relative min-h-[270px] overflow-hidden bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_52%),linear-gradient(180deg,#131821_0%,#090c12_100%)] sm:min-h-[300px]"
+          style={{ aspectRatio: `${mediaAspectRatio}` }}
+        >
           {images.map((image, imageIndex) => (
             <div
               key={image}
-              className={`absolute inset-0 flex items-center justify-center px-3 py-4 transition-opacity duration-700 sm:px-4 sm:py-5 ${imageIndex === index ? 'opacity-100' : 'opacity-0'}`}
+              className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${imageIndex === index ? 'opacity-100' : 'opacity-0'}`}
             >
               <img
                 src={image}
                 alt={`${alt} ${imageIndex + 1}`}
-                className="block max-h-full w-auto max-w-full object-contain object-center"
+                className="block h-full w-full object-cover object-center"
               />
             </div>
           ))}
