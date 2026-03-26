@@ -18,15 +18,16 @@ export function ShowroomGallery({ images, alt }: { images: string[]; alt: string
           className="group relative block w-full cursor-zoom-in overflow-hidden rounded-[24px] border border-white/10 bg-[#070b12] text-left transition hover:border-[#c9a96d]/35 sm:rounded-[30px]"
           aria-label={`Ouvrir les images de ${alt} en grand`}
         >
+        <div className="relative aspect-[5/3] min-h-[240px] sm:min-h-[360px] lg:min-h-[560px]">
         {current ? (
           <img
             key={current}
             src={current}
             alt={alt}
-            className="h-[240px] w-full object-contain object-center px-3 py-3 transition duration-500 sm:h-[360px] sm:px-4 sm:py-4 lg:h-[560px]"
+            className="h-full w-full object-contain object-center px-3 py-3 transition duration-500"
           />
         ) : (
-          <div className="flex h-[240px] w-full items-center justify-center px-6 text-center sm:h-[360px] lg:h-[560px]">
+          <div className="flex h-full w-full items-center justify-center px-6 text-center">
             <div>
               <p className="text-xs uppercase tracking-[0.34em] text-[#e3c58e]">Véhicule à venir</p>
               <p className="mt-4 font-serif text-3xl text-white sm:text-5xl">{alt}</p>
@@ -42,6 +43,7 @@ export function ShowroomGallery({ images, alt }: { images: string[]; alt: string
               Agrandir
             </span>
           ) : null}
+        </div>
         </button>
 
         <div className="grid grid-cols-3 gap-2 sm:grid-cols-5 sm:gap-3 lg:grid-cols-6">
