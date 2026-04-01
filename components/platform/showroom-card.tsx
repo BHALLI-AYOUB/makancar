@@ -13,11 +13,12 @@ export function ShowroomCard({ car }: { car: ShowroomCar }) {
   const mileage = car.summary.find((item) => item.label.toLowerCase().includes('kilom'))?.value
   const location = car.summary.find((item) => item.label.toLowerCase().includes('local'))?.value
   const status = car.availabilityLabel ?? car.badges[0]
+  const isSold = car.badges.some((badge) => badge.toLowerCase().includes('vendu')) || status.toLowerCase().includes('vendu')
 
   return (
     <article className="group overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] shadow-[0_28px_110px_-60px_rgba(0,0,0,0.95)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-[#c9a96d]/35 sm:rounded-[32px]">
       <div className="relative overflow-hidden">
-        <ShowroomCardMedia images={car.gallery} alt={car.name} />
+        <ShowroomCardMedia images={car.gallery} alt={car.name} sold={isSold} />
       </div>
 
       <div className="space-y-4 p-4 sm:space-y-5 sm:p-6">

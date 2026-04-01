@@ -51,24 +51,25 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#06080d]/92 backdrop-blur-2xl">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#06080d]/92 pt-2 sm:pt-3 backdrop-blur-2xl">
       <div className="section-shell md:hidden" dir="ltr">
-        <div className="relative flex min-h-[144px] items-center justify-center py-5">
+        <div className="relative flex min-h-[9.75rem] items-center justify-center py-6">
           <div className="pointer-events-none absolute inset-x-6 inset-y-2 rounded-[32px] bg-[radial-gradient(circle_at_center,rgba(201,169,109,0.18),rgba(201,169,109,0.05)_38%,transparent_75%)] opacity-90" />
 
           <Link
             href={withLocalePath('/', locale)}
             aria-label="Makan Luxury Motors"
-            className="relative z-10 flex items-center justify-center"
+            className="relative z-10 flex items-center justify-center pt-1"
             onClick={closeMenu}
           >
-            <span className="relative block h-[118px] w-[250px] overflow-hidden">
+            <span className="relative block h-[7.5rem] w-[15.5rem] max-w-full">
               <Image
                 src="/logo.png"
                 alt="Makan Luxury Motors"
                 fill
                 priority
-                className="object-cover object-center scale-[1.22]"
+                className="object-contain object-center"
+                sizes="248px"
               />
             </span>
           </Link>
@@ -143,7 +144,7 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
       </div>
 
       <div className="section-shell hidden md:block" dir="ltr">
-        <div className="md:grid md:min-h-[110px] md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:items-center md:gap-6 md:py-4">
+        <div className="md:grid md:min-h-[7.5rem] md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:items-center md:gap-6 md:py-5">
           <div className="hidden items-center gap-1 sm:gap-1.5 md:flex md:min-w-0 md:justify-start">
             {primaryLinks.slice(0, 2).map((link) => (
               <NavLink key={link.href} href={link.href} label={link.label} />
@@ -153,16 +154,17 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
           <Link
             href={withLocalePath('/', locale)}
             aria-label="Makan Luxury Motors"
-            className="mx-auto flex items-center justify-center md:justify-self-center"
+            className="mx-auto flex items-center justify-center pt-1 md:justify-self-center"
             onClick={closeMenu}
           >
-            <span className="relative block h-[74px] w-[196px] sm:h-[86px] sm:w-[228px] md:h-[98px] md:w-[260px] lg:h-[104px] lg:w-[278px]">
+            <span className="relative block h-[4.875rem] w-[12.5rem] max-w-full sm:h-[5.5rem] sm:w-[14.5rem] md:h-[6.25rem] md:w-[16.5rem] lg:h-[6.75rem] lg:w-[18rem]">
               <Image
                 src="/logo.png"
                 alt="Makan Luxury Motors"
                 fill
                 priority
                 className="object-contain object-center"
+                sizes="(max-width: 639px) 200px, (max-width: 767px) 232px, (max-width: 1023px) 264px, 288px"
               />
             </span>
           </Link>

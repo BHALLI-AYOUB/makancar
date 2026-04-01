@@ -1,10 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Search } from 'lucide-react'
+import { Search, ShieldCheck } from 'lucide-react'
 import { ImageLightbox } from '@/components/platform/image-lightbox'
 
-export function ShowroomCardMedia({ images, alt }: { images: string[]; alt: string }) {
+export function ShowroomCardMedia({ images, alt, sold = false }: { images: string[]; alt: string; sold?: boolean }) {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const [lightboxOpen, setLightboxOpen] = useState(false)
@@ -40,9 +40,7 @@ export function ShowroomCardMedia({ images, alt }: { images: string[]; alt: stri
         onClick={() => images.length && setLightboxOpen(true)}
         aria-label={`Ouvrir l'image de ${alt} en grand`}
       >
-        <div
-          className="relative aspect-[5/3] min-h-[270px] overflow-hidden bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_52%),linear-gradient(180deg,#131821_0%,#090c12_100%)] sm:min-h-[300px]"
-        >
+        <div className="relative aspect-[5/3] min-h-[270px] overflow-hidden bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_52%),linear-gradient(180deg,#131821_0%,#090c12_100%)] sm:min-h-[300px]">
           {images.map((image, imageIndex) => (
             <div
               key={image}
@@ -55,6 +53,24 @@ export function ShowroomCardMedia({ images, alt }: { images: string[]; alt: stri
               />
             </div>
           ))}
+
+          {sold ? (
+            <div className="absolute left-4 top-4 z-20">
+              <div className="relative overflow-hidden rounded-2xl border border-[#ffb4b4]/28 bg-[linear-gradient(135deg,rgba(162,20,20,0.96)_0%,rgba(226,43,43,0.92)_52%,rgba(120,8,8,0.96)_100%)] px-4 py-2.5 shadow-[0_18px_50px_-20px_rgba(185,28,28,0.95)] backdrop-blur-xl">
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0)_48%)]" />
+                <div className="relative flex items-center gap-2">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/12 text-white">
+                    <ShieldCheck size={15} />
+                  </span>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-white/72">Reserve</p>
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white">Vendu</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
           {!images.length ? (
             <div className="absolute inset-0 flex items-center justify-center bg-[linear-gradient(180deg,#0a0d14_0%,#05070c_100%)] px-6 text-center">
               <div>
@@ -64,7 +80,9 @@ export function ShowroomCardMedia({ images, alt }: { images: string[]; alt: stri
               </div>
             </div>
           ) : null}
+
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,5,7,0.08)_0%,rgba(4,5,7,0)_44%,rgba(4,5,7,0.58)_100%)]" />
+
           {images.length ? (
             <span className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-full border border-white/12 bg-black/35 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-white opacity-0 transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 sm:bottom-4 sm:right-4">
               <Search size={14} />
