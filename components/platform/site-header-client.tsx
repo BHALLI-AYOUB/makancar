@@ -53,7 +53,7 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-[#06080d]/92 pt-2 sm:pt-3 backdrop-blur-2xl">
       <div className="section-shell md:hidden" dir="ltr">
-        <div className="relative flex min-h-[9.75rem] items-center justify-center py-6">
+        <div className="relative flex min-h-[8.5rem] items-center justify-center py-4">
           <div className="pointer-events-none absolute inset-x-6 inset-y-2 rounded-[32px] bg-[radial-gradient(circle_at_center,rgba(201,169,109,0.18),rgba(201,169,109,0.05)_38%,transparent_75%)] opacity-90" />
 
           <Link
@@ -62,14 +62,16 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
             className="relative z-10 flex items-center justify-center pt-1"
             onClick={closeMenu}
           >
-            <span className="relative block h-[7.5rem] w-[15.5rem] max-w-full">
+            <span className="relative flex items-center justify-center">
+              <span className="pointer-events-none absolute -inset-6 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,214,133,0.35),transparent_65%)] blur-2xl" />
               <Image
                 src="/logo.png"
                 alt="Makan Luxury Motors"
-                fill
+                width={280}
+                height={64}
                 priority
-                className="object-contain object-center"
-                sizes="248px"
+                className="h-12 w-auto drop-shadow-[0_10px_28px_rgba(227,197,142,0.55)] sm:h-14"
+                sizes="(max-width: 639px) 240px, 260px"
               />
             </span>
           </Link>
@@ -144,7 +146,7 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
       </div>
 
       <div className="section-shell hidden md:block" dir="ltr">
-        <div className="md:grid md:min-h-[7.5rem] md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:items-center md:gap-6 md:py-5">
+        <div className="md:grid md:min-h-[6.5rem] md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:items-center md:gap-6 md:py-4">
           <div className="hidden items-center gap-1 sm:gap-1.5 md:flex md:min-w-0 md:justify-start">
             {primaryLinks.slice(0, 2).map((link) => (
               <NavLink key={link.href} href={link.href} label={link.label} />
@@ -157,19 +159,21 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
             className="mx-auto flex items-center justify-center pt-1 md:justify-self-center"
             onClick={closeMenu}
           >
-            <span className="relative block h-[4.875rem] w-[12.5rem] max-w-full sm:h-[5.5rem] sm:w-[14.5rem] md:h-[6.25rem] md:w-[16.5rem] lg:h-[6.75rem] lg:w-[18rem]">
+            <span className="relative flex items-center justify-center">
+              <span className="pointer-events-none absolute -inset-7 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,214,133,0.35),transparent_70%)] blur-2xl" />
               <Image
                 src="/logo.png"
                 alt="Makan Luxury Motors"
-                fill
+                width={360}
+                height={80}
                 priority
-                className="object-contain object-center"
-                sizes="(max-width: 639px) 200px, (max-width: 767px) 232px, (max-width: 1023px) 264px, 288px"
+                className="h-[3.5rem] w-auto md:h-[3.75rem] lg:h-[4rem] drop-shadow-[0_14px_32px_rgba(227,197,142,0.55)]"
+                sizes="(max-width: 1023px) 300px, 340px"
               />
             </span>
           </Link>
 
-          <div className="hidden items-center gap-1 sm:gap-1.5 md:flex md:min-w-0 md:flex-wrap md:justify-end">
+          <div className="hidden items-center gap-1 sm:gap-2 md:flex md:min-w-0 md:flex-wrap md:justify-end">
             {primaryLinks.slice(2).map((link) => (
               <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
