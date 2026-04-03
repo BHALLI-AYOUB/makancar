@@ -51,10 +51,9 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#06080d]/92 pt-2 sm:pt-3 backdrop-blur-2xl">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#050607]/92 pt-1 sm:pt-2 backdrop-blur-2xl">
       <div className="section-shell md:hidden" dir="ltr">
-        <div className="relative flex min-h-[8.5rem] items-center justify-center py-4">
-          <div className="pointer-events-none absolute inset-x-6 inset-y-2 rounded-[32px] bg-[radial-gradient(circle_at_center,rgba(201,169,109,0.18),rgba(201,169,109,0.05)_38%,transparent_75%)] opacity-90" />
+        <div className="relative flex min-h-[6.25rem] items-center justify-center py-2">
 
           <Link
             href={withLocalePath('/', locale)}
@@ -62,18 +61,15 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
             className="relative z-10 flex items-center justify-center pt-1"
             onClick={closeMenu}
           >
-            <span className="relative flex items-center justify-center">
-              <span className="pointer-events-none absolute -inset-6 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,214,133,0.35),transparent_65%)] blur-2xl" />
-              <Image
-                src="/logo.png"
-                alt="Makan Luxury Motors"
-                width={280}
-                height={64}
-                priority
-                className="h-12 w-auto drop-shadow-[0_10px_28px_rgba(227,197,142,0.55)] sm:h-14"
-                sizes="(max-width: 639px) 240px, 260px"
-              />
-            </span>
+            <Image
+              src="/logo.png"
+              alt="Makan Luxury Motors"
+              width={240}
+              height={56}
+              priority
+              className="h-10 w-auto sm:h-11"
+              sizes="(max-width: 639px) 200px, 220px"
+            />
           </Link>
 
           <button
@@ -81,7 +77,7 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
             onClick={() => setMobileOpen((current) => !current)}
             aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={mobileOpen}
-            className="absolute right-0 top-1/2 z-10 inline-flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full border border-white/14 bg-white/[0.035] text-white shadow-[0_20px_50px_-28px_rgba(0,0,0,0.95)] transition hover:bg-white/10"
+            className="absolute right-0 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/14 bg-white/[0.03] text-white shadow-[0_16px_36px_-20px_rgba(0,0,0,0.9)] transition hover:bg-white/10"
           >
             {mobileOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
@@ -146,7 +142,7 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
       </div>
 
       <div className="section-shell hidden md:block" dir="ltr">
-        <div className="md:grid md:min-h-[6.5rem] md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:items-center md:gap-6 md:py-4">
+        <div className="md:grid md:min-h-[5.5rem] md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:items-center md:gap-6 md:py-3">
           <div className="hidden items-center gap-1 sm:gap-1.5 md:flex md:min-w-0 md:justify-start">
             {primaryLinks.slice(0, 2).map((link) => (
               <NavLink key={link.href} href={link.href} label={link.label} />
@@ -159,18 +155,15 @@ export function SiteHeaderClient({ profile }: SiteHeaderClientProps) {
             className="mx-auto flex items-center justify-center pt-1 md:justify-self-center"
             onClick={closeMenu}
           >
-            <span className="relative flex items-center justify-center">
-              <span className="pointer-events-none absolute -inset-7 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,214,133,0.35),transparent_70%)] blur-2xl" />
-              <Image
-                src="/logo.png"
-                alt="Makan Luxury Motors"
-                width={360}
-                height={80}
-                priority
-                className="h-[3.5rem] w-auto md:h-[3.75rem] lg:h-[4rem] drop-shadow-[0_14px_32px_rgba(227,197,142,0.55)]"
-                sizes="(max-width: 1023px) 300px, 340px"
-              />
-            </span>
+            <Image
+              src="/logo.png"
+              alt="Makan Luxury Motors"
+              width={280}
+              height={64}
+              priority
+              className="h-11 w-auto md:h-12 lg:h-[3.25rem]"
+              sizes="(max-width: 1023px) 240px, 280px"
+            />
           </Link>
 
           <div className="hidden items-center gap-1 sm:gap-2 md:flex md:min-w-0 md:flex-wrap md:justify-end">

@@ -186,8 +186,10 @@ export function ShowroomHero({ car }: { car: ShowroomCar }) {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              objectPosition: 'center 30%',
+              objectPosition: 'center 40%',
               display: 'block',
+              transform: 'scale(1.08)',
+              transformOrigin: 'center',
             }}
           />
         </div>
