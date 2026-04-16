@@ -8,8 +8,6 @@ import { useCurrentLocale, useTranslations } from '@/lib/i18n/client'
 import { withLocalePath } from '@/lib/i18n/config'
 
 const STYLES = `
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
-
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(32px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -57,6 +55,63 @@ const STYLES = `
 
   .sh-dot { animation: pulseGold 2.6s ease-in-out infinite; }
   .sh-scroll-dot { animation: scrollDown 1.8s ease-in-out infinite; }
+  .sh-hero {
+    background:
+      radial-gradient(circle at top, rgba(212,167,67,0.1), transparent 34%),
+      linear-gradient(180deg, #05070b 0%, #09111b 100%);
+  }
+  .sh-content {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: clamp(5.75rem, 10vw, 8rem) clamp(1.5rem, 6vw, 6rem);
+    max-width: 820px;
+  }
+  .sh-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .sh-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 42%;
+    display: block;
+    transform: scale(1.03);
+    transform-origin: center;
+    filter: saturate(0.92);
+  }
+  .sh-subcopy {
+    max-width: 44ch;
+  }
+  .sh-bottom-bar {
+    position: relative;
+    z-index: 10;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    background: rgba(4,5,8,0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0.9rem clamp(1.5rem, 6vw, 6rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .sh-brand-strip {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .sh-scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
 
   .sh-cta-primary {
     display: inline-flex; align-items: center; gap: 8px;
@@ -103,6 +158,44 @@ const STYLES = `
     .sh-stats-row { flex-direction: column !important; }
     .sh-btns { flex-direction: column !important; align-items: stretch !important; }
     .sh-btns a, .sh-btns a { justify-content: center; text-align: center; }
+    .sh-content {
+      max-width: none;
+      align-items: flex-end;
+      padding: 5.75rem 1.1rem 2.5rem !important;
+    }
+    .sh-bg-image {
+      object-position: center center;
+      transform: scale(1);
+    }
+    .sh-mobile-overlay {
+      background:
+        linear-gradient(to top, rgba(4,5,8,0.92) 0%, rgba(4,5,8,0.58) 34%, rgba(4,5,8,0.18) 62%, transparent 100%),
+        linear-gradient(to bottom, rgba(4,5,8,0.75) 0%, rgba(4,5,8,0.18) 28%, transparent 52%) !important;
+    }
+    .sh-mobile-glow {
+      background: radial-gradient(ellipse 62% 56% at 50% 18%, rgba(160,100,20,0.2) 0%, transparent 72%) !important;
+    }
+    .sh-subcopy {
+      max-width: none !important;
+      margin-bottom: 2rem !important;
+      color: rgba(255,255,255,0.68) !important;
+      line-height: 1.72 !important;
+    }
+    .sh-bottom-bar {
+      padding: 0.85rem 1.1rem !important;
+      justify-content: center !important;
+      gap: 0.75rem !important;
+    }
+    .sh-brand-strip {
+      width: 100%;
+      justify-content: center;
+      gap: 0.9rem 1.25rem;
+    }
+    .sh-brand-strip span {
+      font-size: 8px !important;
+      letter-spacing: 0.22em !important;
+    }
+    .sh-scroll-indicator { display: none !important; }
   }
 `
 
@@ -166,37 +259,30 @@ export function ShowroomHero({ car }: { car: ShowroomCar }) {
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
 
       <section
+        className="sh-hero"
         dir={dir}
         style={{
           position: 'relative',
           minHeight: '100svh',
           overflow: 'hidden',
-          fontFamily: "'Montserrat', sans-serif",
+          fontFamily: 'var(--font-ui), sans-serif',
           display: 'flex',
           flexDirection: 'column',
         }}
       >
         {/* ── BACKGROUND IMAGE full bleed ── */}
-        <div className="sh-a1" style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+        <div className="sh-a1 sh-bg">
           <img
+            className="sh-bg-image"
             src="/background.png"
             alt=""
             aria-hidden="true"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              objectPosition: 'center 40%',
-              display: 'block',
-              transform: 'scale(1.08)',
-              transformOrigin: 'center',
-            }}
           />
         </div>
 
         {/* ── OVERLAYS ── */}
         {/* Directional dark gradient — text side gets opaque, photo side stays visible */}
-        <div style={{
+        <div className="sh-mobile-overlay" style={{
           position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
           background: isArabic
             ? `
@@ -212,7 +298,7 @@ export function ShowroomHero({ car }: { car: ShowroomCar }) {
         }} />
 
         {/* Warm gold glow behind text area */}
-        <div style={{
+        <div className="sh-mobile-glow" style={{
           position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
           background: isArabic
             ? 'radial-gradient(ellipse 45% 65% at 92% 55%, rgba(160,100,20,0.15) 0%, transparent 65%)'
@@ -220,14 +306,8 @@ export function ShowroomHero({ car }: { car: ShowroomCar }) {
         }} />
 
         {/* ── MAIN CONTENT ── */}
-        <div style={{
-          position: 'relative', zIndex: 10,
-          flex: 1,
-          display: 'flex',
-          alignItems: 'center',
-          padding: 'clamp(6rem, 10vw, 8rem) clamp(1.5rem, 6vw, 6rem)',
+        <div className="sh-content" style={{
           /* Limit text column to left (or right for RTL) ~55% of screen */
-          maxWidth: '820px',
           marginLeft: isArabic ? 'auto' : 0,
           marginRight: isArabic ? 0 : 'auto',
         }}>
@@ -261,7 +341,7 @@ export function ShowroomHero({ car }: { car: ShowroomCar }) {
 
             {/* Headline */}
             <h1 className="sh-a3" style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: 'var(--font-display), serif',
               fontWeight: 300,
               fontSize: 'clamp(3.4rem, 7.5vw, 7rem)',
               lineHeight: 0.9,
@@ -292,11 +372,10 @@ export function ShowroomHero({ car }: { car: ShowroomCar }) {
             />
 
             {/* Sub-description */}
-            <p className="sh-a4" style={{
+            <p className="sh-a4 sh-subcopy" style={{
               fontSize: 'clamp(0.875rem, 1.4vw, 1rem)',
               lineHeight: 1.9,
               color: 'rgba(255,255,255,0.55)',
-              maxWidth: '44ch',
               marginBottom: '2.5rem',
               textShadow: '0 2px 12px rgba(0,0,0,0.6)',
               marginLeft: isArabic ? 'auto' : 0,
@@ -340,7 +419,7 @@ export function ShowroomHero({ car }: { car: ShowroomCar }) {
               {stats.map((s, i) => (
                 <div key={i} className="sh-stat" style={{ padding: '1.1rem 1.8rem', textAlign: 'center' }}>
                   <p style={{
-                    fontFamily: "'Cormorant Garamond', serif",
+                    fontFamily: 'var(--font-display), serif',
                     fontWeight: 300,
                     fontSize: 'clamp(1.7rem, 2.8vw, 2.1rem)',
                     letterSpacing: '-0.02em',
@@ -363,19 +442,10 @@ export function ShowroomHero({ car }: { car: ShowroomCar }) {
         </div>
 
         {/* ── BOTTOM BAR ── */}
-        <div style={{
-          position: 'relative', zIndex: 10,
-          borderTop: '1px solid rgba(255,255,255,0.07)',
-          background: 'rgba(4,5,8,0.55)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          padding: '0.9rem clamp(1.5rem, 6vw, 6rem)',
-          display: 'flex', alignItems: 'center',
-          justifyContent: 'space-between', gap: '1rem',
-          flexWrap: 'wrap',
+        <div className="sh-bottom-bar" style={{
           flexDirection: isArabic ? 'row-reverse' : 'row',
         }}>
-          <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
+          <div className="sh-brand-strip">
             {['Rolls-Royce', 'Bentley', 'Lamborghini', 'Ferrari', 'Porsche', 'Mercedes-AMG'].map((b, i) => (
               <span key={i} style={{
                 fontSize: '9px', letterSpacing: '0.32em',
@@ -387,7 +457,7 @@ export function ShowroomHero({ car }: { car: ShowroomCar }) {
           </div>
 
           {/* Scroll indicator */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+          <div className="sh-scroll-indicator">
             <div style={{
               width: 1, height: 28,
               background: 'rgba(255,255,255,0.15)',
