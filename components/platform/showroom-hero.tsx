@@ -1,482 +1,67 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
-import { ArrowRight, MessageCircle } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowDown, ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, MapPin, ShieldCheck } from 'lucide-react'
 import type { ShowroomCar } from '@/types/showroom'
-import { getWhatsAppHref } from '@/lib/data/showroom-stock'
-import { useCurrentLocale, useTranslations } from '@/lib/i18n/client'
+import { useCurrentLocale } from '@/lib/i18n/client'
 import { withLocalePath } from '@/lib/i18n/config'
+import { ShowroomImage } from '@/components/platform/showroom-image'
 
-const STYLES = `
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(32px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  @keyframes revealWidth {
-    from { width: 0; }
-    to   { width: 56px; }
-  }
-  @keyframes pulseGold {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(212,167,67,0.6); }
-    50%       { opacity: 0.8; box-shadow: 0 0 0 8px rgba(212,167,67,0); }
-  }
-  @keyframes scrollDown {
-    0%   { opacity: 0; transform: translateY(-4px); }
-    50%  { opacity: 1; }
-    100% { opacity: 0; transform: translateY(8px); }
-  }
+const copy = {
+  fr: { place: 'Oujda, Maroc', eyebrow: 'L’exigence a une adresse', title: 'L’automobile,', second: 'une autre', accent: 'dimension.', text: 'Des lignes qui séduisent. Des détails qui font la différence. Découvrez une sélection automobile à la hauteur de vos envies.', stock: 'Explorer la collection', contact: 'Parlons de votre projet', trust: 'Une sélection soignée. Un accompagnement personnel.', selection: 'La sélection Makan', details: 'Découvrir ce véhicule', previous: 'Véhicule précédent', next: 'Véhicule suivant', scroll: 'Laissez-vous inspirer', signature: 'Le sens du détail. La passion de l’automobile.', illustrative: 'Visuel d’illustration' },
+  en: { place: 'Oujda, Morocco', eyebrow: 'A destination for distinction', title: 'Automotive', second: 'excellence,', accent: 'reimagined.', text: 'Lines that captivate. Details that make a difference. Discover a considered collection of cars that match your ambitions.', stock: 'Explore the collection', contact: 'Let’s discuss your project', trust: 'Carefully selected. Personally accompanied.', selection: 'The Makan selection', details: 'Discover this vehicle', previous: 'Previous vehicle', next: 'Next vehicle', scroll: 'Find your inspiration', signature: 'An eye for detail. A passion for cars.', illustrative: 'Illustrative image' },
+  ar: { place: 'وجدة، المغرب', eyebrow: 'للتميّز عنوان', title: 'عالم السيارات،', second: 'بُعد آخر', accent: 'للتميّز.', text: 'تصاميم تلفت الأنظار وتفاصيل تصنع الفارق. اكتشف مجموعة مختارة بعناية من السيارات التي تليق بتطلعاتك.', stock: 'اكتشف المجموعة', contact: 'لنتحدث عن مشروعك', trust: 'اختيار بعناية. ومرافقة شخصية.', selection: 'اختيارات مكان', details: 'اكتشف هذه السيارة', previous: 'السيارة السابقة', next: 'السيارة التالية', scroll: 'اكتشف ما يلهمك', signature: 'اهتمام بالتفاصيل. وشغف بالسيارات.', illustrative: 'صورة توضيحية' },
+}
 
-  .sh-a1 { animation: fadeIn  1.2s ease 0s both; }
-  .sh-a2 { animation: fadeUp  1s cubic-bezier(.22,.68,0,1.1) 0.3s both; }
-  .sh-a3 { animation: fadeUp  1s cubic-bezier(.22,.68,0,1.1) 0.5s both; }
-  .sh-a4 { animation: fadeUp  1s cubic-bezier(.22,.68,0,1.1) 0.65s both; }
-  .sh-a5 { animation: fadeUp  1s cubic-bezier(.22,.68,0,1.1) 0.8s both; }
-  .sh-a6 { animation: fadeUp  1s cubic-bezier(.22,.68,0,1.1) 0.95s both; }
-
-  .sh-divider {
-    display: block;
-    height: 1px;
-    width: 0;
-    background: linear-gradient(90deg, #d4a743, rgba(212,167,67,0));
-    animation: revealWidth 1s cubic-bezier(.77,0,.18,1) 0.7s both;
-  }
-  .sh-divider-rtl {
-    display: block;
-    height: 1px;
-    width: 0;
-    background: linear-gradient(270deg, #d4a743, rgba(212,167,67,0));
-    animation: revealWidth 1s cubic-bezier(.77,0,.18,1) 0.7s both;
-    margin-left: auto;
-  }
-
-  .sh-dot { animation: pulseGold 2.6s ease-in-out infinite; }
-  .sh-scroll-dot { animation: scrollDown 1.8s ease-in-out infinite; }
-  .sh-hero {
-    background:
-      radial-gradient(circle at top, rgba(212,167,67,0.1), transparent 34%),
-      linear-gradient(180deg, #05070b 0%, #09111b 100%);
-  }
-  .sh-content {
-    position: relative;
-    z-index: 10;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding: clamp(5.75rem, 10vw, 8rem) clamp(1.5rem, 6vw, 6rem);
-    max-width: 820px;
-  }
-  .sh-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-  .sh-bg-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 42%;
-    display: block;
-    transform: scale(1.03);
-    transform-origin: center;
-    filter: saturate(0.92);
-  }
-  .sh-subcopy {
-    max-width: 44ch;
-  }
-  .sh-bottom-bar {
-    position: relative;
-    z-index: 10;
-    border-top: 1px solid rgba(255,255,255,0.07);
-    background: rgba(4,5,8,0.55);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 0.9rem clamp(1.5rem, 6vw, 6rem);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .sh-brand-strip {
-    display: flex;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-  }
-  .sh-scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .sh-cta-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    border-radius: 999px; padding: 0.9rem 2rem;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
-    text-transform: uppercase; color: #0e0c07; text-decoration: none;
-    background: linear-gradient(135deg, #f5deb0 0%, #c99747 100%);
-    box-shadow: 0 20px 60px -20px rgba(201,151,71,0.6), 0 0 0 1px rgba(255,220,150,0.3) inset;
-    transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
-    white-space: nowrap; border: none;
-  }
-  .sh-cta-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 28px 70px -18px rgba(201,151,71,0.75), 0 0 0 1px rgba(255,220,150,0.3) inset;
-    filter: brightness(1.06);
-  }
-  .sh-cta-ghost {
-    display: inline-flex; align-items: center; justify-content: center;
-    border-radius: 999px; padding: 0.9rem 2rem;
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: rgba(255,255,255,0.88); text-decoration: none;
-    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.22);
-    backdrop-filter: blur(8px); transition: all 0.22s ease; white-space: nowrap;
-  }
-  .sh-cta-ghost:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); }
-
-  .sh-cta-wa {
-    display: inline-flex; align-items: center; gap: 8px;
-    border-radius: 999px; padding: 0.9rem 2rem;
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: rgba(180,240,200,0.9); text-decoration: none;
-    background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.28);
-    backdrop-filter: blur(8px); transition: all 0.22s ease; white-space: nowrap;
-  }
-  .sh-cta-wa:hover {
-    background: rgba(37,211,102,0.15); border-color: rgba(37,211,102,0.5);
-    transform: translateY(-2px);
-  }
-
-  .sh-stat:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.1); }
-
-  @media (max-width: 640px) {
-    .sh-stat:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .sh-stats-row { flex-direction: column !important; }
-    .sh-btns { flex-direction: column !important; align-items: stretch !important; }
-    .sh-btns a, .sh-btns a { justify-content: center; text-align: center; }
-    .sh-content {
-      max-width: none;
-      align-items: flex-end;
-      padding: 5.75rem 1.1rem 2.5rem !important;
-    }
-    .sh-bg-image {
-      object-position: center center;
-      transform: scale(1);
-    }
-    .sh-mobile-overlay {
-      background:
-        linear-gradient(to top, rgba(4,5,8,0.92) 0%, rgba(4,5,8,0.58) 34%, rgba(4,5,8,0.18) 62%, transparent 100%),
-        linear-gradient(to bottom, rgba(4,5,8,0.75) 0%, rgba(4,5,8,0.18) 28%, transparent 52%) !important;
-    }
-    .sh-mobile-glow {
-      background: radial-gradient(ellipse 62% 56% at 50% 18%, rgba(160,100,20,0.2) 0%, transparent 72%) !important;
-    }
-    .sh-subcopy {
-      max-width: none !important;
-      margin-bottom: 2rem !important;
-      color: rgba(255,255,255,0.68) !important;
-      line-height: 1.72 !important;
-    }
-    .sh-bottom-bar {
-      padding: 0.85rem 1.1rem !important;
-      justify-content: center !important;
-      gap: 0.75rem !important;
-    }
-    .sh-brand-strip {
-      width: 100%;
-      justify-content: center;
-      gap: 0.9rem 1.25rem;
-    }
-    .sh-brand-strip span {
-      font-size: 8px !important;
-      letter-spacing: 0.22em !important;
-    }
-    .sh-scroll-indicator { display: none !important; }
-  }
-`
-
-export function ShowroomHero({ car }: { car: ShowroomCar }) {
+export function ShowroomHero({ cars }: { cars: ShowroomCar[] }) {
   const locale = useCurrentLocale()
-  const t = useTranslations()
-  const isArabic = locale === 'ar'
-  const dir = isArabic ? 'rtl' : 'ltr'
-
-  const agencyName = 'MAKAN LUXURY MOTORS'
-
-  const eyebrow =
-    locale === 'fr' ? 'Showroom Signature — Marrakech'
-    : locale === 'en' ? 'Signature Showroom — Marrakech'
-    : 'معرض مميز — مراكش'
-
-  const line1 =
-    locale === 'fr' ? 'L\'excellence'
-    : locale === 'en' ? 'Excellence'
-    : 'التميّز'
-
-  const line2 =
-    locale === 'fr' ? 'automobile'
-    : locale === 'en' ? 'in motion'
-    : 'في كل تفصيل'
-
-  const line3 =
-    locale === 'fr' ? 'redéfinie.'
-    : locale === 'en' ? 'redefined.'
-    : 'معاد تعريفه.'
-
-  const sub =
-    locale === 'fr'
-      ? 'Chaque véhicule, une déclaration d\'élégance. Découvrez notre collection de prestige, soigneusement sélectionnée pour les connaisseurs.'
-      : locale === 'en'
-        ? 'Every vehicle, a statement of elegance. Discover our prestige collection, carefully curated for true connoisseurs.'
-        : 'كل سيارة تعبير عن الأناقة. اكتشف مجموعتنا الراقية المختارة بعناية لعشاق الفخامة الحقيقية.'
-
-  const searchLabel =
-    locale === 'fr' ? 'Recherche personnalisée'
-    : locale === 'en' ? 'Custom sourcing'
-    : 'بحث مخصص'
-
-  const stats = [
-    {
-      num: '200+',
-      label: locale === 'fr' ? 'Véhicules' : locale === 'en' ? 'Vehicles' : 'سيارة',
-    },
-    {
-      num: '12+',
-      label: locale === 'fr' ? 'Marques' : locale === 'en' ? 'Brands' : 'علامة',
-    },
-    {
-      num: '5★',
-      label: locale === 'fr' ? 'Satisfaction' : locale === 'en' ? 'Satisfaction' : 'رضا',
-    },
-  ]
+  const c = copy[locale]
+  const [active, setActive] = useState(0)
+  const car = cars[active] ?? cars[0]
+  if (!car) return null
 
   return (
-    <>
-      <style dangerouslySetInnerHTML={{ __html: STYLES }} />
-
-      <section
-        className="sh-hero"
-        dir={dir}
-        style={{
-          position: 'relative',
-          minHeight: '100svh',
-          overflow: 'hidden',
-          fontFamily: 'var(--font-ui), sans-serif',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
-        {/* ── BACKGROUND IMAGE full bleed ── */}
-        <div className="sh-a1 sh-bg">
-          <img
-            className="sh-bg-image"
-            src="/background.png"
-            alt=""
-            aria-hidden="true"
-          />
+    <section className="makan-hero" aria-labelledby="hero-title">
+      <div className="hero-layout">
+        <div className="hero-copy">
+          <div className="hero-eyebrow hero-enter"><span className="gold-line" />{c.eyebrow}</div>
+          <h1 id="hero-title" className="hero-title hero-enter" style={{ animationDelay: '90ms' }}>
+            <span>{c.title}</span><span>{c.second}</span><em>{c.accent}</em>
+          </h1>
+          <p className="hero-description hero-enter" style={{ animationDelay: '180ms' }}>{c.text}</p>
+          <div className="hero-actions hero-enter" style={{ animationDelay: '270ms' }}>
+            <a href="#collection" className="makan-button makan-button-gold">{c.stock}<ArrowUpRight size={18} /></a>
+            <a href="#contact" className="makan-text-link">{c.contact}<ArrowRight size={16} /></a>
+          </div>
+          <div className="hero-assurance hero-enter" style={{ animationDelay: '360ms' }}><ShieldCheck size={19} /><span>{c.trust}</span></div>
+          <a href="#collection" className="hero-scroll"><span><ArrowDown size={16} /></span>{c.scroll}</a>
         </div>
 
-        {/* ── OVERLAYS ── */}
-        {/* Directional dark gradient — text side gets opaque, photo side stays visible */}
-        <div className="sh-mobile-overlay" style={{
-          position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
-          background: isArabic
-            ? `
-              linear-gradient(to left,  rgba(4,5,8,0.94) 0%, rgba(4,5,8,0.75) 38%, rgba(4,5,8,0.15) 65%, transparent 100%),
-              linear-gradient(to top,   rgba(4,5,8,0.8)  0%, rgba(4,5,8,0.2)  45%, transparent 70%),
-              linear-gradient(to bottom,rgba(4,5,8,0.5)  0%, transparent 22%)
-            `
-            : `
-              linear-gradient(to right, rgba(4,5,8,0.94) 0%, rgba(4,5,8,0.75) 38%, rgba(4,5,8,0.15) 65%, transparent 100%),
-              linear-gradient(to top,   rgba(4,5,8,0.8)  0%, rgba(4,5,8,0.2)  45%, transparent 70%),
-              linear-gradient(to bottom,rgba(4,5,8,0.5)  0%, transparent 22%)
-            `,
-        }} />
-
-        {/* Warm gold glow behind text area */}
-        <div className="sh-mobile-glow" style={{
-          position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
-          background: isArabic
-            ? 'radial-gradient(ellipse 45% 65% at 92% 55%, rgba(160,100,20,0.15) 0%, transparent 65%)'
-            : 'radial-gradient(ellipse 45% 65% at 8%  55%, rgba(160,100,20,0.15) 0%, transparent 65%)',
-        }} />
-
-        {/* ── MAIN CONTENT ── */}
-        <div className="sh-content" style={{
-          /* Limit text column to left (or right for RTL) ~55% of screen */
-          marginLeft: isArabic ? 'auto' : 0,
-          marginRight: isArabic ? 0 : 'auto',
-        }}>
-          <div style={{ textAlign: isArabic ? 'right' : 'left', width: '100%' }}>
-
-            {/* Eyebrow */}
-            <div className="sh-a2" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '10px',
-              flexDirection: isArabic ? 'row-reverse' : 'row',
-              marginBottom: '1.75rem',
-            }}>
-              <span className="sh-dot" style={{
-                display: 'inline-block', width: 7, height: 7,
-                borderRadius: '50%', background: '#d4a743', flexShrink: 0,
-              }} />
-              <span style={{
-                fontSize: '10px', letterSpacing: '0.38em',
-                textTransform: 'uppercase', color: 'rgba(212,167,67,0.85)', fontWeight: 500,
-              }}>
-                {eyebrow}
-              </span>
+        <div className="hero-visual">
+          <div key={car.id} className="hero-photo-wrap">
+            <ShowroomImage src={car.gallery[0]} alt={car.name} className="hero-photo" fetchPriority="high" />
+          </div>
+          <div className="hero-photo-shade" />
+          {car.illustrativeImages && <span className="hero-illustration-label">{c.illustrative}</span>}
+          <div className="hero-visual-top"><span className="hero-selection"><span />{c.selection}</span><span className="hero-location"><MapPin size={13} />{c.place}</span></div>
+          <div className="hero-visual-bottom">
+            <div key={car.id} className="hero-car-info" aria-live="polite" aria-atomic="true">
+              <p className="hero-car-brand">{car.brand} <span> / </span> {car.summary[0]?.value}</p>
+              <Link href={withLocalePath(`/cars/${car.id}`, locale)} className="hero-car-link"><h2>{car.model} <span>{car.version}</span></h2><ArrowUpRight size={26} /></Link>
+              <div className="hero-car-footer"><p>{car.price}</p><Link href={withLocalePath(`/cars/${car.id}`, locale)}>{c.details}<ArrowRight size={14} /></Link></div>
             </div>
-
-            {/* Agency micro-label */}
-            <p className="sh-a2" style={{
-              fontSize: '10px', letterSpacing: '0.5em', textTransform: 'uppercase',
-              color: 'rgba(241,210,154,0.35)', marginBottom: '1rem', fontWeight: 400,
-            }}>
-              {agencyName}
-            </p>
-
-            {/* Headline */}
-            <h1 className="sh-a3" style={{
-              fontFamily: 'var(--font-display), serif',
-              fontWeight: 300,
-              fontSize: 'clamp(3.4rem, 7.5vw, 7rem)',
-              lineHeight: 0.9,
-              letterSpacing: '-0.03em',
-              color: '#ffffff',
-              margin: 0,
-              textShadow: '0 8px 48px rgba(0,0,0,0.5)',
-            }}>
-              {line1}
-              <br />
-              <span style={{ color: 'rgba(255,255,255,0.82)' }}>{line2}</span>
-              <br />
-              <em style={{
-                fontStyle: 'italic', fontWeight: 300,
-                background: 'linear-gradient(135deg, #f5deb0 0%, #c99747 55%, #f5deb0 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>
-                {line3}
-              </em>
-            </h1>
-
-            {/* Gold rule */}
-            <span
-              className={isArabic ? 'sh-divider-rtl' : 'sh-divider'}
-              style={{ display: 'block', margin: '2rem 0' }}
-            />
-
-            {/* Sub-description */}
-            <p className="sh-a4 sh-subcopy" style={{
-              fontSize: 'clamp(0.875rem, 1.4vw, 1rem)',
-              lineHeight: 1.9,
-              color: 'rgba(255,255,255,0.55)',
-              marginBottom: '2.5rem',
-              textShadow: '0 2px 12px rgba(0,0,0,0.6)',
-              marginLeft: isArabic ? 'auto' : 0,
-            }}>
-              {sub}
-            </p>
-
-            {/* CTA buttons */}
-            <div className="sh-a5 sh-btns" style={{
-              display: 'flex', flexWrap: 'wrap', gap: '0.75rem',
-              justifyContent: isArabic ? 'flex-end' : 'flex-start',
-              marginBottom: '3.5rem',
-            }}>
-              <Link href={withLocalePath('/vente', locale)} className="sh-cta-primary">
-                {t('common.actions.viewStock')}
-                <ArrowRight size={13} />
-              </Link>
-              <Link href={withLocalePath('/recherche-personnalisee', locale)} className="sh-cta-ghost">
-                {searchLabel}
-              </Link>
-              <a
-                href={getWhatsAppHref(car.whatsapp, agencyName)}
-                target="_blank" rel="noopener noreferrer"
-                className="sh-cta-wa"
-              >
-                <MessageCircle size={13} />
-                {t('common.actions.contactWhatsapp')}
-              </a>
-            </div>
-
-            {/* Stats */}
-            <div className="sh-a6 sh-stats-row" style={{
-              display: 'inline-flex',
-              borderRadius: '16px',
-              overflow: 'hidden',
-              border: '1px solid rgba(255,255,255,0.1)',
-              background: 'rgba(4,5,8,0.5)',
-              backdropFilter: 'blur(24px)',
-              WebkitBackdropFilter: 'blur(24px)',
-            }}>
-              {stats.map((s, i) => (
-                <div key={i} className="sh-stat" style={{ padding: '1.1rem 1.8rem', textAlign: 'center' }}>
-                  <p style={{
-                    fontFamily: 'var(--font-display), serif',
-                    fontWeight: 300,
-                    fontSize: 'clamp(1.7rem, 2.8vw, 2.1rem)',
-                    letterSpacing: '-0.02em',
-                    color: '#f5e2bc',
-                    lineHeight: 1, margin: 0,
-                  }}>
-                    {s.num}
-                  </p>
-                  <p style={{
-                    fontSize: '9px', letterSpacing: '0.2em',
-                    textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)',
-                    marginTop: '6px', fontWeight: 400,
-                  }}>
-                    {s.label}
-                  </p>
-                </div>
-              ))}
+            <div className="hero-controls" dir="ltr">
+              <div className="hero-pages" aria-hidden="true"><strong>{String(active + 1).padStart(2, '0')}</strong><span /><span>{String(cars.length).padStart(2, '0')}</span></div>
+              <div className="hero-controls-buttons">
+                <button type="button" aria-label={c.previous} onClick={() => setActive((active - 1 + cars.length) % cars.length)}><ChevronLeft size={19} /></button>
+                <button type="button" aria-label={c.next} onClick={() => setActive((active + 1) % cars.length)}><ChevronRight size={19} /></button>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* ── BOTTOM BAR ── */}
-        <div className="sh-bottom-bar" style={{
-          flexDirection: isArabic ? 'row-reverse' : 'row',
-        }}>
-          <div className="sh-brand-strip">
-            {['Rolls-Royce', 'Bentley', 'Lamborghini', 'Ferrari', 'Porsche', 'Mercedes-AMG'].map((b, i) => (
-              <span key={i} style={{
-                fontSize: '9px', letterSpacing: '0.32em',
-                textTransform: 'uppercase', color: 'rgba(255,255,255,0.22)', fontWeight: 500,
-              }}>
-                {b}
-              </span>
-            ))}
-          </div>
-
-          {/* Scroll indicator */}
-          <div className="sh-scroll-indicator">
-            <div style={{
-              width: 1, height: 28,
-              background: 'rgba(255,255,255,0.15)',
-              position: 'relative', overflow: 'hidden',
-            }}>
-              <div className="sh-scroll-dot" style={{
-                position: 'absolute', top: 0, left: 0, right: 0, height: '40%',
-                background: 'linear-gradient(to bottom, transparent, #d4a743)',
-              }} />
-            </div>
-            <span style={{
-              fontSize: '8px', letterSpacing: '0.28em',
-              textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)',
-            }}>
-              {locale === 'fr' ? 'Défiler' : locale === 'en' ? 'Scroll' : 'تمرير'}
-            </span>
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+      <div className="hero-signature-strip"><p>{c.signature}</p><div aria-label="Marques"><span>VOLKSWAGEN</span><span>MERCEDES-BENZ</span><span>SEAT</span><span>ŠKODA</span></div></div>
+    </section>
   )
 }

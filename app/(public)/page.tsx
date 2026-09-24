@@ -1,52 +1,24 @@
-import { AboutMakan } from '@/components/platform/about-makan'
-import { StatsSection } from '@/components/platform/stats-section'
-import { ShowroomHero } from '@/components/platform/showroom-hero'
-import { ShowroomGrid } from '@/components/platform/showroom-grid'
-import { SectionHeading } from '@/components/platform/section-heading'
-import { TestimonialsSection } from '@/components/platform/testimonials-section'
-import { ReassuranceSection } from '@/components/platform/reassurance-section'
-import { BrandsSection } from '@/components/platform/brands-section'
-import { MapSection } from '@/components/platform/map-section'
+﻿import { ShowroomHero } from '@/components/platform/showroom-hero'
+import { HomeCollection } from '@/components/platform/home-collection'
+import { HomeExperience } from '@/components/platform/home-experience'
+import { HomeReviews } from '@/components/platform/home-reviews'
 import { ContactSection } from '@/components/ContactSection'
-import { WhyBuySection } from '@/components/platform/why-buy-section'
-import { FindVehicleTeaser } from '@/components/platform/find-vehicle-teaser'
-import { SoldVehiclesSection } from '@/components/platform/sold-vehicles-section'
-import { getFeaturedShowroomCars, getShowroomCars } from '@/lib/data/showroom-stock'
-import { getMessages } from '@/lib/i18n/dictionaries'
-import { getServerLocale } from '@/lib/i18n/server'
-import { getLocalizedCar } from '@/lib/showroom-i18n'
+import { getShowroomCars } from '@/lib/data/showroom-stock'
 
-export default async function HomePage() {
-  const locale = await getServerLocale()
-  const messages = getMessages(locale)
-  const cars = getShowroomCars().map((car) => getLocalizedCar(car, locale))
-  const { hero } = getFeaturedShowroomCars()
-  const localizedHero = getLocalizedCar(hero, locale)
+export default function HomePage() {
+  const cars = getShowroomCars()
+  const isSold = (car: (typeof cars)[number]) => car.badges.some(badge => badge.toLowerCase().includes('vendu'))
+  const available = cars.filter(car => !isSold(car))
+  const sold = cars.filter(isSold)
+  const heroCars = [available[0], available.find(car => car.id === 'volkswagen-tiguan-r-line-exclusive-2022'), available.find(car => car.brand === 'Mercedes-Benz')].filter((car): car is (typeof cars)[number] => Boolean(car?.gallery.length))
 
   return (
-    <>
-      <ShowroomHero car={localizedHero} />
-      <section className="section-shell py-16 sm:py-20">
-        <SectionHeading
-          eyebrow={messages.home.stock.eyebrow}
-          title={messages.home.stock.title}
-          description={messages.home.stock.description}
-        />
-        <div className="mt-10">
-          <ShowroomGrid cars={cars} />
-        </div>
-      </section>
-      <FindVehicleTeaser />
-      <ReassuranceSection />
-      <AboutMakan />
-      <WhyBuySection />
-      <StatsSection />
-      <TestimonialsSection />
-      <SoldVehiclesSection />
-      <BrandsSection />
-      <MapSection />
-      <ContactSection />
-    </>
+    <main className="makan-home">
+      <ShowroomHero cars={heroCars} />
+      <HomeCollection cars={available} />
+      <HomeExperience soldCars={sold} />
+      <HomeReviews />
+      <div className="home-contact"><ContactSection /></div>
+    </main>
   )
 }
-

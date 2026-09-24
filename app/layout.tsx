@@ -5,6 +5,7 @@ import { Cormorant_Garamond, Manrope } from 'next/font/google'
 import { FloatingChatbot } from '@/components/platform/floating-chatbot'
 import { getServerDirection, getServerLocale } from '@/lib/i18n/server'
 import './globals.css'
+import './home.css'
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-ui' })
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],

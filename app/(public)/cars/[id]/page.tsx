@@ -13,9 +13,9 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
 
   return (
     <section className="section-shell py-10 sm:py-20">
-      <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-8">
-        <article className="space-y-6 rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:space-y-8 sm:rounded-[32px] sm:p-7">
-          <ShowroomGallery images={car.gallery} alt={car.name} />
+      <div className="grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-8">
+        <article className="min-w-0 space-y-6 rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:space-y-8 sm:rounded-[32px] sm:p-7">
+          <ShowroomGallery images={car.gallery} alt={car.name} illustrative={car.illustrativeImages} />
 
           <div className="space-y-6">
             <div className="flex flex-wrap gap-2">
@@ -74,7 +74,7 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
           </div>
         </article>
 
-        <aside className="space-y-6 rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:rounded-[32px] sm:p-7">
+        <aside className="min-w-0 space-y-6 rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:rounded-[32px] sm:p-7">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-[#e3c58e]">Contact showroom</p>
             <h2 className="mt-3 font-serif text-2xl text-white sm:text-3xl">Demander plus d&apos;informations</h2>

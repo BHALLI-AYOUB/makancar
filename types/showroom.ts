@@ -19,6 +19,7 @@ export interface ShowroomCar {
   price?: string
   whatsapp: string
   gallery: string[]
+  illustrativeImages?: boolean
   badges: string[]
   summary: ShowroomSpec[]
   featureGroups: ShowroomFeatureGroup[]

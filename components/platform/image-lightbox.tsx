@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { ShowroomImage } from '@/components/platform/showroom-image'
 
 type ImageLightboxProps = {
   images: string[]
@@ -143,7 +144,7 @@ export function ImageLightbox({
               style={{ touchAction: 'pan-y pinch-zoom' }}
             >
               <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[22px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_55%),linear-gradient(180deg,#0b0f16_0%,#05070c_100%)] px-2 py-2 sm:rounded-[28px] sm:px-6 sm:py-6">
-                <img
+                <ShowroomImage
                   src={current}
                   alt={`${alt} ${activeIndex + 1}`}
                   className="max-h-full w-full select-none object-contain object-center transition-transform duration-200"
@@ -207,7 +208,7 @@ export function ImageLightbox({
                           : 'border-white/10 hover:border-white/25'
                       }`}
                     >
-                      <img
+                      <ShowroomImage
                         src={image}
                         alt={`${alt} miniature ${index + 1}`}
                         className="h-16 w-24 object-cover sm:h-20 sm:w-28"
