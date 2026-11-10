@@ -1,0 +1,91 @@
+
+> makan-luxury-motors@0.1.0 check
+> npm run catalogue:validate && npm run lint && npm run typecheck && npm test
+
+
+> makan-luxury-motors@0.1.0 catalogue:validate
+> node scripts/validate-content.mjs
+
+Catalogue v1, revision 1: 8 vehicles validated, all photo files present.
+
+> makan-luxury-motors@0.1.0 lint
+> eslint app components hooks lib types proxy.ts --max-warnings 0
+
+
+> makan-luxury-motors@0.1.0 typecheck
+> tsc --noEmit
+
+
+> makan-luxury-motors@0.1.0 test
+> node --test tests/catalogue.test.mjs
+
+TAP version 13
+# Subtest: catalogue validates, with no missing image files
+ok 1 - catalogue validates, with no missing image files
+  ---
+  duration_ms: 24.2006
+  type: 'test'
+  ...
+# Subtest: migration preserves all IDs, slugs, prices, French source fields and exact gallery order
+ok 2 - migration preserves all IDs, slugs, prices, French source fields and exact gallery order
+  ---
+  duration_ms: 2.3827
+  type: 'test'
+  ...
+# Subtest: migration photo checksums match original files
+ok 3 - migration photo checksums match original files
+  ---
+  duration_ms: 74.7265
+  type: 'test'
+  ...
+# Subtest: future versions, duplicate IDs, duplicate slugs and invalid numbers fail
+ok 4 - future versions, duplicate IDs, duplicate slugs and invalid numbers fail
+  ---
+  duration_ms: 26.893
+  type: 'test'
+  ...
+# Subtest: malformed imports report errors instead of crashing
+ok 5 - malformed imports report errors instead of crashing
+  ---
+  duration_ms: 6.0238
+  type: 'test'
+  ...
+# Subtest: hidden and sold are distinct, featured cars must be public and eligible
+ok 6 - hidden and sold are distinct, featured cars must be public and eligible
+  ---
+  duration_ms: 6.0117
+  type: 'test'
+  ...
+# Subtest: price on request and zero mileage are preserved
+ok 7 - price on request and zero mileage are preserved
+  ---
+  duration_ms: 3.0724
+  type: 'test'
+  ...
+# Subtest: paths reject traversal, URLs, executable extensions and duplicate photos
+ok 8 - paths reject traversal, URLs, executable extensions and duplicate photos
+  ---
+  duration_ms: 11.206
+  type: 'test'
+  ...
+# Subtest: ZIP round trip preserves Unicode content and binary image bytes; tampering fails
+ok 9 - ZIP round trip preserves Unicode content and binary image bytes; tampering fails
+  ---
+  duration_ms: 2.7253
+  type: 'test'
+  ...
+# Subtest: apply command checks the base hash, writes valid updates, preserves a backup and rejects stale replay
+ok 10 - apply command checks the base hash, writes valid updates, preserves a backup and rejects stale replay
+  ---
+  duration_ms: 239.9758
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 695.2183

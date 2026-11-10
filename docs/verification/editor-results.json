@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "sampleId": "vehicle-1794305506162",
+  "export": "docs\\verification\\sample-update.zip",
+  "checks": [
+    "add vehicle",
+    "edit price",
+    "FR/EN/AR fields",
+    "live card",
+    "photo upload",
+    "cover reorder",
+    "illustrative marker",
+    "draft reload with image blobs",
+    "sold vs hidden",
+    "featured eligibility",
+    "search and filter",
+    "mobile table cards",
+    "export ZIP",
+    "import ZIP with photos",
+    "restore original stock"
+  ],
+  "pageErrors": []
+}

@@ -34,6 +34,7 @@
   },
   "footer": {
     "description": "Professional vehicle sales and rental platform. Online booking, stock management and full admin area.",
-    "copyright": "All rights reserved."
+    "copyright": "All rights reserved.",
+    "admin": "Admin"
   }
 }

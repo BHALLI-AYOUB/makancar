@@ -1,0 +1,49 @@
+{
+  "mode": "Next.js development; warm compilation, disabled browser cache; 390x844; CPU 4x; 150ms latency; 1.6Mbps down; three samples",
+  "before": {
+    "lcp": 7220,
+    "fcp": 2524,
+    "cls": 0,
+    "ttfb": 565.4000000357628,
+    "transferBytes": 1611055,
+    "jsBytes": 1112586
+  },
+  "after": {
+    "lcp": 2912,
+    "fcp": 2096,
+    "cls": 0,
+    "ttfb": 654.5,
+    "transferBytes": 1089105,
+    "jsBytes": 850151
+  },
+  "samples": [
+    {
+      "lcp": 2912,
+      "cls": 0,
+      "fcp": 2096,
+      "ttfb": 654.5,
+      "transferBytes": 1089105,
+      "jsBytes": 850151,
+      "horizontalOverflow": false
+    },
+    {
+      "lcp": 2792,
+      "cls": 0,
+      "fcp": 2032,
+      "ttfb": 582.2000000476837,
+      "transferBytes": 1089105,
+      "jsBytes": 850151,
+      "horizontalOverflow": false
+    },
+    {
+      "lcp": 5104,
+      "cls": 0,
+      "fcp": 4160,
+      "ttfb": 2916.900000035763,
+      "transferBytes": 1117761,
+      "jsBytes": 850151,
+      "horizontalOverflow": false
+    }
+  ],
+  "note": "Local development comparison under the same browser/network/CPU profile. Not a field Core Web Vitals assessment."
+}

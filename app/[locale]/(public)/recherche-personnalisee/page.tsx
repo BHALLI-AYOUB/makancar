@@ -1,1 +1,1 @@
-﻿export { default } from '@/app/(public)/recherche-personnalisee/page'
+﻿export { default, generateMetadata } from '@/app/(public)/recherche-personnalisee/page'

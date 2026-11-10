@@ -1,0 +1,2661 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "updatedAt": "2026-11-10T09:45:46.641Z",
+  "contact": {
+    "name": "Makan Luxury Motors",
+    "phone": "+212 641-389898",
+    "whatsapp": "212641389898",
+    "email": "Maka.benioukil@gmail.com",
+    "location": {
+      "fr": "Oujda, Maroc",
+      "en": "Oujda, Morocco",
+      "ar": "وجدة، المغرب"
+    },
+    "instagram": "https://instagram.com/makan_luxury_motors",
+    "facebook": "https://facebook.com",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Oujda%2C%20Morocco"
+  },
+  "featuredIds": [
+    "volkswagen-tiguan-elegance-2022",
+    "volkswagen-tiguan-r-line-exclusive-2022",
+    "mercedes-classe-a200-pack-amg-full-options"
+  ],
+  "showroom": {
+    "hero": {
+      "fr": {
+        "place": "Oujda, Maroc",
+        "eyebrow": "L’exigence a une adresse",
+        "title": "Votre prochaine",
+        "second": "belle",
+        "accent": "rencontre.",
+        "text": "Découvrez nos véhicules sélectionnés avec soin. Un stock réel, des informations claires, un accompagnement personnel.",
+        "stock": "Explorer la collection",
+        "contact": "Parlons de votre projet",
+        "trust": "Une sélection soignée. Un accompagnement personnel.",
+        "selection": "La sélection Makan",
+        "details": "Découvrir ce véhicule",
+        "previous": "Véhicule précédent",
+        "next": "Véhicule suivant",
+        "scroll": "Laissez-vous inspirer",
+        "signature": "Le sens du détail. La passion de l’automobile.",
+        "illustrative": "Visuel d’illustration"
+      },
+      "en": {
+        "place": "Oujda, Morocco",
+        "eyebrow": "A destination for distinction",
+        "title": "Your next",
+        "second": "exceptional",
+        "accent": "drive.",
+        "text": "Discover our carefully selected vehicles. Genuine stock, clear details, personal service.",
+        "stock": "Explore the collection",
+        "contact": "Let’s discuss your project",
+        "trust": "Carefully selected. Personally accompanied.",
+        "selection": "The Makan selection",
+        "details": "Discover this vehicle",
+        "previous": "Previous vehicle",
+        "next": "Next vehicle",
+        "scroll": "Find your inspiration",
+        "signature": "An eye for detail. A passion for cars.",
+        "illustrative": "Illustrative image"
+      },
+      "ar": {
+        "place": "وجدة، المغرب",
+        "eyebrow": "للتميّز عنوان",
+        "title": "سيارتك القادمة،",
+        "second": "اختيار",
+        "accent": "استثنائي.",
+        "text": "اكتشف سياراتنا المختارة بعناية. مخزون حقيقي، معلومات واضحة، ومرافقة شخصية.",
+        "stock": "اكتشف المجموعة",
+        "contact": "لنتحدث عن مشروعك",
+        "trust": "اختيار بعناية. ومرافقة شخصية.",
+        "selection": "اختيارات مكان",
+        "details": "اكتشف هذه السيارة",
+        "previous": "السيارة السابقة",
+        "next": "السيارة التالية",
+        "scroll": "اكتشف ما يلهمك",
+        "signature": "اهتمام بالتفاصيل. وشغف بالسيارات.",
+        "illustrative": "صورة توضيحية"
+      }
+    },
+    "collection": {
+      "fr": {
+        "eyebrow": "01 — Notre collection",
+        "title": "Votre prochaine",
+        "accent": "évidence.",
+        "description": "Une sélection qui privilégie le caractère, le confort et le plaisir de conduire.",
+        "all": "Tous les véhicules",
+        "available": "véhicules dans la sélection",
+        "catalog": "Voir le catalogue complet"
+      },
+      "en": {
+        "eyebrow": "01 — Our collection",
+        "title": "Your next",
+        "accent": "great drive.",
+        "description": "A collection chosen for its character, comfort and the pleasure of driving.",
+        "all": "All vehicles",
+        "available": "vehicles in the collection",
+        "catalog": "Explore the full catalogue"
+      },
+      "ar": {
+        "eyebrow": "01 — مجموعتنا",
+        "title": "سيارتك القادمة،",
+        "accent": "اختيار مميز.",
+        "description": "مجموعة نختارها لشخصيتها وراحتها ومتعة قيادتها.",
+        "all": "جميع السيارات",
+        "available": "سيارات ضمن المجموعة",
+        "catalog": "تصفح المجموعة كاملة"
+      }
+    },
+    "experience": {
+      "fr": {
+        "eyebrow": "02 — L’esprit Makan",
+        "title": "Plus qu’une voiture.",
+        "accent": "Une relation de confiance.",
+        "text": "Le bon véhicule se reconnaît dans les détails. Chez Makan Luxury Motors, nous prenons le temps de comprendre votre projet et de vous accompagner dans chaque décision.",
+        "pillars": [
+          "Des configurations choisies avec soin",
+          "Des informations claires sur chaque véhicule",
+          "Un interlocuteur, du premier échange à la livraison"
+        ],
+        "visit": "Rencontrons-nous à Oujda",
+        "detail": "Le luxe se vit dans les détails.",
+        "sourcing": "03 — Votre recherche, notre engagement",
+        "sourcingTitle": "Vous l’imaginez.",
+        "sourcingAccent": "Nous la recherchons.",
+        "sourcingText": "Un modèle précis, une finition rare, une envie particulière. Confiez-nous vos critères et découvrez notre service de recherche personnalisée en Europe.",
+        "sourcingCta": "Créer ma recherche",
+        "sold": "Ils ont trouvé leur prochain départ.",
+        "soldLabel": "Déjà confiés à leurs nouveaux propriétaires",
+        "soldTag": "Vendu"
+      },
+      "en": {
+        "eyebrow": "02 — The Makan spirit",
+        "title": "More than a car.",
+        "accent": "A relationship built on trust.",
+        "text": "The right car reveals itself in the details. At Makan Luxury Motors, we take the time to understand your project and guide you through every decision.",
+        "pillars": [
+          "Carefully chosen configurations",
+          "Clear information on every vehicle",
+          "Personal support from first contact to handover"
+        ],
+        "visit": "Meet us in Oujda",
+        "detail": "Luxury lives in the details.",
+        "sourcing": "03 — Your search, our commitment",
+        "sourcingTitle": "You imagine it.",
+        "sourcingAccent": "We find it.",
+        "sourcingText": "A particular model, a rare specification, a personal ambition. Share your criteria and discover our bespoke vehicle sourcing service in Europe.",
+        "sourcingCta": "Start my search",
+        "sold": "Their next chapter has begun.",
+        "soldLabel": "Already with their new owners",
+        "soldTag": "Sold"
+      },
+      "ar": {
+        "eyebrow": "02 — روح مكان",
+        "title": "أكثر من سيارة.",
+        "accent": "علاقة مبنية على الثقة.",
+        "text": "السيارة المناسبة تتميز بتفاصيلها. في مكان لاكجري موتورز، نأخذ الوقت لفهم مشروعك ومرافقتك في كل قرار.",
+        "pillars": [
+          "تجهيزات مختارة بعناية",
+          "معلومات واضحة حول كل سيارة",
+          "مرافقة شخصية من أول تواصل إلى التسليم"
+        ],
+        "visit": "نلتقي بكم في وجدة",
+        "detail": "الفخامة تكمن في التفاصيل.",
+        "sourcing": "03 — بحثك، التزامنا",
+        "sourcingTitle": "تتخيلها.",
+        "sourcingAccent": "ونبحث عنها.",
+        "sourcingText": "طراز محدد أو تجهيزات نادرة أو رغبة خاصة. شاركنا معاييرك واكتشف خدمة البحث المخصص عن السيارات في أوروبا.",
+        "sourcingCta": "ابدأ البحث",
+        "sold": "بدأت رحلتهم الجديدة.",
+        "soldLabel": "سيارات انتقلت إلى أصحابها الجدد",
+        "soldTag": "مباعة"
+      }
+    },
+    "reviews": {
+      "fr": {
+        "eyebrow": "04 — Les voix de notre communauté",
+        "title": "Leur expérience.",
+        "accent": "Notre plus belle signature.",
+        "intro": "Quelques témoignages présentés sur notre site, autour de l’accueil, de la qualité des véhicules et de l’accompagnement.",
+        "note": "Témoignages déjà publiés sur le site Makan. Les portraits sont des illustrations et ne représentent pas les auteurs.",
+        "cta": "Parler de votre projet",
+        "reviews": [
+          {
+            "name": "Yassine B.",
+            "city": "Oujda",
+            "quote": "Très satisfait de mon achat. Véhicule conforme, service sérieux et accompagnement professionnel du début à la fin.",
+            "image": "/review-portraits/yassine-illustration.jpg"
+          },
+          {
+            "name": "Sara L.",
+            "city": "Casablanca",
+            "quote": "Présentation soignée, stock réel et équipe à l’écoute. Une très belle expérience d’achat.",
+            "image": "/review-portraits/sara-illustration.jpg"
+          },
+          {
+            "name": "Mehdi A.",
+            "city": "Berkane",
+            "quote": "Accueil premium, voiture impeccable et transaction très fluide. Je recommande vivement Makan Luxury Motors.",
+            "image": "/review-portraits/mehdi-illustration.jpg"
+          }
+        ]
+      },
+      "en": {
+        "eyebrow": "04 — From our community",
+        "title": "Their experience.",
+        "accent": "Our finest signature.",
+        "intro": "A few testimonials previously featured on our website, about the welcome, vehicle quality and personal support.",
+        "note": "Testimonials previously published on the Makan website. Portraits are illustrative and do not depict the authors.",
+        "cta": "Tell us about your project",
+        "reviews": [
+          {
+            "name": "Yassine B.",
+            "city": "Oujda",
+            "quote": "Very satisfied with my purchase. The vehicle matched the description, the service was serious and the support was professional from start to finish.",
+            "image": "/review-portraits/yassine-illustration.jpg"
+          },
+          {
+            "name": "Sara L.",
+            "city": "Casablanca",
+            "quote": "Careful presentation, real inventory and a team that truly listens. A very pleasant buying experience.",
+            "image": "/review-portraits/sara-illustration.jpg"
+          },
+          {
+            "name": "Mehdi A.",
+            "city": "Berkane",
+            "quote": "Premium welcome, impeccable car and a very smooth transaction. I highly recommend Makan Luxury Motors.",
+            "image": "/review-portraits/mehdi-illustration.jpg"
+          }
+        ]
+      },
+      "ar": {
+        "eyebrow": "04 — آراء مجتمعنا",
+        "title": "تجربتهم.",
+        "accent": "أجمل شهادة لنا.",
+        "intro": "بعض الشهادات المنشورة سابقاً على موقعنا حول الاستقبال وجودة السيارات والمرافقة الشخصية.",
+        "note": "شهادات منشورة سابقاً على موقع مكان. الصور توضيحية ولا تمثل أصحاب الشهادات.",
+        "cta": "حدثنا عن مشروعك",
+        "reviews": [
+          {
+            "name": "Yassine B.",
+            "city": "وجدة",
+            "quote": "راضٍ جداً عن الشراء. السيارة كما وُصفت، والخدمة جدية، والمرافقة احترافية من البداية إلى النهاية.",
+            "image": "/review-portraits/yassine-illustration.jpg"
+          },
+          {
+            "name": "Sara L.",
+            "city": "الدار البيضاء",
+            "quote": "عرض أنيق، سيارات متوفرة وفريق يُحسن الاستماع. كانت تجربة شراء جميلة جداً.",
+            "image": "/review-portraits/sara-illustration.jpg"
+          },
+          {
+            "name": "Mehdi A.",
+            "city": "بركان",
+            "quote": "استقبال راقٍ، سيارة ممتازة ومعاملة سلسة. أنصح بشدة بـ Makan Luxury Motors.",
+            "image": "/review-portraits/mehdi-illustration.jpg"
+          }
+        ]
+      }
+    },
+    "contact": {
+      "fr": {
+        "eyebrow": "Contact",
+        "title": "Parlons de votre projet",
+        "placeholders": {
+          "name": "Nom",
+          "email": "Email",
+          "phone": "Téléphone",
+          "message": "Votre demande"
+        },
+        "errors": {
+          "required": "Merci de remplir tous les champs.",
+          "prepared": "Message préparé sur WhatsApp."
+        },
+        "actions": {
+          "sending": "Envoi...",
+          "send": "Envoyer le message"
+        },
+        "labels": {
+          "whatsapp": "WhatsApp",
+          "email": "Email",
+          "phone": "Téléphone",
+          "location": "Localisation"
+        },
+        "greeting": "Bonjour",
+        "fieldLabels": {
+          "name": "Nom",
+          "email": "Email",
+          "phone": "Téléphone",
+          "message": "Message"
+        }
+      },
+      "en": {
+        "eyebrow": "Contact",
+        "title": "Let’s discuss your project",
+        "placeholders": {
+          "name": "Name",
+          "email": "Email",
+          "phone": "Phone",
+          "message": "Your request"
+        },
+        "errors": {
+          "required": "Please fill in all fields.",
+          "prepared": "Message prepared on WhatsApp."
+        },
+        "actions": {
+          "sending": "Sending...",
+          "send": "Send message"
+        },
+        "labels": {
+          "whatsapp": "WhatsApp",
+          "email": "Email",
+          "phone": "Phone",
+          "location": "Location"
+        },
+        "greeting": "Hello",
+        "fieldLabels": {
+          "name": "Name",
+          "email": "Email",
+          "phone": "Phone",
+          "message": "Message"
+        }
+      },
+      "ar": {
+        "eyebrow": "اتصال",
+        "title": "لنتحدث عن مشروعكم",
+        "placeholders": {
+          "name": "الاسم",
+          "email": "البريد الإلكتروني",
+          "phone": "الهاتف",
+          "message": "طلبكم"
+        },
+        "errors": {
+          "required": "يرجى ملء جميع الحقول.",
+          "prepared": "تم إعداد الرسالة على واتساب."
+        },
+        "actions": {
+          "sending": "جارٍ الإرسال...",
+          "send": "إرسال الرسالة"
+        },
+        "labels": {
+          "whatsapp": "واتساب",
+          "email": "البريد الإلكتروني",
+          "phone": "الهاتف",
+          "location": "الموقع"
+        },
+        "greeting": "مرحبًا",
+        "fieldLabels": {
+          "name": "الاسم",
+          "email": "البريد الإلكتروني",
+          "phone": "الهاتف",
+          "message": "الرسالة"
+        }
+      }
+    },
+    "footer": {
+      "fr": "Une sélection automobile de caractère. Un accompagnement personnel, à Oujda et au-delà.",
+      "en": "Exceptional cars, carefully selected. Personal service in Oujda and beyond.",
+      "ar": "سيارات مميزة مختارة بعناية، ومرافقة شخصية في وجدة وخارجها."
+    }
+  },
+  "vehicles": [
+    {
+      "id": "volkswagen-tiguan-elegance-2022",
+      "slug": "volkswagen-tiguan-elegance-2022",
+      "brand": "Volkswagen",
+      "model": "Tiguan",
+      "trim": "Élégance · 150 CV · DSG 7",
+      "year": 2022,
+      "registrationDate": "2022",
+      "mileageKm": 160000,
+      "mileageNote": "160.000 km",
+      "priceMAD": 378000,
+      "status": "coming-soon",
+      "visibility": "public",
+      "featured": true,
+      "photos": [
+        {
+          "path": "/vehicles/tiguan-elegance-2022/front-three-quarter.webp",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan Élégance 2.0 TDI — 1",
+            "en": "Volkswagen Tiguan Élégance 2.0 TDI — 1",
+            "ar": "Volkswagen Tiguan Élégance 2.0 TDI — 1"
+          }
+        },
+        {
+          "path": "/vehicles/tiguan-elegance-2022/front.webp",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan Élégance 2.0 TDI — 2",
+            "en": "Volkswagen Tiguan Élégance 2.0 TDI — 2",
+            "ar": "Volkswagen Tiguan Élégance 2.0 TDI — 2"
+          }
+        },
+        {
+          "path": "/vehicles/tiguan-elegance-2022/interior.webp",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan Élégance 2.0 TDI — 3",
+            "en": "Volkswagen Tiguan Élégance 2.0 TDI — 3",
+            "ar": "Volkswagen Tiguan Élégance 2.0 TDI — 3"
+          }
+        },
+        {
+          "path": "/vehicles/tiguan-elegance-2022/rear.webp",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan Élégance 2.0 TDI — 4",
+            "en": "Volkswagen Tiguan Élégance 2.0 TDI — 4",
+            "ar": "Volkswagen Tiguan Élégance 2.0 TDI — 4"
+          }
+        }
+      ],
+      "text": {
+        "fr": {
+          "name": "Volkswagen Tiguan Élégance 2.0 TDI",
+          "version": "Élégance · 150 CV · DSG 7",
+          "subtitle": "Élégance · 2.0 TDI 150 CV",
+          "description": "Très belle configuration pour ce Volkswagen Tiguan Élégance 2.0 TDI 150 CV, modèle 2022, avec 160.000 km. Prix : 378.000 DH.",
+          "availabilityNote": "À Oujda. Diwana bientôt disponible. GSM / WhatsApp : 06 41 38 98 98.",
+          "badges": [
+            "Modèle 2022",
+            "Finition Élégance",
+            "Diwana bientôt disponible"
+          ],
+          "summary": [
+            {
+              "label": "Modèle",
+              "value": "2022"
+            },
+            {
+              "label": "Kilométrage",
+              "value": "160.000 km"
+            },
+            {
+              "label": "Moteur",
+              "value": "2.0 TDI · 150 CV"
+            },
+            {
+              "label": "Transmission",
+              "value": "Boîte automatique DSG 7 rapports"
+            },
+            {
+              "label": "Dédouanement",
+              "value": "Diwana bientôt disponible"
+            },
+            {
+              "label": "Localisation",
+              "value": "Oujda"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Confort et habitacle",
+              "items": [
+                "Toit panoramique",
+                "Salon Alcantara",
+                "Climatisation bi-zone",
+                "Cockpit digital",
+                "Démarrage Start / Start Engine",
+                "Coffre électrique"
+              ]
+            },
+            {
+              "title": "Conduite et sécurité",
+              "items": [
+                "Phares Xénon / IQ.Light",
+                "Caméra 360°",
+                "Stationnement automatique",
+                "Régulateur de vitesse",
+                "Distronic",
+                "Lane Assist"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Finition Élégance",
+            "SUV spacieux, confortable et très bien équipé",
+            "Très bel état"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "en": {
+          "name": "Volkswagen Tiguan Élégance 2.0 TDI",
+          "version": "Élégance · 150 CV · DSG 7",
+          "subtitle": "Élégance · 2.0 TDI 150 CV",
+          "description": "Très belle configuration pour ce Volkswagen Tiguan Élégance 2.0 TDI 150 CV, modèle 2022, avec 160.000 km. Prix : 378.000 DH.",
+          "availabilityNote": "À Oujda. Diwana bientôt disponible. GSM / WhatsApp : 06 41 38 98 98.",
+          "badges": [
+            "Modèle 2022",
+            "Finition Élégance",
+            "Diwana bientôt disponible"
+          ],
+          "summary": [
+            {
+              "label": "Modèle",
+              "value": "2022"
+            },
+            {
+              "label": "Kilométrage",
+              "value": "160.000 km"
+            },
+            {
+              "label": "Moteur",
+              "value": "2.0 TDI · 150 CV"
+            },
+            {
+              "label": "Transmission",
+              "value": "Boîte automatique DSG 7 rapports"
+            },
+            {
+              "label": "Dédouanement",
+              "value": "Diwana bientôt disponible"
+            },
+            {
+              "label": "Localisation",
+              "value": "Oujda"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Confort et habitacle",
+              "items": [
+                "Toit panoramique",
+                "Salon Alcantara",
+                "Climatisation bi-zone",
+                "Cockpit digital",
+                "Démarrage Start / Start Engine",
+                "Coffre électrique"
+              ]
+            },
+            {
+              "title": "Conduite et sécurité",
+              "items": [
+                "Phares Xénon / IQ.Light",
+                "Caméra 360°",
+                "Stationnement automatique",
+                "Régulateur de vitesse",
+                "Distronic",
+                "Lane Assist"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Finition Élégance",
+            "SUV spacieux, confortable et très bien équipé",
+            "Très bel état"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "ar": {
+          "name": "Volkswagen Tiguan Élégance 2.0 TDI",
+          "version": "Élégance · 150 CV · DSG 7",
+          "subtitle": "Élégance · 2.0 TDI 150 CV",
+          "description": "Très belle configuration pour ce Volkswagen Tiguan Élégance 2.0 TDI 150 CV, modèle 2022, avec 160.000 km. Prix : 378.000 DH.",
+          "availabilityNote": "À Oujda. Diwana bientôt disponible. GSM / WhatsApp : 06 41 38 98 98.",
+          "badges": [
+            "Modèle 2022",
+            "Finition Élégance",
+            "Diwana bientôt disponible"
+          ],
+          "summary": [
+            {
+              "label": "Modèle",
+              "value": "2022"
+            },
+            {
+              "label": "Kilométrage",
+              "value": "160.000 km"
+            },
+            {
+              "label": "Moteur",
+              "value": "2.0 TDI · 150 CV"
+            },
+            {
+              "label": "Transmission",
+              "value": "Boîte automatique DSG 7 rapports"
+            },
+            {
+              "label": "Dédouanement",
+              "value": "Diwana bientôt disponible"
+            },
+            {
+              "label": "Localisation",
+              "value": "Oujda"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Confort et habitacle",
+              "items": [
+                "Toit panoramique",
+                "Salon Alcantara",
+                "Climatisation bi-zone",
+                "Cockpit digital",
+                "Démarrage Start / Start Engine",
+                "Coffre électrique"
+              ]
+            },
+            {
+              "title": "Conduite et sécurité",
+              "items": [
+                "Phares Xénon / IQ.Light",
+                "Caméra 360°",
+                "Stationnement automatique",
+                "Régulateur de vitesse",
+                "Distronic",
+                "Lane Assist"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Finition Élégance",
+            "SUV spacieux, confortable et très bien équipé",
+            "Très bel état"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        }
+      }
+    },
+    {
+      "id": "volkswagen-tiguan-r-line-exclusive-2022",
+      "slug": "volkswagen-tiguan-r-line-exclusive-2022",
+      "brand": "Volkswagen",
+      "model": "Tiguan",
+      "trim": "R-Line Exclusive · 2.0 TDI",
+      "year": 2022,
+      "registrationDate": "01/07/2022",
+      "mileageKm": 100000,
+      "mileageNote": "100.000 km d’origine",
+      "priceMAD": 457000,
+      "status": "available",
+      "visibility": "public",
+      "featured": true,
+      "photos": [
+        {
+          "path": "/vehicles/tiguan-r-line-exclusive-2022/front-illustration.webp",
+          "illustrative": true,
+          "alt": {
+            "fr": "Volkswagen Tiguan R-Line Exclusive — 1",
+            "en": "Volkswagen Tiguan R-Line Exclusive — 1",
+            "ar": "Volkswagen Tiguan R-Line Exclusive — 1"
+          }
+        },
+        {
+          "path": "/vehicles/tiguan-r-line-exclusive-2022/rear-illustration.webp",
+          "illustrative": true,
+          "alt": {
+            "fr": "Volkswagen Tiguan R-Line Exclusive — 2",
+            "en": "Volkswagen Tiguan R-Line Exclusive — 2",
+            "ar": "Volkswagen Tiguan R-Line Exclusive — 2"
+          }
+        },
+        {
+          "path": "/vehicles/tiguan-r-line-exclusive-2022/interior-illustration.webp",
+          "illustrative": true,
+          "alt": {
+            "fr": "Volkswagen Tiguan R-Line Exclusive — 3",
+            "en": "Volkswagen Tiguan R-Line Exclusive — 3",
+            "ar": "Volkswagen Tiguan R-Line Exclusive — 3"
+          }
+        }
+      ],
+      "text": {
+        "fr": {
+          "name": "Volkswagen Tiguan R-Line Exclusive",
+          "version": "R-Line Exclusive · 2.0 TDI",
+          "subtitle": "2.0 TDI · Full Options · 2022",
+          "description": "Volkswagen Tiguan R-Line Exclusive 2.0 TDI, Full Options, modèle du 01/07/2022. 100.000 km d’origine, kilométrage garanti et historique d’entretien. Dédouané en septembre 2026. Prix : 457.000 DH.",
+          "availabilityNote": "Disponible à Oujda chez MAKAN LUXURY MOTORS. GSM / WhatsApp : 06 41 38 98 98.",
+          "badges": [
+            "Disponible",
+            "R-Line Exclusive",
+            "Full Options"
+          ],
+          "summary": [
+            {
+              "label": "Modèle",
+              "value": "01/07/2022"
+            },
+            {
+              "label": "Kilométrage",
+              "value": "100.000 km d’origine"
+            },
+            {
+              "label": "Dédouanement",
+              "value": "09/2026"
+            },
+            {
+              "label": "Moteur",
+              "value": "2.0 TDI"
+            },
+            {
+              "label": "Historique",
+              "value": "Kilométrage garanti + historique d’entretien"
+            },
+            {
+              "label": "Localisation",
+              "value": "Oujda"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Confort premium",
+              "items": [
+                "Toit panoramique",
+                "Salon cuir R-Line",
+                "Sièges électriques",
+                "Sièges à mémoire",
+                "Head-Up Display",
+                "Coffre électrique"
+              ]
+            },
+            {
+              "title": "Conduite et stationnement",
+              "items": [
+                "Caméra 360°",
+                "Stationnement automatique / Park Assist",
+                "Distronic – régulateur de vitesse adaptatif",
+                "Lane Assist",
+                "Régulateur de vitesse",
+                "Auto Hold",
+                "Start & Stop"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Kilométrage garanti",
+            "Historique d’entretien",
+            "R-Line Exclusive : élégance, technologie et confort réunis"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "en": {
+          "name": "Volkswagen Tiguan R-Line Exclusive",
+          "version": "R-Line Exclusive · 2.0 TDI",
+          "subtitle": "2.0 TDI · Full Options · 2022",
+          "description": "Volkswagen Tiguan R-Line Exclusive 2.0 TDI, Full Options, modèle du 01/07/2022. 100.000 km d’origine, kilométrage garanti et historique d’entretien. Dédouané en septembre 2026. Prix : 457.000 DH.",
+          "availabilityNote": "Disponible à Oujda chez MAKAN LUXURY MOTORS. GSM / WhatsApp : 06 41 38 98 98.",
+          "badges": [
+            "Available",
+            "R-Line Exclusive",
+            "Full options"
+          ],
+          "summary": [
+            {
+              "label": "Modèle",
+              "value": "01/07/2022"
+            },
+            {
+              "label": "Kilométrage",
+              "value": "100.000 km d’origine"
+            },
+            {
+              "label": "Dédouanement",
+              "value": "09/2026"
+            },
+            {
+              "label": "Moteur",
+              "value": "2.0 TDI"
+            },
+            {
+              "label": "Historique",
+              "value": "Kilométrage garanti + historique d’entretien"
+            },
+            {
+              "label": "Localisation",
+              "value": "Oujda"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Confort premium",
+              "items": [
+                "Toit panoramique",
+                "Salon cuir R-Line",
+                "Sièges électriques",
+                "Sièges à mémoire",
+                "Head-Up Display",
+                "Coffre électrique"
+              ]
+            },
+            {
+              "title": "Conduite et stationnement",
+              "items": [
+                "Caméra 360°",
+                "Stationnement automatique / Park Assist",
+                "Distronic – régulateur de vitesse adaptatif",
+                "Lane Assist",
+                "Régulateur de vitesse",
+                "Auto Hold",
+                "Start & Stop"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Kilométrage garanti",
+            "Historique d’entretien",
+            "R-Line Exclusive : élégance, technologie et confort réunis"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "ar": {
+          "name": "Volkswagen Tiguan R-Line Exclusive",
+          "version": "R-Line Exclusive · 2.0 TDI",
+          "subtitle": "2.0 TDI · Full Options · 2022",
+          "description": "Volkswagen Tiguan R-Line Exclusive 2.0 TDI, Full Options, modèle du 01/07/2022. 100.000 km d’origine, kilométrage garanti et historique d’entretien. Dédouané en septembre 2026. Prix : 457.000 DH.",
+          "availabilityNote": "Disponible à Oujda chez MAKAN LUXURY MOTORS. GSM / WhatsApp : 06 41 38 98 98.",
+          "badges": [
+            "متوفر",
+            "R-Line Exclusive",
+            "جميع التجهيزات"
+          ],
+          "summary": [
+            {
+              "label": "Modèle",
+              "value": "01/07/2022"
+            },
+            {
+              "label": "Kilométrage",
+              "value": "100.000 km d’origine"
+            },
+            {
+              "label": "Dédouanement",
+              "value": "09/2026"
+            },
+            {
+              "label": "Moteur",
+              "value": "2.0 TDI"
+            },
+            {
+              "label": "Historique",
+              "value": "Kilométrage garanti + historique d’entretien"
+            },
+            {
+              "label": "Localisation",
+              "value": "Oujda"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Confort premium",
+              "items": [
+                "Toit panoramique",
+                "Salon cuir R-Line",
+                "Sièges électriques",
+                "Sièges à mémoire",
+                "Head-Up Display",
+                "Coffre électrique"
+              ]
+            },
+            {
+              "title": "Conduite et stationnement",
+              "items": [
+                "Caméra 360°",
+                "Stationnement automatique / Park Assist",
+                "Distronic – régulateur de vitesse adaptatif",
+                "Lane Assist",
+                "Régulateur de vitesse",
+                "Auto Hold",
+                "Start & Stop"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Kilométrage garanti",
+            "Historique d’entretien",
+            "R-Line Exclusive : élégance, technologie et confort réunis"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        }
+      }
+    },
+    {
+      "id": "skoda-karoq-sportline-2020",
+      "slug": "skoda-karoq-sportline-2020",
+      "brand": "Skoda",
+      "model": "Karoq",
+      "trim": "Sportline 2020",
+      "year": 2020,
+      "registrationDate": "2020",
+      "mileageKm": 185000,
+      "mileageNote": "185 000 km d'origine",
+      "priceMAD": 273000,
+      "status": "sold",
+      "visibility": "public",
+      "featured": false,
+      "photos": [
+        {
+          "path": "/skoda1.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Skoda Karoq Sportline 2020 — 1",
+            "en": "Skoda Karoq Sportline 2020 — 1",
+            "ar": "Skoda Karoq Sportline 2020 — 1"
+          }
+        },
+        {
+          "path": "/skoda2.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Skoda Karoq Sportline 2020 — 2",
+            "en": "Skoda Karoq Sportline 2020 — 2",
+            "ar": "Skoda Karoq Sportline 2020 — 2"
+          }
+        },
+        {
+          "path": "/skoda3.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Skoda Karoq Sportline 2020 — 3",
+            "en": "Skoda Karoq Sportline 2020 — 3",
+            "ar": "Skoda Karoq Sportline 2020 — 3"
+          }
+        },
+        {
+          "path": "/skoda4.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Skoda Karoq Sportline 2020 — 4",
+            "en": "Skoda Karoq Sportline 2020 — 4",
+            "ar": "Skoda Karoq Sportline 2020 — 4"
+          }
+        },
+        {
+          "path": "/skoda5.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Skoda Karoq Sportline 2020 — 5",
+            "en": "Skoda Karoq Sportline 2020 — 5",
+            "ar": "Skoda Karoq Sportline 2020 — 5"
+          }
+        }
+      ],
+      "text": {
+        "fr": {
+          "name": "Skoda Karoq Sportline 2020",
+          "version": "Sportline 2020",
+          "subtitle": "Serie Sport - Pack Black Night",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "Vendu",
+            "Vendu a un client",
+            "Vehicule tres propre"
+          ],
+          "summary": [
+            {
+              "label": "Annee",
+              "value": "2020"
+            },
+            {
+              "label": "Transmission",
+              "value": "Boite manuelle 6 rapports"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "185 000 km d'origine"
+            },
+            {
+              "label": "Historique",
+              "value": "Historique d'entretien complet chez Skoda"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "26/11/2025"
+            },
+            {
+              "label": "Localisation",
+              "value": "Berkane"
+            },
+            {
+              "label": "Immatriculation",
+              "value": "Oujda 48"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Confort",
+              "items": [
+                "Toit panoramique",
+                "Sieges pilote",
+                "Sieges chauffants",
+                "Demarrage sans cle",
+                "Chargeur sans fil",
+                "2x USB"
+              ]
+            },
+            {
+              "title": "Aides a la conduite",
+              "items": [
+                "Distronic",
+                "Regulateur de vitesse",
+                "Limitateur",
+                "Lane Assist",
+                "Detection signalisation"
+              ]
+            },
+            {
+              "title": "Stationnement",
+              "items": [
+                "Camera de recul",
+                "Radar de stationnement"
+              ]
+            },
+            {
+              "title": "Exterieur et pratique",
+              "items": [
+                "Jantes aluminium 19 pouces",
+                "Retroviseurs rabattables",
+                "Antibrouillards",
+                "Coffre electrique",
+                "Attache remorque electrique"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Vehicule tres propre",
+            "Aucun frais a prevoir",
+            "Visite uniquement sur rendez-vous",
+            "Vendu a un client"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "en": {
+          "name": "Skoda Karoq Sportline 2020",
+          "version": "Sportline 2020",
+          "subtitle": "Serie Sport - Pack Black Night",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "Vendu",
+            "Vendu a un client",
+            "Vehicule tres propre"
+          ],
+          "summary": [
+            {
+              "label": "Annee",
+              "value": "2020"
+            },
+            {
+              "label": "Transmission",
+              "value": "Boite manuelle 6 rapports"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "185,000 km original mileage"
+            },
+            {
+              "label": "Historique",
+              "value": "Historique d'entretien complet chez Skoda"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "26/11/2025"
+            },
+            {
+              "label": "Localisation",
+              "value": "Berkane"
+            },
+            {
+              "label": "Immatriculation",
+              "value": "Oujda 48"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Confort",
+              "items": [
+                "Toit panoramique",
+                "Sieges pilote",
+                "Sieges chauffants",
+                "Demarrage sans cle",
+                "Chargeur sans fil",
+                "2x USB"
+              ]
+            },
+            {
+              "title": "Aides a la conduite",
+              "items": [
+                "Distronic",
+                "Regulateur de vitesse",
+                "Limitateur",
+                "Lane Assist",
+                "Detection signalisation"
+              ]
+            },
+            {
+              "title": "Stationnement",
+              "items": [
+                "Camera de recul",
+                "Radar de stationnement"
+              ]
+            },
+            {
+              "title": "Exterieur et pratique",
+              "items": [
+                "Jantes aluminium 19 pouces",
+                "Retroviseurs rabattables",
+                "Antibrouillards",
+                "Coffre electrique",
+                "Attache remorque electrique"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Vehicule tres propre",
+            "Aucun frais a prevoir",
+            "Visite uniquement sur rendez-vous",
+            "Vendu a un client"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "ar": {
+          "name": "Skoda Karoq Sportline 2020",
+          "version": "Sportline 2020",
+          "subtitle": "Serie Sport - Pack Black Night",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "Vendu",
+            "Vendu a un client",
+            "Vehicule tres propre"
+          ],
+          "summary": [
+            {
+              "label": "Annee",
+              "value": "2020"
+            },
+            {
+              "label": "Transmission",
+              "value": "Boite manuelle 6 rapports"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "185000 كلم أصلية"
+            },
+            {
+              "label": "Historique",
+              "value": "Historique d'entretien complet chez Skoda"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "26/11/2025"
+            },
+            {
+              "label": "Localisation",
+              "value": "بركان"
+            },
+            {
+              "label": "Immatriculation",
+              "value": "Oujda 48"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Confort",
+              "items": [
+                "Toit panoramique",
+                "Sieges pilote",
+                "Sieges chauffants",
+                "Demarrage sans cle",
+                "Chargeur sans fil",
+                "2x USB"
+              ]
+            },
+            {
+              "title": "Aides a la conduite",
+              "items": [
+                "Distronic",
+                "Regulateur de vitesse",
+                "Limitateur",
+                "Lane Assist",
+                "Detection signalisation"
+              ]
+            },
+            {
+              "title": "Stationnement",
+              "items": [
+                "Camera de recul",
+                "Radar de stationnement"
+              ]
+            },
+            {
+              "title": "Exterieur et pratique",
+              "items": [
+                "Jantes aluminium 19 pouces",
+                "Retroviseurs rabattables",
+                "Antibrouillards",
+                "Coffre electrique",
+                "Attache remorque electrique"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Vehicule tres propre",
+            "Aucun frais a prevoir",
+            "Visite uniquement sur rendez-vous",
+            "Vendu a un client"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        }
+      }
+    },
+    {
+      "id": "seat-ateca-tdi-dsg-7",
+      "slug": "seat-ateca-tdi-dsg-7",
+      "brand": "Seat",
+      "model": "Ateca",
+      "trim": "2.0 TDI 150 ch - DSG 7",
+      "year": 2020,
+      "registrationDate": "10/2020 (Facelift modele 2021)",
+      "mileageKm": 139000,
+      "mileageNote": "139.000 km d'origine",
+      "priceMAD": 269000,
+      "status": "sold",
+      "visibility": "public",
+      "featured": false,
+      "photos": [
+        {
+          "path": "/ateca1.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 1",
+            "en": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 1",
+            "ar": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 1"
+          }
+        },
+        {
+          "path": "/ateca2.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 2",
+            "en": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 2",
+            "ar": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 2"
+          }
+        },
+        {
+          "path": "/ateca3.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 3",
+            "en": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 3",
+            "ar": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 3"
+          }
+        },
+        {
+          "path": "/ateca4.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 4",
+            "en": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 4",
+            "ar": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 4"
+          }
+        },
+        {
+          "path": "/ateca5.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 5",
+            "en": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 5",
+            "ar": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 5"
+          }
+        },
+        {
+          "path": "/ateca6.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 6",
+            "en": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 6",
+            "ar": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 6"
+          }
+        },
+        {
+          "path": "/ateca7.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 7",
+            "en": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 7",
+            "ar": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 7"
+          }
+        },
+        {
+          "path": "/ateca8.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 8",
+            "en": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 8",
+            "ar": "Seat Ateca 2.0 TDI 150 ch - DSG 7 — 8"
+          }
+        }
+      ],
+      "text": {
+        "fr": {
+          "name": "Seat Ateca 2.0 TDI 150 ch - DSG 7",
+          "version": "2.0 TDI 150 ch - DSG 7",
+          "subtitle": "",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "Vendu",
+            "Vendu a un client",
+            "Vehicule en parfait etat"
+          ],
+          "summary": [
+            {
+              "label": "Modele",
+              "value": "10/2020 (Facelift modele 2021)"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "11/2025"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "139.000 km d'origine"
+            },
+            {
+              "label": "Moteur",
+              "value": "Diesel 2.0 (150 CV)"
+            },
+            {
+              "label": "Transmission",
+              "value": "Boite automatique DSG 7 rapports"
+            },
+            {
+              "label": "Interieur",
+              "value": "Cuir & alcantara"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Equipements",
+              "items": [
+                "Camera",
+                "Aides au stationnement",
+                "Tres bien equipee"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Kilometrage certifie",
+            "Vehicule en parfait etat",
+            "Vendu a un client"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "en": {
+          "name": "Seat Ateca 2.0 TDI 150 ch - DSG 7",
+          "version": "2.0 TDI 150 ch - DSG 7",
+          "subtitle": "",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "Vendu",
+            "Vendu a un client",
+            "Vehicule en parfait etat"
+          ],
+          "summary": [
+            {
+              "label": "Modele",
+              "value": "10/2020 (Facelift modele 2021)"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "11/2025"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "139,000 km original mileage"
+            },
+            {
+              "label": "Moteur",
+              "value": "Diesel 2.0 (150 CV)"
+            },
+            {
+              "label": "Transmission",
+              "value": "Boite automatique DSG 7 rapports"
+            },
+            {
+              "label": "Interieur",
+              "value": "Cuir & alcantara"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Equipements",
+              "items": [
+                "Camera",
+                "Aides au stationnement",
+                "Tres bien equipee"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Kilometrage certifie",
+            "Vehicule en parfait etat",
+            "Vendu a un client"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "ar": {
+          "name": "Seat Ateca 2.0 TDI 150 ch - DSG 7",
+          "version": "2.0 TDI 150 ch - DSG 7",
+          "subtitle": "",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "Vendu",
+            "Vendu a un client",
+            "Vehicule en parfait etat"
+          ],
+          "summary": [
+            {
+              "label": "Modele",
+              "value": "10/2020 (Facelift modele 2021)"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "11/2025"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "139000 كلم أصلية"
+            },
+            {
+              "label": "Moteur",
+              "value": "Diesel 2.0 (150 CV)"
+            },
+            {
+              "label": "Transmission",
+              "value": "Boite automatique DSG 7 rapports"
+            },
+            {
+              "label": "Interieur",
+              "value": "Cuir & alcantara"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Equipements",
+              "items": [
+                "Camera",
+                "Aides au stationnement",
+                "Tres bien equipee"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Kilometrage certifie",
+            "Vehicule en parfait etat",
+            "Vendu a un client"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        }
+      }
+    },
+    {
+      "id": "volkswagen-tiguan-confortline",
+      "slug": "volkswagen-tiguan-confortline",
+      "brand": "Volkswagen",
+      "model": "Tiguan",
+      "trim": "Version Confortline",
+      "year": 2020,
+      "registrationDate": "08/2020",
+      "mileageKm": 148000,
+      "mileageNote": "148.000 km",
+      "priceMAD": 285000,
+      "status": "available",
+      "visibility": "public",
+      "featured": false,
+      "photos": [
+        {
+          "path": "/tiguan1.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan — 1",
+            "en": "Volkswagen Tiguan — 1",
+            "ar": "Volkswagen Tiguan — 1"
+          }
+        },
+        {
+          "path": "/tiguan2.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan — 2",
+            "en": "Volkswagen Tiguan — 2",
+            "ar": "Volkswagen Tiguan — 2"
+          }
+        },
+        {
+          "path": "/tiguan3.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan — 3",
+            "en": "Volkswagen Tiguan — 3",
+            "ar": "Volkswagen Tiguan — 3"
+          }
+        },
+        {
+          "path": "/tiguan4.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan — 4",
+            "en": "Volkswagen Tiguan — 4",
+            "ar": "Volkswagen Tiguan — 4"
+          }
+        },
+        {
+          "path": "/tiguan5.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan — 5",
+            "en": "Volkswagen Tiguan — 5",
+            "ar": "Volkswagen Tiguan — 5"
+          }
+        },
+        {
+          "path": "/tiguan6.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan — 6",
+            "en": "Volkswagen Tiguan — 6",
+            "ar": "Volkswagen Tiguan — 6"
+          }
+        },
+        {
+          "path": "/tiguan7.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan — 7",
+            "en": "Volkswagen Tiguan — 7",
+            "ar": "Volkswagen Tiguan — 7"
+          }
+        },
+        {
+          "path": "/tiguan8.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan — 8",
+            "en": "Volkswagen Tiguan — 8",
+            "ar": "Volkswagen Tiguan — 8"
+          }
+        }
+      ],
+      "text": {
+        "fr": {
+          "name": "Volkswagen Tiguan",
+          "version": "Version Confortline",
+          "subtitle": "Diwana 2026 - Version Confortline",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "Disponible",
+            "Vehicule en parfait etat",
+            "SUV fiable"
+          ],
+          "summary": [
+            {
+              "label": "Date d'immatriculation",
+              "value": "08/2020"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "2026"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "148.000 km"
+            },
+            {
+              "label": "Immatriculation",
+              "value": "Temara Alif 4"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Equipements",
+              "items": [
+                "Toit panoramique",
+                "Interieur Confortline",
+                "Frein de stationnement",
+                "Sieges confort",
+                "Sieges chauffants",
+                "Regulateur de vitesse + Distronic",
+                "Lane Assist",
+                "Freinage d'urgence",
+                "Jantes aluminium",
+                "Retroviseurs electriques",
+                "Antibrouillards",
+                "Coffre electrique"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Vehicule en parfait etat",
+            "Soigneusement entretenu",
+            "SUV puissant, confortable et fiable",
+            "Ideal ville & longue distance"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "en": {
+          "name": "Volkswagen Tiguan",
+          "version": "Version Confortline",
+          "subtitle": "Customs 2026 - Confortline version",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "Available",
+            "Vehicule en parfait etat",
+            "SUV fiable"
+          ],
+          "summary": [
+            {
+              "label": "Date d'immatriculation",
+              "value": "08/2020"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "2026"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "148,000 km"
+            },
+            {
+              "label": "Immatriculation",
+              "value": "Temara Alif 4"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Equipements",
+              "items": [
+                "Toit panoramique",
+                "Interieur Confortline",
+                "Frein de stationnement",
+                "Sieges confort",
+                "Sieges chauffants",
+                "Regulateur de vitesse + Distronic",
+                "Lane Assist",
+                "Freinage d'urgence",
+                "Jantes aluminium",
+                "Retroviseurs electriques",
+                "Antibrouillards",
+                "Coffre electrique"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Vehicule en parfait etat",
+            "Soigneusement entretenu",
+            "SUV puissant, confortable et fiable",
+            "Ideal ville & longue distance"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "ar": {
+          "name": "Volkswagen Tiguan",
+          "version": "Version Confortline",
+          "subtitle": "ديوانة 2026 - نسخة Confortline",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "متوفر",
+            "Vehicule en parfait etat",
+            "SUV fiable"
+          ],
+          "summary": [
+            {
+              "label": "Date d'immatriculation",
+              "value": "08/2020"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "2026"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "148000 كلم"
+            },
+            {
+              "label": "Immatriculation",
+              "value": "Temara Alif 4"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Equipements",
+              "items": [
+                "Toit panoramique",
+                "Interieur Confortline",
+                "Frein de stationnement",
+                "Sieges confort",
+                "Sieges chauffants",
+                "Regulateur de vitesse + Distronic",
+                "Lane Assist",
+                "Freinage d'urgence",
+                "Jantes aluminium",
+                "Retroviseurs electriques",
+                "Antibrouillards",
+                "Coffre electrique"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Vehicule en parfait etat",
+            "Soigneusement entretenu",
+            "SUV puissant, confortable et fiable",
+            "Ideal ville & longue distance"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        }
+      }
+    },
+    {
+      "id": "volkswagen-tiguan-2-0-tdi-haut-de-gamme",
+      "slug": "volkswagen-tiguan-2-0-tdi-haut-de-gamme",
+      "brand": "Volkswagen",
+      "model": "Tiguan",
+      "trim": "Version Haut de Gamme",
+      "year": 2019,
+      "registrationDate": "04/2019",
+      "mileageKm": 117000,
+      "mileageNote": "117.000 km",
+      "priceMAD": 289000,
+      "status": "available",
+      "visibility": "public",
+      "featured": false,
+      "photos": [
+        {
+          "path": "/tiguangris1.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan 2.0 TDI — 1",
+            "en": "Volkswagen Tiguan 2.0 TDI — 1",
+            "ar": "Volkswagen Tiguan 2.0 TDI — 1"
+          }
+        },
+        {
+          "path": "/tiguangris2.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan 2.0 TDI — 2",
+            "en": "Volkswagen Tiguan 2.0 TDI — 2",
+            "ar": "Volkswagen Tiguan 2.0 TDI — 2"
+          }
+        },
+        {
+          "path": "/tiguangris3.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan 2.0 TDI — 3",
+            "en": "Volkswagen Tiguan 2.0 TDI — 3",
+            "ar": "Volkswagen Tiguan 2.0 TDI — 3"
+          }
+        },
+        {
+          "path": "/tiguangris4.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan 2.0 TDI — 4",
+            "en": "Volkswagen Tiguan 2.0 TDI — 4",
+            "ar": "Volkswagen Tiguan 2.0 TDI — 4"
+          }
+        },
+        {
+          "path": "/tiguangris5.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan 2.0 TDI — 5",
+            "en": "Volkswagen Tiguan 2.0 TDI — 5",
+            "ar": "Volkswagen Tiguan 2.0 TDI — 5"
+          }
+        },
+        {
+          "path": "/tiguangris6.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan 2.0 TDI — 6",
+            "en": "Volkswagen Tiguan 2.0 TDI — 6",
+            "ar": "Volkswagen Tiguan 2.0 TDI — 6"
+          }
+        },
+        {
+          "path": "/tiguangris7.png",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen Tiguan 2.0 TDI — 7",
+            "en": "Volkswagen Tiguan 2.0 TDI — 7",
+            "ar": "Volkswagen Tiguan 2.0 TDI — 7"
+          }
+        }
+      ],
+      "text": {
+        "fr": {
+          "name": "Volkswagen Tiguan 2.0 TDI",
+          "version": "Version Haut de Gamme",
+          "subtitle": "Version Haut de Gamme",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "Disponible immediatement",
+            "Vehicule en parfait etat",
+            "Opportunite a saisir"
+          ],
+          "summary": [
+            {
+              "label": "Date d'immatriculation",
+              "value": "04/2019"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "2026"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "117.000 km"
+            },
+            {
+              "label": "Moteur",
+              "value": "2.0 TDI"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Equipements",
+              "items": [
+                "Toit panoramique",
+                "Interieur cuir",
+                "Stationnement automatique",
+                "Sieges electriques",
+                "Sieges chauffants",
+                "Regulateur de vitesse + Distronic",
+                "Lane Assist",
+                "Freinage d'urgence",
+                "Jantes aluminium",
+                "Retroviseurs electriques",
+                "Antibrouillards",
+                "Coffre electrique"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Vehicule en parfait etat",
+            "Soigneusement entretenu",
+            "SUV puissant, confortable et fiable",
+            "Ideal ville & longue distance",
+            "Vehicule disponible immediatement",
+            "Opportunite a saisir"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "en": {
+          "name": "Volkswagen Tiguan 2.0 TDI",
+          "version": "Version Haut de Gamme",
+          "subtitle": "High-end version",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "Disponible immediatement",
+            "Vehicule en parfait etat",
+            "Opportunite a saisir"
+          ],
+          "summary": [
+            {
+              "label": "Date d'immatriculation",
+              "value": "04/2019"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "2026"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "117,000 km"
+            },
+            {
+              "label": "Moteur",
+              "value": "2.0 TDI"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Equipements",
+              "items": [
+                "Toit panoramique",
+                "Interieur cuir",
+                "Stationnement automatique",
+                "Sieges electriques",
+                "Sieges chauffants",
+                "Regulateur de vitesse + Distronic",
+                "Lane Assist",
+                "Freinage d'urgence",
+                "Jantes aluminium",
+                "Retroviseurs electriques",
+                "Antibrouillards",
+                "Coffre electrique"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Vehicule en parfait etat",
+            "Soigneusement entretenu",
+            "SUV puissant, confortable et fiable",
+            "Ideal ville & longue distance",
+            "Vehicule disponible immediatement",
+            "Opportunite a saisir"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "ar": {
+          "name": "Volkswagen Tiguan 2.0 TDI",
+          "version": "Version Haut de Gamme",
+          "subtitle": "نسخة عالية التجهيز",
+          "description": "",
+          "availabilityNote": "",
+          "badges": [
+            "Disponible immediatement",
+            "Vehicule en parfait etat",
+            "Opportunite a saisir"
+          ],
+          "summary": [
+            {
+              "label": "Date d'immatriculation",
+              "value": "04/2019"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "2026"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "117000 كلم"
+            },
+            {
+              "label": "Moteur",
+              "value": "2.0 TDI"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Equipements",
+              "items": [
+                "Toit panoramique",
+                "Interieur cuir",
+                "Stationnement automatique",
+                "Sieges electriques",
+                "Sieges chauffants",
+                "Regulateur de vitesse + Distronic",
+                "Lane Assist",
+                "Freinage d'urgence",
+                "Jantes aluminium",
+                "Retroviseurs electriques",
+                "Antibrouillards",
+                "Coffre electrique"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Vehicule en parfait etat",
+            "Soigneusement entretenu",
+            "SUV puissant, confortable et fiable",
+            "Ideal ville & longue distance",
+            "Vehicule disponible immediatement",
+            "Opportunite a saisir"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        }
+      }
+    },
+    {
+      "id": "volkswagen-t-roc-modele-2020",
+      "slug": "volkswagen-t-roc-modele-2020",
+      "brand": "Volkswagen",
+      "model": "T-Roc",
+      "trim": "Modele 2020",
+      "year": 2020,
+      "registrationDate": "2020",
+      "mileageKm": null,
+      "mileageNote": "",
+      "priceMAD": null,
+      "status": "available",
+      "visibility": "public",
+      "featured": false,
+      "photos": [
+        {
+          "path": "/trog1.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen T-Roc modele 2020 — 1",
+            "en": "Volkswagen T-Roc modele 2020 — 1",
+            "ar": "Volkswagen T-Roc modele 2020 — 1"
+          }
+        },
+        {
+          "path": "/trog2.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen T-Roc modele 2020 — 2",
+            "en": "Volkswagen T-Roc modele 2020 — 2",
+            "ar": "Volkswagen T-Roc modele 2020 — 2"
+          }
+        },
+        {
+          "path": "/trog3.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Volkswagen T-Roc modele 2020 — 3",
+            "en": "Volkswagen T-Roc modele 2020 — 3",
+            "ar": "Volkswagen T-Roc modele 2020 — 3"
+          }
+        }
+      ],
+      "text": {
+        "fr": {
+          "name": "Volkswagen T-Roc modele 2020",
+          "version": "Modele 2020",
+          "subtitle": "Diwana 11/2025",
+          "description": "",
+          "availabilityNote": "Disponible sur demande.",
+          "badges": [
+            "Disponible",
+            "Modele 2020",
+            "Diwana 11/2025"
+          ],
+          "summary": [
+            {
+              "label": "Modele",
+              "value": "2020"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "11/2025"
+            },
+            {
+              "label": "Marque",
+              "value": "Volkswagen T-Roc"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Presentation",
+              "items": [
+                "3 photos disponibles",
+                "Showroom premium",
+                "Vehicule disponible sur demande"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Modele 2020",
+            "Diwana 11/2025",
+            "Galerie photo disponible"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "en": {
+          "name": "Volkswagen T-Roc modele 2020",
+          "version": "Modele 2020",
+          "subtitle": "Diwana 11/2025",
+          "description": "",
+          "availabilityNote": "Disponible sur demande.",
+          "badges": [
+            "Available",
+            "Modele 2020",
+            "Diwana 11/2025"
+          ],
+          "summary": [
+            {
+              "label": "Modele",
+              "value": "2020"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "11/2025"
+            },
+            {
+              "label": "Marque",
+              "value": "Volkswagen T-Roc"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Presentation",
+              "items": [
+                "3 photos disponibles",
+                "Showroom premium",
+                "Vehicule disponible sur demande"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Modele 2020",
+            "Diwana 11/2025",
+            "Galerie photo disponible"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        },
+        "ar": {
+          "name": "Volkswagen T-Roc modele 2020",
+          "version": "Modele 2020",
+          "subtitle": "Diwana 11/2025",
+          "description": "",
+          "availabilityNote": "Disponible sur demande.",
+          "badges": [
+            "متوفر",
+            "Modele 2020",
+            "Diwana 11/2025"
+          ],
+          "summary": [
+            {
+              "label": "Modele",
+              "value": "2020"
+            },
+            {
+              "label": "Dedouanement",
+              "value": "11/2025"
+            },
+            {
+              "label": "Marque",
+              "value": "Volkswagen T-Roc"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Presentation",
+              "items": [
+                "3 photos disponibles",
+                "Showroom premium",
+                "Vehicule disponible sur demande"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Modele 2020",
+            "Diwana 11/2025",
+            "Galerie photo disponible"
+          ],
+          "presentation": [],
+          "heroTitle": "",
+          "heroSubtitle": "",
+          "heroDescription": ""
+        }
+      }
+    },
+    {
+      "id": "mercedes-classe-a200-pack-amg-full-options",
+      "slug": "mercedes-classe-a200-pack-amg-full-options",
+      "brand": "Mercedes-Benz",
+      "model": "Classe A200",
+      "trim": "Pack AMG / Full Options",
+      "year": 2020,
+      "registrationDate": "27/02/2020",
+      "mileageKm": 166000,
+      "mileageNote": "166 000 km d'origine",
+      "priceMAD": 375000,
+      "status": "coming-soon",
+      "visibility": "public",
+      "featured": true,
+      "photos": [
+        {
+          "path": "/CLA1.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Mercedes Classe A200 Pack AMG - Full Options — 1",
+            "en": "Mercedes Classe A200 Pack AMG - Full Options — 1",
+            "ar": "Mercedes Classe A200 Pack AMG - Full Options — 1"
+          }
+        },
+        {
+          "path": "/CLA2.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Mercedes Classe A200 Pack AMG - Full Options — 2",
+            "en": "Mercedes Classe A200 Pack AMG - Full Options — 2",
+            "ar": "Mercedes Classe A200 Pack AMG - Full Options — 2"
+          }
+        },
+        {
+          "path": "/CLA3.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Mercedes Classe A200 Pack AMG - Full Options — 3",
+            "en": "Mercedes Classe A200 Pack AMG - Full Options — 3",
+            "ar": "Mercedes Classe A200 Pack AMG - Full Options — 3"
+          }
+        },
+        {
+          "path": "/CLA4.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Mercedes Classe A200 Pack AMG - Full Options — 4",
+            "en": "Mercedes Classe A200 Pack AMG - Full Options — 4",
+            "ar": "Mercedes Classe A200 Pack AMG - Full Options — 4"
+          }
+        },
+        {
+          "path": "/CLA5.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Mercedes Classe A200 Pack AMG - Full Options — 5",
+            "en": "Mercedes Classe A200 Pack AMG - Full Options — 5",
+            "ar": "Mercedes Classe A200 Pack AMG - Full Options — 5"
+          }
+        },
+        {
+          "path": "/CLA6.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Mercedes Classe A200 Pack AMG - Full Options — 6",
+            "en": "Mercedes Classe A200 Pack AMG - Full Options — 6",
+            "ar": "Mercedes Classe A200 Pack AMG - Full Options — 6"
+          }
+        },
+        {
+          "path": "/CLA7.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Mercedes Classe A200 Pack AMG - Full Options — 7",
+            "en": "Mercedes Classe A200 Pack AMG - Full Options — 7",
+            "ar": "Mercedes Classe A200 Pack AMG - Full Options — 7"
+          }
+        },
+        {
+          "path": "/CLA8.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Mercedes Classe A200 Pack AMG - Full Options — 8",
+            "en": "Mercedes Classe A200 Pack AMG - Full Options — 8",
+            "ar": "Mercedes Classe A200 Pack AMG - Full Options — 8"
+          }
+        },
+        {
+          "path": "/CLA9.jpg",
+          "illustrative": false,
+          "alt": {
+            "fr": "Mercedes Classe A200 Pack AMG - Full Options — 9",
+            "en": "Mercedes Classe A200 Pack AMG - Full Options — 9",
+            "ar": "Mercedes Classe A200 Pack AMG - Full Options — 9"
+          }
+        }
+      ],
+      "text": {
+        "fr": {
+          "name": "Mercedes Classe A200 Pack AMG - Full Options",
+          "version": "Pack AMG / Full Options",
+          "subtitle": "Pack AMG / Full Options",
+          "description": "Chez Makan Luxury Motors, chaque vehicule est selectionne avec rigueur afin de garantir qualite, transparence et excellence.",
+          "availabilityNote": "Disponible tres bientot a Oujda et Berkane sur rendez-vous.",
+          "badges": [
+            "Disponible tres bientot",
+            "Full Options",
+            "Pack AMG"
+          ],
+          "summary": [
+            {
+              "label": "Marque",
+              "value": "Mercedes-Benz"
+            },
+            {
+              "label": "Modele",
+              "value": "Classe A200"
+            },
+            {
+              "label": "Version",
+              "value": "Pack AMG / Full Options"
+            },
+            {
+              "label": "Date modele",
+              "value": "27/02/2020"
+            },
+            {
+              "label": "Diwana",
+              "value": "04/2026"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "166 000 km d'origine"
+            },
+            {
+              "label": "Historique",
+              "value": "Carnet d'entretien a jour"
+            },
+            {
+              "label": "Disponibilite",
+              "value": "Disponible tres bientot"
+            },
+            {
+              "label": "Localisation",
+              "value": "Oujda / Berkane"
+            },
+            {
+              "label": "Visite",
+              "value": "Sur rendez-vous"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Exterieur",
+              "items": [
+                "Pack AMG Line avec boucliers sportifs, jantes AMG et look plus agressif",
+                "Jantes alliage AMG noires multi-branches",
+                "Toit ouvrant panoramique en verre",
+                "Vitres arriere surteintees",
+                "Projecteurs LED",
+                "Calandre diamant Mercedes avec etoile centrale",
+                "Capteurs de stationnement integres au pare-chocs",
+                "Double sortie d'echappement integree",
+                "Barres de toit noires",
+                "Couleur carrosserie gris metallise"
+              ]
+            },
+            {
+              "title": "Interieur et technologie",
+              "items": [
+                "Double ecran digital Mercedes MBUX pour instrumentation et multimedia",
+                "Navigation GPS integree sur l'ecran central",
+                "Sono Burmester",
+                "Demarrage sans cle",
+                "Apple CarPlay / Android Auto",
+                "Retroviseurs rabattables electriquement",
+                "Eclairage d'ambiance",
+                "Pack conduite semi-autonome avec Distronic et maintien dans la voie",
+                "Systeme MBUX avec commande vocale Hey Mercedes",
+                "Commandes tactiles au volant",
+                "Touchpad central de commande",
+                "Eclairage d'ambiance LED multicolore 64 couleurs",
+                "Buses d'aeration type turbine",
+                "Climatisation automatique bi-zone Thermotronic",
+                "Sellerie sport mixte cuir / microfibre avec surpiqures rouges",
+                "Volant sport multifonctions",
+                "Pedalier sport aluminium"
+              ]
+            },
+            {
+              "title": "Confort et habitacle",
+              "items": [
+                "Sieges sport",
+                "Accoudoir central",
+                "Banquette arriere rabattable",
+                "Eclairage interieur d'ambiance sur tableau de bord et portes"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Disponible tres bientot a Oujda et Berkane sur rendez-vous",
+            "Carnet d'entretien a jour",
+            "Selection rigoureuse et presentation premium",
+            "Plus d'informations sur demande via WhatsApp"
+          ],
+          "presentation": [
+            "Makan Luxury Motors est specialise dans la selection et la commercialisation de vehicules de prestige. Notre approche repose sur des valeurs simples : exigence, transparence et discretion.",
+            "Nous proposons a notre clientele une selection rigoureuse de vehicules haut de gamme disponibles immediatement, ainsi qu'un service d'importation sur mesure permettant de trouver la configuration ideale selon des criteres precis.",
+            "Grace a un reseau de partenaires professionnels a travers l'Europe, nous sommes en mesure d'acceder a des vehicules soigneusement selectionnes et parfaitement suivis.",
+            "Chaque automobile proposee par Makan Luxury Motors fait l'objet d'une verification attentive afin de garantir qualite, fiabilite et conformite."
+          ],
+          "heroTitle": "Mercedes Classe A200 Pack AMG",
+          "heroSubtitle": "Luxury • Performance • Excellence",
+          "heroDescription": "Stock reel, presentation haut de gamme et accompagnement personnalise pour chaque vehicule selectionne par Makan Luxury Motors."
+        },
+        "en": {
+          "name": "Mercedes Classe A200 Pack AMG - Full Options",
+          "version": "Pack AMG / Full Options",
+          "subtitle": "AMG Pack / Full options",
+          "description": "Chez Makan Luxury Motors, chaque vehicule est selectionne avec rigueur afin de garantir qualite, transparence et excellence.",
+          "availabilityNote": "Disponible tres bientot a Oujda et Berkane sur rendez-vous.",
+          "badges": [
+            "Disponible tres bientot",
+            "Full options",
+            "AMG Pack"
+          ],
+          "summary": [
+            {
+              "label": "Marque",
+              "value": "Mercedes-Benz"
+            },
+            {
+              "label": "Modele",
+              "value": "Classe A200"
+            },
+            {
+              "label": "Version",
+              "value": "AMG Pack / Full options"
+            },
+            {
+              "label": "Date modele",
+              "value": "27/02/2020"
+            },
+            {
+              "label": "Diwana",
+              "value": "04/2026"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "166,000 km original mileage"
+            },
+            {
+              "label": "Historique",
+              "value": "Carnet d'entretien a jour"
+            },
+            {
+              "label": "Disponibilite",
+              "value": "Disponible tres bientot"
+            },
+            {
+              "label": "Localisation",
+              "value": "Oujda / Berkane"
+            },
+            {
+              "label": "Visite",
+              "value": "Sur rendez-vous"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Exterieur",
+              "items": [
+                "Pack AMG Line avec boucliers sportifs, jantes AMG et look plus agressif",
+                "Jantes alliage AMG noires multi-branches",
+                "Toit ouvrant panoramique en verre",
+                "Vitres arriere surteintees",
+                "Projecteurs LED",
+                "Calandre diamant Mercedes avec etoile centrale",
+                "Capteurs de stationnement integres au pare-chocs",
+                "Double sortie d'echappement integree",
+                "Barres de toit noires",
+                "Couleur carrosserie gris metallise"
+              ]
+            },
+            {
+              "title": "Interieur et technologie",
+              "items": [
+                "Double ecran digital Mercedes MBUX pour instrumentation et multimedia",
+                "Navigation GPS integree sur l'ecran central",
+                "Sono Burmester",
+                "Demarrage sans cle",
+                "Apple CarPlay / Android Auto",
+                "Retroviseurs rabattables electriquement",
+                "Eclairage d'ambiance",
+                "Pack conduite semi-autonome avec Distronic et maintien dans la voie",
+                "Systeme MBUX avec commande vocale Hey Mercedes",
+                "Commandes tactiles au volant",
+                "Touchpad central de commande",
+                "Eclairage d'ambiance LED multicolore 64 couleurs",
+                "Buses d'aeration type turbine",
+                "Climatisation automatique bi-zone Thermotronic",
+                "Sellerie sport mixte cuir / microfibre avec surpiqures rouges",
+                "Volant sport multifonctions",
+                "Pedalier sport aluminium"
+              ]
+            },
+            {
+              "title": "Confort et habitacle",
+              "items": [
+                "Sieges sport",
+                "Accoudoir central",
+                "Banquette arriere rabattable",
+                "Eclairage interieur d'ambiance sur tableau de bord et portes"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Disponible tres bientot a Oujda et Berkane sur rendez-vous",
+            "Carnet d'entretien a jour",
+            "Selection rigoureuse et presentation premium",
+            "Plus d'informations sur demande via WhatsApp"
+          ],
+          "presentation": [
+            "Makan Luxury Motors est specialise dans la selection et la commercialisation de vehicules de prestige. Notre approche repose sur des valeurs simples : exigence, transparence et discretion.",
+            "Nous proposons a notre clientele une selection rigoureuse de vehicules haut de gamme disponibles immediatement, ainsi qu'un service d'importation sur mesure permettant de trouver la configuration ideale selon des criteres precis.",
+            "Grace a un reseau de partenaires professionnels a travers l'Europe, nous sommes en mesure d'acceder a des vehicules soigneusement selectionnes et parfaitement suivis.",
+            "Chaque automobile proposee par Makan Luxury Motors fait l'objet d'une verification attentive afin de garantir qualite, fiabilite et conformite."
+          ],
+          "heroTitle": "Mercedes Classe A200 Pack AMG",
+          "heroSubtitle": "Luxury • Performance • Excellence",
+          "heroDescription": "Stock reel, presentation haut de gamme et accompagnement personnalise pour chaque vehicule selectionne par Makan Luxury Motors."
+        },
+        "ar": {
+          "name": "Mercedes Classe A200 Pack AMG - Full Options",
+          "version": "Pack AMG / Full Options",
+          "subtitle": "باك AMG / جميع التجهيزات",
+          "description": "Chez Makan Luxury Motors, chaque vehicule est selectionne avec rigueur afin de garantir qualite, transparence et excellence.",
+          "availabilityNote": "Disponible tres bientot a Oujda et Berkane sur rendez-vous.",
+          "badges": [
+            "Disponible tres bientot",
+            "جميع التجهيزات",
+            "باك AMG"
+          ],
+          "summary": [
+            {
+              "label": "Marque",
+              "value": "مرسيدس-بنز"
+            },
+            {
+              "label": "Modele",
+              "value": "Classe A200"
+            },
+            {
+              "label": "Version",
+              "value": "باك AMG / جميع التجهيزات"
+            },
+            {
+              "label": "Date modele",
+              "value": "27/02/2020"
+            },
+            {
+              "label": "Diwana",
+              "value": "04/2026"
+            },
+            {
+              "label": "Kilometrage",
+              "value": "166000 كلم أصلية"
+            },
+            {
+              "label": "Historique",
+              "value": "Carnet d'entretien a jour"
+            },
+            {
+              "label": "Disponibilite",
+              "value": "Disponible tres bientot"
+            },
+            {
+              "label": "Localisation",
+              "value": "وجدة / بركان"
+            },
+            {
+              "label": "Visite",
+              "value": "Sur rendez-vous"
+            }
+          ],
+          "featureGroups": [
+            {
+              "title": "Exterieur",
+              "items": [
+                "Pack AMG Line avec boucliers sportifs, jantes AMG et look plus agressif",
+                "Jantes alliage AMG noires multi-branches",
+                "Toit ouvrant panoramique en verre",
+                "Vitres arriere surteintees",
+                "Projecteurs LED",
+                "Calandre diamant Mercedes avec etoile centrale",
+                "Capteurs de stationnement integres au pare-chocs",
+                "Double sortie d'echappement integree",
+                "Barres de toit noires",
+                "Couleur carrosserie gris metallise"
+              ]
+            },
+            {
+              "title": "Interieur et technologie",
+              "items": [
+                "Double ecran digital Mercedes MBUX pour instrumentation et multimedia",
+                "Navigation GPS integree sur l'ecran central",
+                "Sono Burmester",
+                "Demarrage sans cle",
+                "Apple CarPlay / Android Auto",
+                "Retroviseurs rabattables electriquement",
+                "Eclairage d'ambiance",
+                "Pack conduite semi-autonome avec Distronic et maintien dans la voie",
+                "Systeme MBUX avec commande vocale Hey Mercedes",
+                "Commandes tactiles au volant",
+                "Touchpad central de commande",
+                "Eclairage d'ambiance LED multicolore 64 couleurs",
+                "Buses d'aeration type turbine",
+                "Climatisation automatique bi-zone Thermotronic",
+                "Sellerie sport mixte cuir / microfibre avec surpiqures rouges",
+                "Volant sport multifonctions",
+                "Pedalier sport aluminium"
+              ]
+            },
+            {
+              "title": "Confort et habitacle",
+              "items": [
+                "Sieges sport",
+                "Accoudoir central",
+                "Banquette arriere rabattable",
+                "Eclairage interieur d'ambiance sur tableau de bord et portes"
+              ]
+            }
+          ],
+          "sellingPoints": [
+            "Disponible tres bientot a Oujda et Berkane sur rendez-vous",
+            "Carnet d'entretien a jour",
+            "Selection rigoureuse et presentation premium",
+            "Plus d'informations sur demande via WhatsApp"
+          ],
+          "presentation": [
+            "Makan Luxury Motors est specialise dans la selection et la commercialisation de vehicules de prestige. Notre approche repose sur des valeurs simples : exigence, transparence et discretion.",
+            "Nous proposons a notre clientele une selection rigoureuse de vehicules haut de gamme disponibles immediatement, ainsi qu'un service d'importation sur mesure permettant de trouver la configuration ideale selon des criteres precis.",
+            "Grace a un reseau de partenaires professionnels a travers l'Europe, nous sommes en mesure d'acceder a des vehicules soigneusement selectionnes et parfaitement suivis.",
+            "Chaque automobile proposee par Makan Luxury Motors fait l'objet d'une verification attentive afin de garantir qualite, fiabilite et conformite."
+          ],
+          "heroTitle": "Mercedes Classe A200 Pack AMG",
+          "heroSubtitle": "Luxury • Performance • Excellence",
+          "heroDescription": "Stock reel, presentation haut de gamme et accompagnement personnalise pour chaque vehicule selectionne par Makan Luxury Motors."
+        }
+      }
+    }
+  ]
+}

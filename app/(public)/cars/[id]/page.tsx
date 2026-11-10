@@ -1,113 +1,33 @@
 import { notFound } from 'next/navigation'
-import { CheckCircle2, MessageCircleMore } from 'lucide-react'
+import Link from 'next/link'
+import { MessageCircleMore } from 'lucide-react'
 import { ShowroomGallery } from '@/components/platform/showroom-gallery'
-import { getShowroomCarById, getWhatsAppHref } from '@/lib/data/showroom-stock'
-
-export default async function CarDetailsPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
-  const car = getShowroomCarById(id)
-
-  if (!car) {
-    notFound()
-  }
-
-  return (
-    <section className="section-shell py-10 sm:py-20">
-      <div className="grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-8">
-        <article className="min-w-0 space-y-6 rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:space-y-8 sm:rounded-[32px] sm:p-7">
-          <ShowroomGallery images={car.gallery} alt={car.name} illustrative={car.illustrativeImages} />
-
-          <div className="space-y-6">
-            <div className="flex flex-wrap gap-2">
-              {car.badges.map((badge) => (
-                <span key={badge} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200">
-                  {badge}
-                </span>
-              ))}
-            </div>
-
-            <div>
-              <h1 className="font-serif text-3xl font-medium tracking-[-0.03em] text-white sm:text-6xl">{car.name}</h1>
-              {car.subtitle ? <p className="mt-3 text-xs uppercase tracking-[0.16em] text-slate-400 sm:text-sm sm:tracking-[0.18em]">{car.subtitle}</p> : null}
-              {car.price ? <p className="mt-4 text-2xl font-semibold text-[#e3c58e] sm:mt-5 sm:text-3xl">{car.price}</p> : null}
-            </div>
-
-            {car.description ? <p className="text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">{car.description}</p> : null}
-
-            <div className="grid gap-4 md:grid-cols-2">
-              {car.summary.map((item) => (
-                <div key={item.label} className="rounded-[22px] border border-white/10 bg-[#080b12] p-4">
-                  <p className="text-xs uppercase tracking-[0.24em] text-slate-500">{item.label}</p>
-                  <p className="mt-2 text-base text-white">{item.value}</p>
-                </div>
-              ))}
-            </div>
-
-            {car.featureGroups.length > 0 ? (
-              <div className="grid gap-4 lg:grid-cols-2">
-                {car.featureGroups.map((group) => (
-                  <div key={group.title} className="rounded-[24px] border border-white/10 bg-[#080b12] p-5">
-                    <h2 className="font-serif text-3xl text-white">{group.title}</h2>
-                    <ul className="mt-4 space-y-3">
-                      {group.items.map((item) => (
-                        <li key={item} className="flex gap-3 text-sm leading-6 text-slate-300">
-                          <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#c9a96d]" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            ) : null}
-
-            {car.presentation?.length ? (
-              <div className="rounded-[24px] border border-white/10 bg-[#080b12] p-5">
-                <h2 className="font-serif text-3xl text-white">Présentation Makan Luxury Motors</h2>
-                <div className="mt-4 space-y-4 text-sm leading-7 text-slate-300 sm:text-base">
-                  {car.presentation.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-          </div>
-        </article>
-
-        <aside className="min-w-0 space-y-6 rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:rounded-[32px] sm:p-7">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#e3c58e]">Contact showroom</p>
-            <h2 className="mt-3 font-serif text-2xl text-white sm:text-3xl">Demander plus d&apos;informations</h2>
-            <p className="mt-3 text-sm leading-7 text-slate-300">
-              Contactez Makan Luxury Motors pour organiser une visite, demander plus de photos ou réserver un
-              rendez-vous au showroom.
-            </p>
-            {car.availabilityNote ? <p className="mt-3 text-sm leading-7 text-[#e3c58e]">{car.availabilityNote}</p> : null}
-          </div>
-
-          <a
-            href={getWhatsAppHref(car.whatsapp, car.name)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#c9a96d] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#d8b97e]"
-          >
-            <MessageCircleMore size={18} />
-            WhatsApp {car.whatsapp}
-          </a>
-
-          <div className="rounded-[24px] border border-white/10 bg-[#080b12] p-5">
-            <h3 className="font-serif text-3xl text-white">Points forts</h3>
-            <ul className="mt-4 space-y-3">
-              {car.sellingPoints.map((point) => (
-                <li key={point} className="flex gap-3 text-sm leading-6 text-slate-300">
-                  <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#c9a96d]" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </section>
-  )
+import { getShowroomCarById } from '@/lib/data/showroom-stock'
+import { getWhatsAppHref } from '@/lib/contact'
+import { getServerLocale } from '@/lib/i18n/server'
+import { getCatalogue } from '@/lib/catalogue'
+import { pageMetadata, siteUrl } from '@/lib/seo'
+type Props={params:Promise<{id:string}>}
+const copy={
+  fr:{collection:'La collection',specs:'En détail',equipment:'Équipements',highlights:'Les points forts',enquiry:'Cette voiture vous ressemble ?',text:'Parlons de ce véhicule. Notre équipe vous accompagne, de votre première question à la remise des clés.',cta:'En savoir plus sur ce véhicule',sold:'Ce véhicule a trouvé son nouveau propriétaire. Contactez-nous pour trouver un modèle similaire.',year:'Année / immatriculation',mileage:'Kilométrage',trim:'Finition',presentation:'La présentation Makan',call:'Appeler le showroom',email:'Envoyer un email'},
+  en:{collection:'The collection',specs:'At a glance',equipment:'Equipment & features',highlights:'What makes it special',enquiry:'Your next great drive?',text:'Let’s talk about this vehicle. Personal advice, from your first question to the handover.',cta:'Enquire about this vehicle',sold:'This vehicle has found its new owner. Contact us to find a similar model.',year:'Year / registration',mileage:'Mileage',trim:'Trim',presentation:'The Makan presentation',call:'Call the showroom',email:'Send an email'},
+  ar:{collection:'مجموعة السيارات',specs:'المواصفات',equipment:'التجهيزات',highlights:'أبرز المميزات',enquiry:'هل هذه سيارتك القادمة؟',text:'لنتحدث عن هذه السيارة. فريقنا يرافقك من أول سؤال إلى استلام المفاتيح.',cta:'استفسر عن هذه السيارة',sold:'انتقلت هذه السيارة إلى مالكها الجديد. تواصل معنا للعثور على طراز مماثل.',year:'السنة / التسجيل',mileage:'المسافة المقطوعة',trim:'الفئة',presentation:'تقديم مكان',call:'اتصل بالمعرض',email:'راسلنا'}
+}
+export async function generateMetadata({params}:Props){const {id}=await params,locale=await getServerLocale(),car=getShowroomCarById(id,locale);if(!car)return{title:'Vehicle unavailable | Makan Luxury Motors',robots:{index:false,follow:false}};return pageMetadata(locale,`/cars/${car.slug}`,`${car.name} | Makan Luxury Motors`,`${car.name} · ${car.price} · ${car.availabilityLabel}. ${car.description||''}`,car.gallery[0])}
+export default async function CarDetailsPage({params}:Props){
+  const {id}=await params,locale=await getServerLocale(),car=getShowroomCarById(id,locale);if(!car)notFound()
+  const c=copy[locale],contact=getCatalogue().contact,enquiry=getWhatsAppHref(contact.whatsapp,car.name,locale)
+  const specs=[{label:c.year,value:car.registrationDate||String(car.year||'—')},{label:c.mileage,value:car.mileageKm==null?'—':`${new Intl.NumberFormat(locale).format(car.mileageKm)} ${locale==='ar'?'كم':'km'}`},{label:c.trim,value:car.version||'—'},...car.summary.filter(s=>!/(kilom|mileage|mod[eè]le|ann[eé]e|registration|year|version|date d|الكيلومترات|الطراز)/i.test(s.label))]
+  const ld={ '@context':'https://schema.org', '@type':'Car', name:car.name, description:car.description||car.subtitle, image:car.gallery.map(p=>`${siteUrl}${p}`), brand:{'@type':'Brand',name:car.brand}, model:car.model, vehicleModelDate:car.year, ...(car.mileageKm!=null?{mileageFromOdometer:{'@type':'QuantitativeValue',value:car.mileageKm,unitCode:'KMT'}}:{}), ...(car.priceMAD!=null?{offers:{'@type':'Offer',price:car.priceMAD,priceCurrency:'MAD',availability:`https://schema.org/${car.status==='sold'?'SoldOut':car.status==='unavailable'?'OutOfStock':car.status==='coming-soon'?'PreOrder':'InStock'}`,url:`${siteUrl}/${locale}/cars/${car.slug}`}}:{}) }
+  return <main className="detail-page section-shell"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(ld).replace(/</g,'\u003c')}}/>
+    <nav className="detail-breadcrumb" aria-label={c.collection}><Link href={`/${locale}/vente`}>{c.collection}</Link><span>/</span><span>{car.name}</span></nav>
+    <div className="detail-heading"><div><span className="detail-badge">{car.availabilityLabel}</span><h1>{car.name}</h1><p className="detail-subtitle">{car.subtitle||car.version}</p></div><p className="detail-price">{car.price}</p></div>
+    <div className="detail-layout"><article className="detail-main"><ShowroomGallery images={car.gallery} photos={car.photos} alt={car.name} illustrative={car.illustrativeImages}/>
+      {car.description&&<section className="detail-section"><p className="detail-description">{car.description}</p></section>}
+      <section className="detail-section"><h2>{c.specs}</h2><dl className="detail-specs">{specs.map((s,n)=><div key={`${s.label}-${n}`}><dt>{s.label}</dt><dd>{s.value}</dd></div>)}</dl></section>
+      <section className="detail-section"><h2>{c.equipment}</h2><div className="equipment-groups">{car.featureGroups.map((g,n)=><div key={n}><h3>{g.title}</h3><ul>{g.items.map((item,i)=><li key={i}>{item}</li>)}</ul></div>)}</div></section>
+      {!!car.sellingPoints.length&&<section className="detail-section"><h2>{c.highlights}</h2><ul className="detail-highlights">{car.sellingPoints.map((p,n)=><li key={n}>{p}</li>)}</ul></section>}
+      {!!car.presentation?.length&&<section className="detail-section"><h2>{c.presentation}</h2>{car.presentation.map((p,n)=><p className="detail-description" key={n}>{p}</p>)}</section>}
+    </article><aside className="detail-enquiry"><p className="makan-eyebrow">Makan Luxury Motors</p><h2>{c.enquiry}</h2><p>{car.status==='sold'?c.sold:c.text}</p>{car.availabilityNote&&<p className="availability-note">{car.availabilityNote}</p>}<a href={enquiry} target="_blank" rel="noopener noreferrer" className="makan-button makan-button-gold"><MessageCircleMore size={18}/>{c.cta}</a><div className="detail-contact-links"><a href={`tel:${contact.phone.replace(/[^+0-9]/g,'')}`}>{c.call}</a><a href={`mailto:${contact.email}?subject=${encodeURIComponent(car.name)}`}>{c.email}</a></div></aside></div>
+  </main>
 }

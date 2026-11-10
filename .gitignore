@@ -9,3 +9,6 @@ node_modules/
 .pnpm-store/
 .env*.local
 .DS_Store
+.catalogue-backups/
+*.tsbuildinfo
+__pycache__/

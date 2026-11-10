@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react'
 import { usePathname } from 'next/navigation'
-import { defaultLocale, getDirection, isLocale, stripLocaleFromPathname } from '@/lib/i18n/config'
+import { defaultLocale, getDirection, stripLocaleFromPathname } from '@/lib/i18n/config'
 import { getTranslator } from '@/lib/i18n/utils'
 
 export function useCurrentLocale() {

@@ -1,0 +1,17 @@
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:#142019;color:#222820;font:14px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif}
+.login-shell{min-height:100dvh;display:grid;place-items:center;padding:24px 16px}
+.login-card{width:100%;max-width:400px;background:#f5f4f0;border-radius:8px;padding:36px 32px;box-shadow:0 24px 60px #0006}
+.login-brand{display:flex;align-items:center;gap:12px;letter-spacing:.19em;font-size:18px;font-weight:600;color:#142019}
+.login-brand img{width:56px;height:auto}
+.login-brand small{display:block;font-size:7px;letter-spacing:.25em;margin-top:3px;color:#8b784f}
+.login-eyebrow{font-size:9px;font-weight:600;letter-spacing:.18em;color:#8b784f;margin:32px 0 6px}
+h1{font:34px/1.1 Georgia,serif;letter-spacing:-.03em;margin:0}
+.login-lead{font-size:12px;color:#7d8174;margin:10px 0 24px}
+.login-error{margin:0 0 18px;padding:11px 13px;border:1px solid #e4b8a2;border-radius:5px;background:#fff6f0;color:#945b41;font-size:12px}
+.login-form{display:grid;gap:16px}
+.login-form label{display:grid;gap:7px;font-size:11px;color:#69775d}
+.login-form input{width:100%;border:1px solid #d9dfcf;background:#fcfdf9;border-radius:4px;padding:12px;color:#2c3b23;font:inherit;font-size:13px}
+.login-form button{margin-top:6px;min-height:44px;border:1px solid #d3b17a;border-radius:4px;background:#d3b17a;color:#1c271a;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.login-form button:hover{background:#e1c393}
+input:focus-visible,button:focus-visible{outline:3px solid #9c7845;outline-offset:2px}

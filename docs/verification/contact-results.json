@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "fr: contact email, phone, maps and WhatsApp",
+    "en: contact email, phone, maps and WhatsApp",
+    "ar: contact email, phone, maps and WhatsApp",
+    "language switch retains pathname, query and fragment"
+  ],
+  "externalMessagesSent": false
+}

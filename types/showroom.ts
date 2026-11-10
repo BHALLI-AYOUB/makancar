@@ -10,6 +10,14 @@ export interface ShowroomFeatureGroup {
 
 export interface ShowroomCar {
   id: string
+  slug?: string
+  priceMAD?: number | null
+  mileageKm?: number | null
+  year?: number | null
+  registrationDate?: string
+  status?: 'available' | 'coming-soon' | 'sold' | 'unavailable'
+  featured?: boolean
+  photos?: { path: string; illustrative: boolean; alt: Record<'fr' | 'en' | 'ar', string> }[]
   name: string
   heroTitle?: string
   brand?: string

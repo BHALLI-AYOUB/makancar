@@ -1,20 +1,10 @@
-import { ShowroomGrid } from '@/components/platform/showroom-grid'
-import { SectionHeading } from '@/components/platform/section-heading'
+import { CatalogueBrowser } from '@/components/platform/catalogue-browser'
 import { getShowroomCars } from '@/lib/data/showroom-stock'
-
-export default function VentePage() {
-  const cars = getShowroomCars()
-
-  return (
-    <section className="section-shell py-16 sm:py-20">
-      <SectionHeading
-        eyebrow="Catalogue premium"
-        title="Stock disponible Makan Luxury Motors"
-        description="Nos véhicules réels disponibles, dédouanés et présentés avec leurs galeries complètes."
-      />
-      <div className="mt-10">
-        <ShowroomGrid cars={cars} />
-      </div>
-    </section>
-  )
+import { getServerLocale } from '@/lib/i18n/server'
+import { pageMetadata } from '@/lib/seo'
+export async function generateMetadata() {
+  const locale = await getServerLocale()
+  const titles = { fr:'La collection | Makan Luxury Motors', en:'The collection | Makan Luxury Motors', ar:'مجموعة السيارات | مكان لاكجري موتورز' }
+  return pageMetadata(locale, '/vente', titles[locale], {fr:'Découvrez notre stock de véhicules sélectionnés à Oujda. Photos, prix en MAD et informations détaillées.',en:'Explore our selected vehicles in Oujda. Complete galleries, prices in MAD and clear vehicle details.',ar:'اكتشف سياراتنا المختارة في وجدة، مع الصور والأسعار بالدرهم والمعلومات المفصلة.'}[locale])
 }
+export default async function VentePage() { return <CatalogueBrowser cars={getShowroomCars(await getServerLocale())} /> }

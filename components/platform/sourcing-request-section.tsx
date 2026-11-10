@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { FileSearch, SearchCheck, ShieldCheck, Truck } from 'lucide-react'
-import { business } from '@/lib/business'
+import { useBusiness } from '@/components/platform/showroom-context'
 
 const steps = [
   {
@@ -51,6 +51,7 @@ const initialFormData: SourcingFormData = {
 }
 
 export function SourcingRequestSection() {
+  const business = useBusiness()
   const [formData, setFormData] = useState<SourcingFormData>(initialFormData)
   const [loading, setLoading] = useState(false)
 

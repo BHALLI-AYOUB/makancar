@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { SearchCheck, ShieldCheck, Sparkles } from 'lucide-react'
-import { business } from '@/lib/business'
+import { useBusiness } from '@/components/platform/showroom-context'
 import { useCurrentLocale } from '@/lib/i18n/client'
 
 type FormState = {
@@ -125,7 +125,9 @@ const copy = {
   },
 } as const
 
-export function VehicleSearchRequest() {
+export function VehicleSearchRequest({ headingLevel = 'h1' }: { headingLevel?: 'h1' | 'h2' }) {
+  const Heading = headingLevel
+  const business = useBusiness()
   const locale = useCurrentLocale()
   const section = copy[locale]
   const [form, setForm] = useState<FormState>(initialState)
@@ -177,12 +179,12 @@ export function VehicleSearchRequest() {
       <div className="section-shell relative z-10">
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.35em] text-[#e3c58e]">{section.eyebrow}</p>
-          <h1 className="mt-3 font-serif text-4xl font-medium tracking-[-0.03em] text-white sm:text-6xl">{section.title}</h1>
+          <Heading className="mt-3 font-serif text-4xl font-medium tracking-[-0.03em] text-white sm:text-6xl">{section.title}</Heading>
           <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg">{section.description}</p>
         </div>
 
         <div className="mt-10 grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
-          <form
+          <form id="vehicle-search-form"
             onSubmit={handleSubmit}
             className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-5 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:p-7"
           >

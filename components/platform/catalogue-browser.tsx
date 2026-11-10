@@ -1,0 +1,27 @@
+'use client'
+import { useMemo, useState } from 'react'
+import type { ShowroomCar } from '@/types/showroom'
+import { ShowroomCard } from './showroom-card'
+import { Reveal } from './reveal'
+import { useCurrentLocale } from '@/lib/i18n/client'
+export const catalogueCopy = {
+  fr: { eyebrow: 'La collection Makan', title: 'Trouvez votre prochaine évidence.', text: 'Un stock réel. Des véhicules choisis pour leur caractère.', search: 'Rechercher un véhicule', placeholder: 'Marque, modèle, finition…', brand: 'Marque', allBrands: 'Toutes les marques', status: 'Disponibilité', all: 'Tous les véhicules', available: 'Disponible', soon: 'Bientôt disponible', sold: 'Vendu', unavailable: 'Indisponible', sort: 'Trier par', curated: 'Notre sélection', priceUp: 'Prix croissant', priceDown: 'Prix décroissant', mileage: 'Kilométrage croissant', maxPrice: 'Budget maximum · MAD', maxMileage: 'Kilométrage maximum · km', count: 'véhicules', empty: 'Aucun véhicule ne correspond à votre recherche.', reset: 'Réinitialiser les filtres' },
+  en: { eyebrow: 'The Makan collection', title: 'Find your next exceptional drive.', text: 'Genuine inventory. Cars selected for their character.', search: 'Search vehicles', placeholder: 'Make, model, trim…', brand: 'Make', allBrands: 'All makes', status: 'Availability', all: 'All vehicles', available: 'Available', soon: 'Coming soon', sold: 'Sold', unavailable: 'Unavailable', sort: 'Sort by', curated: 'Curated order', priceUp: 'Price: low to high', priceDown: 'Price: high to low', mileage: 'Lowest mileage', maxPrice: 'Maximum budget · MAD', maxMileage: 'Maximum mileage · km', count: 'vehicles', empty: 'No vehicles match your search.', reset: 'Reset filters' },
+  ar: { eyebrow: 'مجموعة مكان', title: 'اكتشف سيارتك الاستثنائية القادمة.', text: 'مخزون حقيقي، وسيارات نختارها لشخصيتها المميزة.', search: 'ابحث عن سيارة', placeholder: 'العلامة، الطراز، الفئة…', brand: 'العلامة', allBrands: 'جميع العلامات', status: 'التوفر', all: 'جميع السيارات', available: 'متوفرة', soon: 'قريباً', sold: 'مباعة', unavailable: 'غير متوفرة', sort: 'ترتيب حسب', curated: 'اختياراتنا', priceUp: 'السعر تصاعدياً', priceDown: 'السعر تنازلياً', mileage: 'أقل مسافة مقطوعة', maxPrice: 'الميزانية القصوى · درهم', maxMileage: 'المسافة القصوى · كم', count: 'سيارات', empty: 'لا توجد سيارات تطابق بحثك.', reset: 'إعادة ضبط البحث' },
+}
+export function CatalogueBrowser({ cars }: { cars: ShowroomCar[] }) {
+  const locale = useCurrentLocale(), c = catalogueCopy[locale]
+  const [query, setQuery] = useState(''), [brand, setBrand] = useState(''), [status, setStatus] = useState(''), [sort, setSort] = useState(''), [maxPrice, setMaxPrice] = useState(''), [maxMileage, setMaxMileage] = useState('')
+  const filtered = useMemo(() => {
+    const result = cars.filter(car => (!brand || car.brand === brand) && (!status || car.status === status) && (!query || `${car.name} ${car.brand} ${car.model} ${car.version}`.toLowerCase().includes(query.toLowerCase())) && (!maxPrice || (car.priceMAD != null && car.priceMAD <= Number(maxPrice))) && (!maxMileage || (car.mileageKm != null && car.mileageKm <= Number(maxMileage))))
+    if (sort === 'price-up') result.sort((a,b) => (a.priceMAD ?? Infinity) - (b.priceMAD ?? Infinity))
+    if (sort === 'price-down') result.sort((a,b) => (b.priceMAD ?? -Infinity) - (a.priceMAD ?? -Infinity))
+    if (sort === 'mileage') result.sort((a,b) => (a.mileageKm ?? Infinity) - (b.mileageKm ?? Infinity))
+    return result
+  }, [cars, brand, status, query, sort, maxPrice, maxMileage])
+  return <main className="catalogue-page section-shell"><div className="catalogue-heading"><p className="makan-eyebrow">{c.eyebrow}</p><h1 className="makan-heading">{c.title}</h1><p>{c.text}</p></div>
+    <div className="catalogue-filters"><label className="catalogue-search">{c.search}<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder={c.placeholder}/></label><label>{c.brand}<select value={brand} onChange={e=>setBrand(e.target.value)}><option value="">{c.allBrands}</option>{Array.from(new Set(cars.map(v=>v.brand))).map(b=><option key={b}>{b}</option>)}</select></label><label>{c.status}<select value={status} onChange={e=>setStatus(e.target.value)}><option value="">{c.all}</option><option value="available">{c.available}</option><option value="coming-soon">{c.soon}</option><option value="sold">{c.sold}</option><option value="unavailable">{c.unavailable}</option></select></label><label>{c.sort}<select value={sort} onChange={e=>setSort(e.target.value)}><option value="">{c.curated}</option><option value="price-up">{c.priceUp}</option><option value="price-down">{c.priceDown}</option><option value="mileage">{c.mileage}</option></select></label><label>{c.maxPrice}<input type="number" min="0" value={maxPrice} onChange={e=>setMaxPrice(e.target.value)}/></label><label>{c.maxMileage}<input type="number" min="0" value={maxMileage} onChange={e=>setMaxMileage(e.target.value)}/></label></div>
+    <div className="catalogue-count"><p role="status">{String(filtered.length).padStart(2,'0')} {c.count}</p><button type="button" onClick={()=>{setQuery('');setBrand('');setStatus('');setSort('');setMaxPrice('');setMaxMileage('')}}>{c.reset}</button></div>
+    <div className="catalogue-grid">{filtered.map(car=><Reveal key={car.id}><ShowroomCard car={car}/></Reveal>)}</div>{!filtered.length&&<p className="catalogue-empty">{c.empty}</p>}
+  </main>
+}

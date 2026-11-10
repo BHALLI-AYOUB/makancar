@@ -1,4 +1,6 @@
-﻿'use client'
+'use client'
+import { useShowroomContent } from '@/components/platform/showroom-context'
+
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -9,15 +11,10 @@ import { withLocalePath } from '@/lib/i18n/config'
 import { ShowroomCard } from '@/components/platform/showroom-card'
 import { Reveal } from '@/components/platform/reveal'
 
-const copy = {
-  fr: { eyebrow: '01 — Notre collection', title: 'Votre prochaine', accent: 'évidence.', description: 'Une sélection qui privilégie le caractère, le confort et le plaisir de conduire.', all: 'Tous les véhicules', available: 'véhicules dans la sélection', catalog: 'Voir le catalogue complet' },
-  en: { eyebrow: '01 — Our collection', title: 'Your next', accent: 'great drive.', description: 'A collection chosen for its character, comfort and the pleasure of driving.', all: 'All vehicles', available: 'vehicles in the collection', catalog: 'Explore the full catalogue' },
-  ar: { eyebrow: '01 — مجموعتنا', title: 'سيارتك القادمة،', accent: 'اختيار مميز.', description: 'مجموعة نختارها لشخصيتها وراحتها ومتعة قيادتها.', all: 'جميع السيارات', available: 'سيارات ضمن المجموعة', catalog: 'تصفح المجموعة كاملة' },
-}
 
 export function HomeCollection({ cars }: { cars: ShowroomCar[] }) {
   const locale = useCurrentLocale()
-  const c = copy[locale]
+  const c = useShowroomContent('collection')
   const [brand, setBrand] = useState('all')
   const brands = Array.from(new Set(cars.map(car => car.brand).filter((brand): brand is string => Boolean(brand))))
   const filtered = brand === 'all' ? cars : cars.filter(car => car.brand === brand)

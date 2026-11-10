@@ -1,0 +1,32 @@
+{
+  "mode": "Next.js development; warm compilation, disabled browser cache; 390x844; CPU 4x; 150ms latency; 1.6Mbps down; three samples",
+  "samples": [
+    {
+      "lcp": 7220,
+      "cls": 0,
+      "fcp": 2684,
+      "ttfb": 678.8999999761581,
+      "transferBytes": 1611055,
+      "jsBytes": 1112586,
+      "horizontalOverflow": false
+    },
+    {
+      "lcp": 7224,
+      "cls": 0,
+      "fcp": 2524,
+      "ttfb": 565.4000000357628,
+      "transferBytes": 1611055,
+      "jsBytes": 1112586,
+      "horizontalOverflow": false
+    },
+    {
+      "lcp": 6780,
+      "cls": 0,
+      "fcp": 2276,
+      "ttfb": 412.7999999523163,
+      "transferBytes": 1639711,
+      "jsBytes": 1112586,
+      "horizontalOverflow": false
+    }
+  ]
+}

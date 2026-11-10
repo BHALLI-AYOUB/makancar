@@ -1,4 +1,5 @@
 'use client'
+import { useShowroomContent } from '@/components/platform/showroom-context'
 
 import Link from 'next/link'
 import { ArrowUpRight, Check, MapPin } from 'lucide-react'
@@ -8,15 +9,10 @@ import { Reveal } from '@/components/platform/reveal'
 import { ShowroomImage } from '@/components/platform/showroom-image'
 import type { ShowroomCar } from '@/types/showroom'
 
-const copy = {
-  fr: { eyebrow: '02 — L’esprit Makan', title: 'Plus qu’une voiture.', accent: 'Une relation de confiance.', text: 'Le bon véhicule se reconnaît dans les détails. Chez Makan Luxury Motors, nous prenons le temps de comprendre votre projet et de vous accompagner dans chaque décision.', pillars: ['Des configurations choisies avec soin', 'Des informations claires sur chaque véhicule', 'Un interlocuteur, du premier échange à la livraison'], visit: 'Rencontrons-nous à Oujda', detail: 'Le luxe se vit dans les détails.', sourcing: '03 — Votre recherche, notre engagement', sourcingTitle: 'Vous l’imaginez.', sourcingAccent: 'Nous la recherchons.', sourcingText: 'Un modèle précis, une finition rare, une envie particulière. Confiez-nous vos critères et découvrez notre service de recherche personnalisée en Europe.', sourcingCta: 'Créer ma recherche', sold: 'Ils ont trouvé leur prochain départ.', soldLabel: 'Déjà confiés à leurs nouveaux propriétaires', soldTag: 'Vendu' },
-  en: { eyebrow: '02 — The Makan spirit', title: 'More than a car.', accent: 'A relationship built on trust.', text: 'The right car reveals itself in the details. At Makan Luxury Motors, we take the time to understand your project and guide you through every decision.', pillars: ['Carefully chosen configurations', 'Clear information on every vehicle', 'Personal support from first contact to handover'], visit: 'Meet us in Oujda', detail: 'Luxury lives in the details.', sourcing: '03 — Your search, our commitment', sourcingTitle: 'You imagine it.', sourcingAccent: 'We find it.', sourcingText: 'A particular model, a rare specification, a personal ambition. Share your criteria and discover our bespoke vehicle sourcing service in Europe.', sourcingCta: 'Start my search', sold: 'Their next chapter has begun.', soldLabel: 'Already with their new owners', soldTag: 'Sold' },
-  ar: { eyebrow: '02 — روح مكان', title: 'أكثر من سيارة.', accent: 'علاقة مبنية على الثقة.', text: 'السيارة المناسبة تتميز بتفاصيلها. في مكان لاكجري موتورز، نأخذ الوقت لفهم مشروعك ومرافقتك في كل قرار.', pillars: ['تجهيزات مختارة بعناية', 'معلومات واضحة حول كل سيارة', 'مرافقة شخصية من أول تواصل إلى التسليم'], visit: 'نلتقي بكم في وجدة', detail: 'الفخامة تكمن في التفاصيل.', sourcing: '03 — بحثك، التزامنا', sourcingTitle: 'تتخيلها.', sourcingAccent: 'ونبحث عنها.', sourcingText: 'طراز محدد أو تجهيزات نادرة أو رغبة خاصة. شاركنا معاييرك واكتشف خدمة البحث المخصص عن السيارات في أوروبا.', sourcingCta: 'ابدأ البحث', sold: 'بدأت رحلتهم الجديدة.', soldLabel: 'سيارات انتقلت إلى أصحابها الجدد', soldTag: 'مباعة' },
-}
 
 export function HomeExperience({ soldCars }: { soldCars: ShowroomCar[] }) {
   const locale = useCurrentLocale()
-  const c = copy[locale]
+  const c = useShowroomContent('experience')
   return <>
     <section className="home-experience" aria-labelledby="experience-title">
       <div className="section-shell experience-layout">

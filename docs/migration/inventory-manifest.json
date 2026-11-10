@@ -1,0 +1,246 @@
+[
+  {
+    "id": "volkswagen-tiguan-elegance-2022",
+    "slug": "volkswagen-tiguan-elegance-2022",
+    "price": "378.000 DH",
+    "gallery": [
+      {
+        "path": "/vehicles/tiguan-elegance-2022/front-three-quarter.webp",
+        "sha256": "3494192b919eabe05601fab88a48e8d717b43e576722389a9841a15d97268839"
+      },
+      {
+        "path": "/vehicles/tiguan-elegance-2022/front.webp",
+        "sha256": "c9379e052f075869652e60162aae6550d5bf6a07198b21dbb44df9fcb83d2d7a"
+      },
+      {
+        "path": "/vehicles/tiguan-elegance-2022/interior.webp",
+        "sha256": "5046496f00836e11b7fa738892fe63553a7d24207bbcb8d8e11f66c40bad885c"
+      },
+      {
+        "path": "/vehicles/tiguan-elegance-2022/rear.webp",
+        "sha256": "a44ed2d01068cc2fbff5d198d9754f0145ff0f0a5086f6dc32524c134fb8be08"
+      }
+    ]
+  },
+  {
+    "id": "volkswagen-tiguan-r-line-exclusive-2022",
+    "slug": "volkswagen-tiguan-r-line-exclusive-2022",
+    "price": "457.000 DH",
+    "gallery": [
+      {
+        "path": "/vehicles/tiguan-r-line-exclusive-2022/front-illustration.webp",
+        "sha256": "292c2fd086e4ca18d1a52c1f3dd1fff9793b35930e248a85769e715e2ab32409"
+      },
+      {
+        "path": "/vehicles/tiguan-r-line-exclusive-2022/rear-illustration.webp",
+        "sha256": "daa2c45431a65691768d76b3e3111e013e87aba9b3baf5cc1019a3c1c7fa37c8"
+      },
+      {
+        "path": "/vehicles/tiguan-r-line-exclusive-2022/interior-illustration.webp",
+        "sha256": "ed97c97c3b8610dbb040006753ad65c640eb344c51118597ee91e8bb7f68da01"
+      }
+    ]
+  },
+  {
+    "id": "skoda-karoq-sportline-2020",
+    "slug": "skoda-karoq-sportline-2020",
+    "price": "273.000 DH",
+    "gallery": [
+      {
+        "path": "/skoda1.png",
+        "sha256": "430967d5b9c4e15ce1cf4d0a029012d6329e279f55e518c6566966e38346cda3"
+      },
+      {
+        "path": "/skoda2.png",
+        "sha256": "69ce749db9fc9f43355e1f55a3a3cb0ccd37b680c41afee33e7908ef62fdd235"
+      },
+      {
+        "path": "/skoda3.png",
+        "sha256": "41b2de2dd65c68fb66420ee62758f05b03a1a5f03603cf18bd61f152404fa7e5"
+      },
+      {
+        "path": "/skoda4.png",
+        "sha256": "8c75b20a4103efe3c56af0ba1717f0947c42d11ec542df88cf31a29610516e3d"
+      },
+      {
+        "path": "/skoda5.png",
+        "sha256": "e27bea32a844f507e69b809253af30d813a7b16446610404d2d418df86ab5967"
+      }
+    ]
+  },
+  {
+    "id": "seat-ateca-tdi-dsg-7",
+    "slug": "seat-ateca-tdi-dsg-7",
+    "price": "269.000 DH",
+    "gallery": [
+      {
+        "path": "/ateca1.png",
+        "sha256": "984e2f00967b69e15da0156b4a95c5494efdc59e2ccd6f7be70da25fd5c6b167"
+      },
+      {
+        "path": "/ateca2.png",
+        "sha256": "cafa2172505a03e842a7da5602a54af9c7e29bf505673a7156f87068ede2e063"
+      },
+      {
+        "path": "/ateca3.png",
+        "sha256": "c5b1ce7693174da6d5ce952aa1e3c1d3aafb1ed251fb363ddf9c4c24d15c4de9"
+      },
+      {
+        "path": "/ateca4.png",
+        "sha256": "992c22784197d115eb355b7c23f6b7e1867977ea90c8678db86aa9d35d6e77a2"
+      },
+      {
+        "path": "/ateca5.png",
+        "sha256": "eb6425a75340a96eee909b3325ed59b6c7a445f695f50bdbb61a4455fb98c0bd"
+      },
+      {
+        "path": "/ateca6.png",
+        "sha256": "7ae1b7f189ee32d8e0be7a732d4afe1b7bc09dc3a28140b39128655f7f136e96"
+      },
+      {
+        "path": "/ateca7.png",
+        "sha256": "ad77128a831cf8c941be10e5b500e4d1418b45e6b86727f1be6a02386f294c3b"
+      },
+      {
+        "path": "/ateca8.png",
+        "sha256": "6c689d19c7953eb5f805f56bab93da98470cf0139e023c900d3bceff6a868812"
+      }
+    ]
+  },
+  {
+    "id": "volkswagen-tiguan-confortline",
+    "slug": "volkswagen-tiguan-confortline",
+    "price": "285.000 DH",
+    "gallery": [
+      {
+        "path": "/tiguan1.png",
+        "sha256": "da555cacae0698b9749286675dee2acbc20e09eb8e95d05e3d4ae40a826858c4"
+      },
+      {
+        "path": "/tiguan2.png",
+        "sha256": "8b92810b3836193216fd46c65e939a76e5409787753015eceab628d7a0d27fe1"
+      },
+      {
+        "path": "/tiguan3.png",
+        "sha256": "3c6e653bbcb2e0150f8606f8ea88aca1e7b9a47239de945832ee01a2637a4326"
+      },
+      {
+        "path": "/tiguan4.png",
+        "sha256": "4dc074b27278bcb004b74fc063e44b1e6007feea8fa167f21221dfa55c59b9b9"
+      },
+      {
+        "path": "/tiguan5.png",
+        "sha256": "31337d0763d00b2477f1b3a5e85dc456df5572a5465aada637e6e371d1d667ba"
+      },
+      {
+        "path": "/tiguan6.png",
+        "sha256": "74b9aab751e0e53b668c0ce3a117e88b6228da824451f4cd524eb4450a9ec420"
+      },
+      {
+        "path": "/tiguan7.png",
+        "sha256": "606b9f0d58a3deea4858861317b3fab0463b9ce663de0c1d93eba2842f0887a9"
+      },
+      {
+        "path": "/tiguan8.png",
+        "sha256": "c174c87f417886be41455db9ff4f23bf7f362ec2b8e023aa81461e037f2bd894"
+      }
+    ]
+  },
+  {
+    "id": "volkswagen-tiguan-2-0-tdi-haut-de-gamme",
+    "slug": "volkswagen-tiguan-2-0-tdi-haut-de-gamme",
+    "price": "289.000 DH",
+    "gallery": [
+      {
+        "path": "/tiguangris1.png",
+        "sha256": "a6b65dbe0ddbd6078cb5ac8f102ba1058e59809f2bb49079c34727457feb6eed"
+      },
+      {
+        "path": "/tiguangris2.png",
+        "sha256": "02bccfe03e9501456063c6db43b6b9ed4e58a1145135de67ca9ee14ee3173d6c"
+      },
+      {
+        "path": "/tiguangris3.png",
+        "sha256": "5fd86deffd25a6d626482e6ff1f1fd4a2a5a905f502a98076fcb93bd518b75dd"
+      },
+      {
+        "path": "/tiguangris4.png",
+        "sha256": "2838346baba67dd52e0225a6dd8e119f9a31a7398e2ce966be4c8fd546a8d58c"
+      },
+      {
+        "path": "/tiguangris5.png",
+        "sha256": "de3df74154adfd802dc8304fec81a9b2f2133d719155162022658f744bd4047d"
+      },
+      {
+        "path": "/tiguangris6.png",
+        "sha256": "b196a65a1475a03715821ac47721c28da1a517a96856b82c718ef5b788ccc040"
+      },
+      {
+        "path": "/tiguangris7.png",
+        "sha256": "325bc499c0142675c622673fc35bbf86c556a45c1e61e19127e3bec18e760ccd"
+      }
+    ]
+  },
+  {
+    "id": "volkswagen-t-roc-modele-2020",
+    "slug": "volkswagen-t-roc-modele-2020",
+    "price": "Prix sur demande",
+    "gallery": [
+      {
+        "path": "/trog1.jpg",
+        "sha256": "6c2f500c112f2550cc8bb1e9cd6373af14439215df288ffd256e9c6b8132d0b4"
+      },
+      {
+        "path": "/trog2.jpg",
+        "sha256": "2828818056f73d57bdd901381a5d324a2535b8cddee58c58661b7724777aab12"
+      },
+      {
+        "path": "/trog3.jpg",
+        "sha256": "44054635fe0facb685b0784894c3e4b744c20048029eb7ef3d0daf09d72c4dd0"
+      }
+    ]
+  },
+  {
+    "id": "mercedes-classe-a200-pack-amg-full-options",
+    "slug": "mercedes-classe-a200-pack-amg-full-options",
+    "price": "375.000 DH",
+    "gallery": [
+      {
+        "path": "/CLA1.jpg",
+        "sha256": "54edf37cd7f225320e8fca5f371176344168a10dbedc83b082a1540ab28dc29a"
+      },
+      {
+        "path": "/CLA2.jpg",
+        "sha256": "46bddb0ce75f66b756d253d48b8174fc290aba6f106a6b24f29faf1a404c7361"
+      },
+      {
+        "path": "/CLA3.jpg",
+        "sha256": "6d77b2b02e75dd47c5cb77eda8561a9c05ddf6cb2811da83c9664b57e6a4dcd7"
+      },
+      {
+        "path": "/CLA4.jpg",
+        "sha256": "a3c0ef8f9e9dd1a1ab5ff2aa74301a6bc84ff86c91b5c2928c0c16712f929ee4"
+      },
+      {
+        "path": "/CLA5.jpg",
+        "sha256": "9627d03ed9f608f043bee14456e4732d006962b4ff133e3a467fe1994c3f5d25"
+      },
+      {
+        "path": "/CLA6.jpg",
+        "sha256": "af09372f977d6fef3b0656a8b7f95555d9094ac5f63ca760b1ca9a2f11e507ef"
+      },
+      {
+        "path": "/CLA7.jpg",
+        "sha256": "da076697f069664dc9087d615be7dff86d7cc83bd145683aeabebd080f8e13cf"
+      },
+      {
+        "path": "/CLA8.jpg",
+        "sha256": "950e2ff73a69624836ce8485c15469ecc0798d8c59a77d4c4950b2d504cad018"
+      },
+      {
+        "path": "/CLA9.jpg",
+        "sha256": "31461b004b84e3dec077120eddb0430e9cc4c42c7e7ee71ba12ca71df56bc762"
+      }
+    ]
+  }
+]

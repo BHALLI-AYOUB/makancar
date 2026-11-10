@@ -1,45 +1,7 @@
-import { SectionHeading } from '@/components/platform/section-heading'
-import { SourcingRequestSection } from '@/components/platform/sourcing-request-section'
-import { getFeaturedShowroomCars, getWhatsAppHref } from '@/lib/data/showroom-stock'
-
-export default function LocationPage() {
-  const { hero } = getFeaturedShowroomCars()
-
-  return (
-    <>
-      <section className="section-shell py-16 sm:py-20">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div>
-            <SectionHeading
-              eyebrow="Import & sourcing"
-              title="Un accompagnement premium sur mesure"
-              description="Makan Luxury Motors ne se limite pas au stock disponible. Nous accompagnons aussi le sourcing, l’import et la présentation de véhicules premium selon votre besoin."
-            />
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#sourcing-form"
-                className="inline-flex items-center justify-center rounded-full bg-[#c9a96d] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#d7b77c]"
-              >
-                Demander un sourcing
-              </a>
-              <a
-                href={getWhatsAppHref(hero.whatsapp, 'votre futur véhicule')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm text-white transition hover:bg-white/8"
-              >
-                Parler à un expert
-              </a>
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] p-3">
-            <img src={hero.gallery[0]} alt={hero.name} className="h-[320px] w-full rounded-[28px] object-cover sm:h-[480px]" />
-          </div>
-        </div>
-      </section>
-
-      <SourcingRequestSection />
-    </>
-  )
-}
+import { getServerLocale } from '@/lib/i18n/server'
+import { getFeaturedShowroomCars } from '@/lib/data/showroom-stock'
+import { pageMetadata } from '@/lib/seo'
+import { VehicleSearchRequest } from '@/components/platform/vehicle-search-request'
+const copy={fr:{eyebrow:'Import & sourcing',title:'Votre vision. Notre recherche.',description:'Un modèle précis, une finition rare. Nous recherchons le véhicule qui vous ressemble, à travers notre réseau en Europe.'},en:{eyebrow:'Import & sourcing',title:'Your vision. Our search.',description:'A particular model, a rare specification. We source the car that feels like you through our network in Europe.'},ar:{eyebrow:'الاستيراد والبحث',title:'رؤيتك. وبحثنا.',description:'طراز محدد أو تجهيزات نادرة. نبحث عن السيارة التي تليق بك عبر شبكة شركائنا في أوروبا.'}}
+export async function generateMetadata(){const l=await getServerLocale();return pageMetadata(l,'/location',`${copy[l].title} | Makan Luxury Motors`,copy[l].description)}
+export default async function LocationPage(){const l=await getServerLocale(),c=copy[l],{hero}=getFeaturedShowroomCars(l);return <main><section className="source-page section-shell"><div className="source-layout"><div><p className="makan-eyebrow">{c.eyebrow}</p><h1 className="makan-heading">{c.title}</h1><p className="detail-description">{c.description}</p><a href="#vehicle-search-form" className="makan-button makan-button-gold">{{fr:'Créer ma recherche',en:'Start my search',ar:'ابدأ البحث'}[l]} ↗</a></div>{hero&&<img src={hero.gallery[0]} alt={hero.name} width="900" height="700"/>}</div></section><VehicleSearchRequest headingLevel="h2"/></main>}
